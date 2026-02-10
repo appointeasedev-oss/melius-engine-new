@@ -67,7 +67,7 @@ class MeliusEngine:
         Existing To-Dos: {existing_todos}
         Existing Errors: {existing_errors}
 
-          Analyze the project and suggest improvements you can improve UI and all parts but keep same content can modify lanuage and lenth of conten only one file improved at a time. 
+          Analyze the project and suggest improvements. 
         If you need to read specific files to understand the project better, list them in "files_to_read".
         
         CRITICAL: Your response must be a valid JSON object. Do not include any text outside the JSON.
