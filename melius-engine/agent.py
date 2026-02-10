@@ -73,13 +73,13 @@ class MeliusEngine:
         CRITICAL: Your response must be a valid JSON object. Do not include any text outside the JSON.
         
         Example format:
-        {
+        {{
             "analysis": "Brief analysis of the current project state.",
             "files_to_read": ["path/to/file1.py", "path/to/file2.js"],
             "improvements": [
-                {"file": "path/to/file.py", "description": "Specific improvement description"}
+                {{"file": "path/to/file.py", "description": "Specific improvement description"}}
             ]
-        }
+        }}
         """
         
         plan = self.client.chat(prompt)
