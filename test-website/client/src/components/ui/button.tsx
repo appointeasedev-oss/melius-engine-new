@@ -88,34 +88,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           buttonVariants({ variant, size, iconPosition, className }),
           {
-            "cursor-not-allowed": loading,
-            "justify-center": iconPosition === "only",
-          }
-        )}
-        {...props}
-      >
-        {showSpinner && (
-          <Spinner
-            className={cn(
-              "spinner absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
-              {
-                "relative left-0 top-0 translate-x-0 translate-y-0":
-                  iconPosition === "left" || iconPosition === "right",
-                "mx-auto": !children,
-                "size-4": size === "sm",
-                "size-5": size === "lg",
-              }
-            )}
-            aria-hidden="true"
-          />
-        )}
-        <span className="button-children inline-flex items-center gap-2">
-          {children}
-        </span>
-      </Comp>
-    );
-  }
-);
-Button.displayName = "Button";
-
-export { Button, buttonVariants };
+            
