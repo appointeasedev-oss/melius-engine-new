@@ -1,26 +1,463 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melius Engine</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Melius Engine Test Website</title>    
-    <!-- THIS IS THE START OF A COMMENT BLOCK, BLOCK TO BE DELETED: Google Fonts here, example:
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    THIS IS THE END OF A COMMENT BLOCK, BLOCK TO BE DELETED -->
-  </head>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f9f9f9;
+    }
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script
-      defer
-      src="%VITE_ANALYTICS_ENDPOINT%/umami"
-      data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
-  </body>
+    header {
+      background: white;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #2c3e50;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      margin-top: 0.25rem;
+    }
+
+    main {
+      padding: 3rem 0;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 2rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .steps {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: #3498db;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .step-content h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    .step-content p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .models-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .models-box {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .models-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    .models-box ul {
+      list-style: none;
+    }
+
+    .models-box li {
+      padding: 0.5rem 0;
+      color: #666;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .models-box li:last-child {
+      border-bottom: none;
+    }
+
+    .models-box li:before {
+      content: "• ";
+      color: #3498db;
+      font-weight: bold;
+      margin-right: 0.5rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .feature-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .feature-text h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+      color: #2c3e50;
+    }
+
+    .feature-text p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .setup-box {
+      background: #ecf0f1;
+      border-left: 4px solid #3498db;
+      border-radius: 4px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .setup-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+    }
+
+    .setup-box ol {
+      margin-left: 1.5rem;
+    }
+
+    .setup-box li {
+      margin-bottom: 1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: white;
+      border-top: 1px solid #e0e0e0;
+      padding: 2rem 0;
+      text-align: center;
+      color: #7f8c8d;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .step {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Melius Engine</h1>
+      <p>Autonomous Code Improvement System</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1>Autonomous Code Improvement</h1>
+        <p>Melius Engine is an AI-powered GitHub Action that continuously analyzes, improves, and verifies your code every 7 minutes using free AI models.</p>
+      </section>
+
+      <!-- Three Core Processes -->
+      <section>
+        <h2>How It Works</h2>
+        <div class="grid">
+          <div class="card">
+            <div class="card-icon">📊</div>
+            <h3>Analysis</h3>
+            <p>Scans all files in your repository, understands the project structure, and identifies improvement opportunities across all folders and subfolders.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">⚙️</div>
+            <h3>Execution</h3>
+            <p>Applies intelligent improvements to your code using AI models with full context awareness. Changes are made one file at a time with careful consideration.</p>
+          </div>
+          <div class="card">
+            <div class="card-icon">✓</div>
+            <h3>Verification</h3>
+            <p>Verifies every change, handles errors automatically, and logs improvements. Persistent errors are tracked for manual review.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detailed Process -->
+      <section>
+        <h2>Process Steps</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Repository Scan</h4>
+              <p>The agent scans your entire repository, reading all files outside the melius-engine directory to understand the project.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Improvement Planning</h4>
+              <p>AI analyzes the code and creates a plan for improvements. It can request additional files for better context understanding.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Code Modification</h4>
+              <p>Improvements are applied to files one by one. Each change is made with full awareness of the project context.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Verification & Error Handling</h4>
+              <p>Each change is verified. If errors occur, the system attempts one automatic fix. Persistent issues are logged for review.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h4>Logging & Persistence</h4>
+              <p>All improvements are logged in /log folder. Pending tasks go to /to-do, errors to /error. Chat history is saved for context continuity.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Models -->
+      <section>
+        <h2>Powered By Free AI Models</h2>
+        <div class="models-section">
+          <div class="models-box">
+            <h3>Available Models</h3>
+            <ul>
+              <li>arcee-ai/trinity-large-preview:free</li>
+              <li>liquid/lfm-2.5-1.2b-thinking:free</li>
+              <li>tngtech/tng-r1t-chimera:free</li>
+              <li>qwen/qwen3-next-80b-a3b-instruct:free</li>
+              <li>qwen/qwen3-coder:free</li>
+              <li>nousresearch/hermes-3-llama-3.1-405b:free</li>
+            </ul>
+          </div>
+          <div class="models-box">
+            <h3>Fallback System</h3>
+            <ul>
+              <li>5 API keys for redundancy</li>
+              <li>Automatic model rotation</li>
+              <li>Fallback on failure</li>
+              <li>High availability</li>
+              <li>No single point of failure</li>
+              <li>Continuous operation</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Features -->
+      <section>
+        <h2>Key Features</h2>
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">🔄</div>
+            <div class="feature-text">
+              <h4>Runs Every 7 Minutes</h4>
+              <p>Continuous improvement via GitHub Actions scheduler</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📁</div>
+            <div class="feature-text">
+              <h4>Multi-Folder Support</h4>
+              <p>Handles complex directory structures and subfolders</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">💬</div>
+            <div class="feature-text">
+              <h4>Chat History</h4>
+              <p>Maintains conversation history for context continuity</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📝</div>
+            <div class="feature-text">
+              <h4>Detailed Logging</h4>
+              <p>Tracks improvements, pending tasks, and errors</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🔍</div>
+            <div class="feature-text">
+              <h4>Context Aware</h4>
+              <p>Requests related files for better understanding</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-text">
+              <h4>Error Recovery</h4>
+              <p>Automatically attempts to fix errors once</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Setup Instructions -->
+      <section>
+        <h2>Getting Started</h2>
+        <div class="setup-box">
+          <h3>Setup Steps</h3>
+          <ol>
+            <li>Add 5 OpenRouter API keys to GitHub Secrets as OPENROUTER_API_KEY_1 through OPENROUTER_API_KEY_5</li>
+            <li>Create .github/workflows/melius-engine.yml in your repository with the provided workflow configuration</li>
+            <li>Enable workflow permissions in repository settings (Settings → Actions → General → Workflow permissions)</li>
+            <li>The engine will automatically start running every 7 minutes</li>
+            <li>Check /log, /to-do, and /error folders to track improvements</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Melius Engine • Autonomous Code Improvement System</p>
+      <p>Powered by OpenRouter and Free AI Models</p>
+    </div>
+  </footer>
+</body>
 </html>
