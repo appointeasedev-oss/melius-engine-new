@@ -84,3 +84,69 @@ export function formatNumber(
     ...(style === 'percent' && { maximumFractionDigits: 2 }),
   }).format(value);
 }
+
+type TranslateOptions = {
+  locale?: string;
+  fallback?: string;
+};
+
+interface Translations {
+  [key: string]: {
+    [locale: string]: string;
+  };
+}
+
+const translations: Translations = {
+  'welcome.message': {
+    'en-US': 'Welcome to our application!',
+    'es-ES': '¡Bienvenido a nuestra aplicación!',
+    'fr-FR': 'Bienvenue dans notre application!',
+  },
+  'logout': {
+    'en-US': 'Logout',
+    'es-ES': 'Cerrar sesión',
+    'fr-FR': 'Se déconnecter',
+  },
+  'save': {
+    'en-US': 'Save',
+    'es-ES': 'Guardar',
+    'fr-FR': 'Enregistrer',
+  },
+  'cancel': {
+    'en-US': 'Cancel',
+    'es-ES': 'Cancelar',
+    'fr-FR': 'Annuler',
+  },
+  'delete.confirm': {
+    'en-US': 'Are you sure you want to delete this item?',
+    'es-ES': '¿Está seguro de que desea eliminar este elemento?',
+    'fr-FR': 'Êtes-vous sûr de vouloir supprimer cet élément?',
+  },
+};
+
+export function translate(
+  key: string,
+  options: TranslateOptions = {}
+): string {
+  const {
+    locale = 'en-US',
+    fallback = key,
+  } = options;
+
+  const translation = translations[key]?.[locale];
+  return translation || fallback;
+}
+
+export function setTranslations(newTranslations: Translations): void {
+  Object.assign(translations, newTranslations);
+}
+
+export function getSupportedLocales(): string[] {
+  const allLocales = new Set<string>();
+  for (const key in translations) {
+    for (const locale in translations[key]) {
+      allLocales.add(locale);
+    }
+  }
+  return Array.from(allLocales);
+}
