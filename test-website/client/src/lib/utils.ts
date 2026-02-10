@@ -1,40 +1,86 @@
-import { describe, expect, it } from 'vitest';
-import { cn } from './utils';
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-describe('cn utility function', () => {
-  it('should merge basic class names', () => {
-    expect(cn('px-2', 'py-4')).toBe('px-2 py-4');
-    expect(cn('flex', 'items-center')).toBe('flex items-center');
-  });
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
-  it('should handle tailwind class conflicts', () => {
-    expect(cn('p-2', 'p-4')).toBe('p-4');
-    expect(cn('inset-0', 'inset-x-1')).toBe('inset-x-1');
-  });
+type FormatCurrencyOptions = {
+  locale?: string;
+  currencyDisplay?: 'symbol' | 'code' | 'name';
+  minimumFractionDigits?: number;
+  maximumFractionDigits?: number;
+};
 
-  it('should handle conditional classes', () => {
-    expect(cn('a', true && 'b', false && 'c')).toBe('a b');
-    expect(cn({ 'bg-red-500': false, 'bg-blue-500': true })).toBe('bg-blue-500');
-  });
+export function formatCurrency(
+  amount: number,
+  currency: string,
+  options: FormatCurrencyOptions = {}
+): string {
+  const {
+    locale = 'en-US',
+    currencyDisplay = 'symbol',
+    minimumFractionDigits = 2,
+    maximumFractionDigits = 2,
+  } = options;
 
-  it('should handle empty/null/undefined values', () => {
-    expect(cn(null, undefined, '', 'a')).toBe('a');
-    expect(cn(undefined, '')).toBe('');
-  });
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency,
+    currencyDisplay,
+    minimumFractionDigits,
+    maximumFractionDigits,
+  }).format(amount);
+}
 
-  it('should handle complex combinations', () => {
-    expect(
-      cn(
-        'font-medium', 
-        ['hover:text-white', 'focus:ring-2'],
-        { 'text-red-500': true, 'text-blue-500': false },
-        'transition-colors'
-      )
-    ).toBe('font-medium hover:text-white focus:ring-2 text-red-500 transition-colors');
-  });
+type FormatDateOptions = {
+  locale?: string;
+  dateStyle?: 'full' | 'long' | 'medium' | 'short';
+  timeStyle?: 'full' | 'long' | 'medium' | 'short';
+};
 
-  it('should normalize whitespace', () => {
-    expect(cn('  a  ', '  b  ')).toBe('a b');
-    expect(cn('\ta\n', '\tb\t')).toBe('a b');
-  });
-});
+export function formatDate(
+  date: Date | string | number,
+  options: FormatDateOptions = {}
+): string {
+  const {
+    locale = 'en-US',
+    dateStyle = 'medium',
+    timeStyle,
+  } = options;
+
+  const dateObj = new Date(date);
+  return new Intl.DateTimeFormat(locale, {
+    dateStyle,
+    timeStyle,
+  }).format(dateObj);
+}
+
+type FormatNumberOptions = {
+  locale?: string;
+  style?: 'decimal' | 'percent' | 'unit';
+  unit?: string;
+  unitDisplay?: 'long' | 'short' | 'narrow';
+  notation?: 'standard' | 'scientific' | 'engineering' | 'compact';
+};
+
+export function formatNumber(
+  value: number,
+  options: FormatNumberOptions = {}
+): string {
+  const {
+    locale = 'en-US',
+    style = 'decimal',
+    unit,
+    unitDisplay = 'short',
+    notation = 'standard',
+  } = options;
+
+  return new Intl.NumberFormat(locale, {
+    style,
+    unit,
+    unitDisplay,
+    notation,
+    ...(style === 'percent' && { maximumFractionDigits: 2 }),
+  }).format(value);
+}

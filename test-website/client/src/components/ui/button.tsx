@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import { Spinner } from "@/components/ui/spinner";
 
 import { cn } from "@/lib/utils";
 
@@ -19,6 +20,7 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
+        loading: "opacity-75 pointer-events-none",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -28,33 +30,92 @@ const buttonVariants = cva(
         "icon-sm": "size-8",
         "icon-lg": "size-10",
       },
+      iconPosition: {
+        left: "flex-row-reverse",
+        right: "flex-row",
+        only: "",
+      },
     },
+    compoundVariants: [
+      {
+        iconPosition: ["left", "right"],
+        class: "[&_.button-content]:hidden sm:[&_.button-content]:inline-flex",
+      },
+      {
+        loading: true,
+        class: "relative [&_.button-children]:invisible [&_.spinner]:visible",
+      },
+    ],
     defaultVariants: {
       variant: "default",
       size: "default",
+      iconPosition: "right",
     },
   }
 );
 
-function Button({
-  className,
-  variant,
-  size,
-  asChild = false,
-  ...props
-}: React.ComponentProps<"button"> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
-  }) {
-  const Comp = asChild ? Slot : "button";
-
-  return (
-    <Comp
-      data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    />
-  );
+interface ButtonProps
+  extends React.ComponentProps<"button">,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+  loading?: boolean;
+  iconPosition?: "left" | "right" | "only";
 }
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      className,
+      variant,
+      size,
+      iconPosition,
+      asChild = false,
+      loading = false,
+      children,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
+    const Comp = asChild ? Slot : "button";
+    const showSpinner = loading || props["aria-busy"] === "true";
+
+    return (
+      <Comp
+        ref={ref}
+        data-slot="button"
+        disabled={disabled || loading}
+        className={cn(
+          buttonVariants({ variant, size, iconPosition, className }),
+          {
+            "cursor-not-allowed": loading,
+            "justify-center": iconPosition === "only",
+          }
+        )}
+        {...props}
+      >
+        {showSpinner && (
+          <Spinner
+            className={cn(
+              "spinner absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
+              {
+                "relative left-0 top-0 translate-x-0 translate-y-0":
+                  iconPosition === "left" || iconPosition === "right",
+                "mx-auto": !children,
+                "size-4": size === "sm",
+                "size-5": size === "lg",
+              }
+            )}
+            aria-hidden="true"
+          />
+        )}
+        <span className="button-children inline-flex items-center gap-2">
+          {children}
+        </span>
+      </Comp>
+    );
+  }
+);
+Button.displayName = "Button";
 
 export { Button, buttonVariants };
