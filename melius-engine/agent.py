@@ -67,24 +67,26 @@ class MeliusEngine:
         Existing To-Dos: {existing_todos}
         Existing Errors: {existing_errors}
 
-        Analyze the project. State improvements. 
-        If you need to read specific files to understand better, list them.
-        Respond ONLY in JSON format.
-        Example:
-        {{
-            "analysis": "...",
-            "files_to_read": ["src/main.py", "utils/helper.py"],
+          Analyze the project and suggest improvements. 
+        If you need to read specific files to understand the project better, list them in "files_to_read".
+        
+        CRITICAL: Your response must be a valid JSON object. Do not include any text outside the JSON.
+        
+        Example format:
+        {
+            "analysis": "Brief analysis of the current project state.",
+            "files_to_read": ["path/to/file1.py", "path/to/file2.js"],
             "improvements": [
-                {{"file": "src/main.py", "description": "Optimize loop"}}
+                {"file": "path/to/file.py", "description": "Specific improvement description"}
             ]
-        }}
+        }
         """
         
         plan = self.client.chat(prompt)
         
         # 3. Read requested files for context
         requested_files = plan.get("files_to_read", [])
-        file_context = {{f: self.read_file(f) for f in requested_files}}
+        file_context = {f: self.read_file(f) for f in requested_files}
         
         # 4. Log the plan
         self.log_event("log", {

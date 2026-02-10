@@ -58,8 +58,22 @@ class LLMClient:
                     if response.status_code == 200:
                         result = response.json()
                         content = result['choices'][0]['message']['content']
-                        # Ensure content is valid JSON before accepting
-                        json_content = json.loads(content)
+                        try:
+                            # Try to parse JSON
+                            json_content = json.loads(content)
+                        except json.JSONDecodeError:
+                            # If not JSON, but expected to be, we might need to handle it.
+                            # For now, let's try to extract JSON from markdown if present.
+                            import re
+                            json_match = re.search(r'\{.*\}', content, re.DOTALL)
+                            if json_match:
+                                try:
+                                    json_content = json.loads(json_match.group())
+                                except:
+                                    json_content = {"content": content}
+                            else:
+                                json_content = {"content": content}
+                        
                         self.history.append({"role": "assistant", "content": content})
                         self.save_history()
                         return json_content
