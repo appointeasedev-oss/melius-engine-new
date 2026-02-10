@@ -1,164 +1,251 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, AlertCircle, Clock } from "lucide-react";
-
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-secondary">
-      {/* Header */}
-      <header className="border-b border-border bg-background/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container py-4 flex items-center justify-between">
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="border-b border-gray-200 sticky top-0 bg-white/95 backdrop-blur">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="text-2xl font-bold text-gray-900">Melius Engine</div>
+          <div className="text-sm text-gray-600">Autonomous Code Improvement</div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+            Autonomous Code Improvement
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Melius Engine is an AI-powered GitHub Action that continuously analyzes, improves, and verifies your code every 7 minutes.
+          </p>
+        </div>
+
+        {/* Three Column Layout */}
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
+          {/* Analysis */}
+          <div className="p-8 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
+            <div className="text-4xl mb-4">📊</div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Analysis</h3>
+            <p className="text-gray-600">
+              Scans all files in your repository, understands the project structure, and identifies improvement opportunities across all folders and subfolders.
+            </p>
+          </div>
+
+          {/* Execution */}
+          <div className="p-8 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
+            <div className="text-4xl mb-4">⚙️</div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Execution</h3>
+            <p className="text-gray-600">
+              Applies intelligent improvements to your code using AI models with full context awareness. Changes are made one file at a time with careful consideration.
+            </p>
+          </div>
+
+          {/* Verification */}
+          <div className="p-8 border border-gray-200 rounded-lg hover:shadow-lg transition-shadow">
+            <div className="text-4xl mb-4">✓</div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Verification</h3>
+            <p className="text-gray-600">
+              Verifies every change, handles errors automatically, and logs improvements. Persistent errors are tracked for manual review.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="bg-gray-50 py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">How It Works</h2>
+          
+          <div className="space-y-6">
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">1</div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Repository Scan</h3>
+                <p className="text-gray-600">The agent scans your entire repository, reading all files outside the melius-engine directory to understand the project.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">2</div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Improvement Planning</h3>
+                <p className="text-gray-600">AI analyzes the code and creates a plan for improvements. It can request additional files for better context understanding.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">3</div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Code Modification</h3>
+                <p className="text-gray-600">Improvements are applied to files one by one. Each change is made with full awareness of the project context.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">4</div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Verification & Error Handling</h3>
+                <p className="text-gray-600">Each change is verified. If errors occur, the system attempts one automatic fix. Persistent issues are logged for review.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">5</div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Logging & Persistence</h3>
+                <p className="text-gray-600">All improvements are logged in /log folder. Pending tasks go to /to-do, errors to /error. Chat history is saved for context continuity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Models */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Powered By Free AI Models</h2>
+        
+        <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <h1 className="text-2xl font-bold text-foreground">Melius Engine Test</h1>
-            <p className="text-sm text-muted-foreground">Autonomous Code Improvement System</p>
-          </div>
-          <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">Live</Badge>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="container py-12">
-        <div className="grid gap-6">
-          {/* Overview Card */}
-          <Card className="border-border shadow-sm">
-            <CardHeader>
-              <CardTitle>System Overview</CardTitle>
-              <CardDescription>How Melius Engine improves your code</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid md:grid-cols-3 gap-4">
-                <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
-                  <h3 className="font-semibold text-blue-900 mb-2">Analysis</h3>
-                  <p className="text-sm text-blue-700">Scans all files and identifies improvement opportunities</p>
-                </div>
-                <div className="p-4 bg-purple-50 rounded-lg border border-purple-100">
-                  <h3 className="font-semibold text-purple-900 mb-2">Execution</h3>
-                  <p className="text-sm text-purple-700">Applies changes using AI models with full context</p>
-                </div>
-                <div className="p-4 bg-green-50 rounded-lg border border-green-100">
-                  <h3 className="font-semibold text-green-900 mb-2">Verification</h3>
-                  <p className="text-sm text-green-700">Verifies changes and handles errors automatically</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Status Cards */}
-          <div className="grid md:grid-cols-3 gap-4">
-            <Card className="border-border shadow-sm">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-2 text-base">
-                  <CheckCircle2 className="w-5 h-5 text-green-600" />
-                  Improvements
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold text-foreground">0</p>
-                <p className="text-xs text-muted-foreground mt-1">Applied in this cycle</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border shadow-sm">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-2 text-base">
-                  <Clock className="w-5 h-5 text-amber-600" />
-                  Pending
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold text-foreground">0</p>
-                <p className="text-xs text-muted-foreground mt-1">Tasks in to-do folder</p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border shadow-sm">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-2 text-base">
-                  <AlertCircle className="w-5 h-5 text-red-600" />
-                  Errors
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-3xl font-bold text-foreground">0</p>
-                <p className="text-xs text-muted-foreground mt-1">Logged in error folder</p>
-              </CardContent>
-            </Card>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Available Models</h3>
+            <ul className="space-y-2 text-gray-600">
+              <li className="flex items-center gap-2">
+                <span className="text-blue-600">•</span>
+                arcee-ai/trinity-large-preview:free
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-600">•</span>
+                liquid/lfm-2.5-1.2b-thinking:free
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-600">•</span>
+                tngtech/tng-r1t-chimera:free
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-600">•</span>
+                qwen/qwen3-next-80b-a3b-instruct:free
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-600">•</span>
+                qwen/qwen3-coder:free
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-blue-600">•</span>
+                nousresearch/hermes-3-llama-3.1-405b:free
+              </li>
+            </ul>
           </div>
 
-          {/* Configuration */}
-          <Card className="border-border shadow-sm">
-            <CardHeader>
-              <CardTitle>Configuration</CardTitle>
-              <CardDescription>Current setup and models</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <h4 className="font-semibold text-sm text-foreground mb-2">Free Models</h4>
-                  <ul className="space-y-1 text-sm text-muted-foreground">
-                    <li>• arcee-ai/trinity-large-preview:free</li>
-                    <li>• liquid/lfm-2.5-1.2b-thinking:free</li>
-                    <li>• tngtech/tng-r1t-chimera:free</li>
-                    <li>• qwen/qwen3-next-80b-a3b-instruct:free</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-sm text-foreground mb-2">Additional Models</h4>
-                  <ul className="space-y-1 text-sm text-muted-foreground">
-                    <li>• qwen/qwen3-coder:free</li>
-                    <li>• nousresearch/hermes-3-llama-3.1-405b:free</li>
-                    <li>• 5 API Keys (fallback support)</li>
-                    <li>• Automatic retry on failure</li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Features */}
-          <Card className="border-border shadow-sm">
-            <CardHeader>
-              <CardTitle>Features</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2">
-                <li className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" />
-                  <span>Autonomous multi-folder file analysis</span>
-                </li>
-                <li className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" />
-                  <span>Intelligent improvement planning with context</span>
-                </li>
-                <li className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" />
-                  <span>Verification and error handling</span>
-                </li>
-                <li className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" />
-                  <span>Persistent state and chat history</span>
-                </li>
-                <li className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-green-600" />
-                  <span>Runs every 7 minutes via GitHub Actions</span>
-                </li>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Fallback System</h3>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+              <p className="text-gray-700 mb-4">
+                The system uses 5 API keys from OpenRouter with automatic fallback:
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>✓ Tries each model with the first API key</li>
+                <li>✓ Falls back to next API key on failure</li>
+                <li>✓ Rotates through all 6 free models</li>
+                <li>✓ Ensures high availability and reliability</li>
               </ul>
-            </CardContent>
-          </Card>
-
-          {/* CTA */}
-          <div className="flex gap-3 justify-center pt-4">
-            <Button size="lg" variant="default">View Logs</Button>
-            <Button size="lg" variant="outline">Check Status</Button>
+            </div>
           </div>
         </div>
-      </main>
+      </section>
+
+      {/* Features */}
+      <section className="bg-gray-50 py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Key Features</h2>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="flex gap-4">
+              <div className="text-2xl">🔄</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Runs Every 7 Minutes</h3>
+                <p className="text-gray-600 text-sm">Continuous improvement via GitHub Actions scheduler</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="text-2xl">📁</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Multi-Folder Support</h3>
+                <p className="text-gray-600 text-sm">Handles complex directory structures and subfolders</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="text-2xl">💬</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Chat History</h3>
+                <p className="text-gray-600 text-sm">Maintains conversation history for context continuity</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="text-2xl">📝</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Detailed Logging</h3>
+                <p className="text-gray-600 text-sm">Tracks improvements, pending tasks, and errors</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="text-2xl">🔍</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Context Aware</h3>
+                <p className="text-gray-600 text-sm">Requests related files for better understanding</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <div className="text-2xl">⚡</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-1">Error Recovery</h3>
+                <p className="text-gray-600 text-sm">Automatically attempts to fix errors once</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Setup Instructions */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Getting Started</h2>
+        
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-6">Setup Steps</h3>
+          
+          <ol className="space-y-4 text-gray-700">
+            <li className="flex gap-4">
+              <span className="font-bold text-blue-600 flex-shrink-0">1.</span>
+              <span>Add 5 OpenRouter API keys to GitHub Secrets as OPENROUTER_API_KEY_1 through OPENROUTER_API_KEY_5</span>
+            </li>
+            <li className="flex gap-4">
+              <span className="font-bold text-blue-600 flex-shrink-0">2.</span>
+              <span>Create .github/workflows/melius-engine.yml in your repository with the provided workflow configuration</span>
+            </li>
+            <li className="flex gap-4">
+              <span className="font-bold text-blue-600 flex-shrink-0">3.</span>
+              <span>Enable workflow permissions in repository settings (Settings → Actions → General → Workflow permissions)</span>
+            </li>
+            <li className="flex gap-4">
+              <span className="font-bold text-blue-600 flex-shrink-0">4.</span>
+              <span>The engine will automatically start running every 7 minutes</span>
+            </li>
+            <li className="flex gap-4">
+              <span className="font-bold text-blue-600 flex-shrink-0">5.</span>
+              <span>Check /log, /to-do, and /error folders to track improvements</span>
+            </li>
+          </ol>
+        </div>
+      </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-background/50 mt-12">
-        <div className="container py-6 text-center text-sm text-muted-foreground">
+      <footer className="border-t border-gray-200 bg-gray-50 py-8">
+        <div className="max-w-6xl mx-auto px-6 text-center text-gray-600 text-sm">
           <p>Melius Engine • Autonomous Code Improvement System</p>
+          <p className="mt-2">Powered by OpenRouter and Free AI Models</p>
         </div>
       </footer>
     </div>
