@@ -6,7 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "@/pages/Home";
 
-// Router component for handling routes
+// Router component for handling routes with lazy loading
 const Router = () => (
   <Switch>
     <Route path={"/"} component={Home} />
