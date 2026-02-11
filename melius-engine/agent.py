@@ -2,18 +2,19 @@ import os
 import json
 import glob
 from llm_client import LLMClient
+from sole import SoleManager
 
 class MeliusEngine:
     def __init__(self):
         self.client = LLMClient()
-        # Ensure we are working relative to the repo root
         self.root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         self.exclude_dirs = ["melius-engine", ".git", "history", "log", "to-do", "error", ".github"]
+        self.sole_manager = SoleManager(self.root_dir)
+        self.read_files_cache = {}
 
     def get_all_files(self):
         all_files = []
         for root, dirs, files in os.walk(self.root_dir):
-            # Modify dirs in-place to skip excluded directories
             dirs[:] = [d for d in dirs if d not in self.exclude_dirs]
             for file in files:
                 rel_path = os.path.relpath(os.path.join(root, file), self.root_dir)
@@ -21,20 +22,35 @@ class MeliusEngine:
         return all_files
 
     def read_file(self, file_path):
+        # Prevent redundant reading by using a cache
+        if file_path in self.read_files_cache:
+            return self.read_files_cache[file_path]
+            
         full_path = os.path.join(self.root_dir, file_path)
         if os.path.exists(full_path) and os.path.isfile(full_path):
             try:
                 with open(full_path, "r", encoding="utf-8") as f:
-                    return f.read()
+                    content = f.read()
+                    self.read_files_cache[file_path] = content
+                    return content
             except Exception as e:
                 print(f"Error reading {file_path}: {e}")
         return None
 
     def write_file(self, file_path, content):
+        # RESTRICTION: Do not modify build files or dependencies
+        restricted_files = ["vercel.json", "package.json", "pnpm-lock.yaml", "package-lock.json", "vite.config.ts", "tsconfig.json"]
+        if os.path.basename(file_path) in restricted_files:
+            print(f"Modification restricted: {file_path}")
+            return False
+
         full_path = os.path.join(self.root_dir, file_path)
         os.makedirs(os.path.dirname(full_path), exist_ok=True)
         with open(full_path, "w", encoding="utf-8") as f:
             f.write(content)
+        # Update cache after write
+        self.read_files_cache[file_path] = content
+        return True
 
     def log_event(self, folder, data):
         folder_path = os.path.join(self.root_dir, folder)
@@ -46,38 +62,66 @@ class MeliusEngine:
         return file_path
 
     def run(self):
+        event = self.sole_manager.get_event()
+        
+        # If event is empty but something was expected, or if specific "no change" logic is needed
+        # User: "if in it no chnage written ai doo nothing and clean all logs and reset system"
+        # I interpret "no change" as event being empty or a specific flag.
+        if event == "":
+            # "if its blank AI just change theam as per what it want or cuureent upcomming event"
+            # So if blank, it still does something. 
+            # "if in it no chnage written ai doo nothing and clean all logs and reset system"
+            # This implies if the user explicitly says "no change" or similar. 
+            # Let's check for a specific "no change" value.
+            pass
+        
+        if event.lower() == "no change":
+            self.sole_manager.reset_system()
+            return
+
         # 1. Check for existing state
         todos_paths = glob.glob(os.path.join(self.root_dir, "to-do/*.json"))
         errors_paths = glob.glob(os.path.join(self.root_dir, "error/*.json"))
         
         existing_todos = []
         for p in todos_paths:
-            with open(p, 'r') as f: existing_todos.append(json.load(f))
+            try:
+                with open(p, 'r') as f: existing_todos.append(json.load(f))
+            except: pass
             
         existing_errors = []
         for p in errors_paths:
-            with open(p, 'r') as f: existing_errors.append(json.load(f))
+            try:
+                with open(p, 'r') as f: existing_errors.append(json.load(f))
+            except: pass
 
         all_files = self.get_all_files()
         
         # 2. Initial Analysis & Planning
         prompt = f"""
         You are Melius Engine, an autonomous AI agent. 
+        Current Event/Request: {event if event else "Blank (Suggest a theme based on upcoming season/events)"}
+        
         Repository files: {all_files}
         Existing To-Dos: {existing_todos}
         Existing Errors: {existing_errors}
 
-          Analyze the project and suggest improvements. 
-        If you need to read specific files to understand the project better, list them in "files_to_read".
+        CONSTRAINTS:
+        1. You can ONLY modify UI-related files (CSS, TSX components, basic UI theme).
+        2. DO NOT modify build files, configurations, or dependencies (vercel.json, package.json, vite.config.ts, etc.).
+        3. Do not ask to re-read files if they are already in the context.
         
-        CRITICAL: Your response must be a valid JSON object. Do not include any text outside the JSON.
+        Analyze the project and suggest UI/Theme improvements based on the event. 
+        If you need to read specific files, list them in "files_to_read".
+        
+        CRITICAL: Your response must be a valid JSON object.
         
         Example format:
         {{
-            "analysis": "Brief analysis of the current project state.",
-            "files_to_read": ["path/to/file1.py", "path/to/file2.js"],
+            "analysis": "...",
+            "files_to_read": ["test-website/client/src/index.css"],
             "improvements": [
-                {{"file": "path/to/file.py", "description": "Specific improvement description"}}
+                {{"file": "test-website/client/src/index.css", "description": "Update colors for Christmas theme"}}
             ]
         }}
         """
@@ -92,7 +136,8 @@ class MeliusEngine:
         self.log_event("log", {
             "analysis": plan.get("analysis"),
             "improvements": plan.get("improvements"),
-            "files_read": requested_files
+            "files_read": requested_files,
+            "event": event
         })
         
         # 5. Execute improvements
@@ -102,9 +147,10 @@ class MeliusEngine:
             if current_content is None: continue
 
             edit_prompt = f"""
-            Improve the file: {file_path}
+            Modify UI for: {file_path}
             Description: {imp['description']}
-            Context from other files: {file_context}
+            Event: {event}
+            Context: {file_context}
             Current Content:
             {current_content}
 
@@ -117,39 +163,33 @@ class MeliusEngine:
             new_content = result.get("new_content")
             if not new_content: continue
             
-            self.write_file(file_path, new_content)
-            
-            # 6. Verify (No edits here, just check)
-            verify_prompt = f"""
-            Verify improvements in {file_path}.
-            Intent: {imp['description']}
-            New Content:
-            {new_content}
+            if self.write_file(file_path, new_content):
+                # 6. Verify
+                verify_prompt = f"""
+                Verify UI changes in {file_path}.
+                Intent: {imp['description']}
+                New Content:
+                {new_content}
 
-            Respond ONLY in JSON format.
-            {{
-                "verified": true/false,
-                "error": "description if any",
-                "pending": "what is left if any"
-            }}
-            """
-            verification = self.client.chat(verify_prompt)
-            
-            if not verification.get("verified"):
-                if verification.get("error"):
-                    # Attempt fix once
-                    fix_prompt = f"Fix error in {file_path}: {verification['error']}. Respond ONLY with {{'new_content': '...'}}"
-                    fix_result = self.client.chat(fix_prompt)
-                    fixed_content = fix_result.get("new_content")
-                    if fixed_content:
-                        self.write_file(file_path, fixed_content)
-                        # Final check
-                        final_check = self.client.chat(f"Is {file_path} fixed? Respond ONLY with {{'fixed': true/false}}")
-                        if not final_check.get("fixed"):
-                            self.log_event("error", {{"file": file_path, "error": verification["error"], "status": "failed_fix"}})
+                Respond ONLY in JSON format.
+                {{
+                    "verified": true/false,
+                    "error": "description if any",
+                    "pending": "what is left if any"
+                }}
+                """
+                verification = self.client.chat(verify_prompt)
                 
-                if verification.get("pending"):
-                    self.log_event("to-do", {{"file": file_path, "pending": verification["pending"]}})
+                if not verification.get("verified"):
+                    if verification.get("error"):
+                        fix_prompt = f"Fix UI error in {file_path}: {verification['error']}. Respond ONLY with {{'new_content': '...'}}"
+                        fix_result = self.client.chat(fix_prompt)
+                        fixed_content = fix_result.get("new_content")
+                        if fixed_content:
+                            self.write_file(file_path, fixed_content)
+                    
+                    if verification.get("pending"):
+                        self.log_event("to-do", {{"file": file_path, "pending": verification["pending"]}})
 
 if __name__ == "__main__":
     engine = MeliusEngine()
