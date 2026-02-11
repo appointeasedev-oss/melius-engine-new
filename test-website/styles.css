@@ -876,3 +876,937 @@ footer a:hover {
     font-size: 0.9rem;
   }
 }
+
+/* Additional Mobile Responsive Styles */
+@media (max-width: 1024px) {
+  .container {
+    width: 95%;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .card {
+    padding: 0.9rem 1.1rem;
+  }
+  
+  .christmas-decorations {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+  }
+  
+  .snowflake {
+    font-size: 1.2rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.8rem;
+  }
+  
+  .star {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 4rem 1rem 2rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
+  }
+  
+  .subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .container {
+    width: 96%;
+    margin: 0 auto 1.8rem;
+  }
+  
+  .card {
+    padding: 0.85rem 1rem;
+  }
+  
+  .christmas-decorations {
+    top: 7px;
+    left: 7px;
+    right: 7px;
+  }
+  
+  .snowflake {
+    font-size: 1.1rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.7rem;
+  }
+  
+  .star {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 3.5rem 0.8rem 1.8rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.6rem, 5vw, 3rem);
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .container {
+    width: 97%;
+    margin: 0 auto 1.6rem;
+  }
+  
+  .card {
+    padding: 0.8rem 0.9rem;
+  }
+  
+  .christmas-decorations {
+    top: 6px;
+    left: 6px;
+    right: 6px;
+  }
+  
+  .snowflake {
+    font-size: 1rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.5rem;
+  }
+  
+  .star {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero {
+    padding: 3rem 0.6rem 1.5rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.4rem, 4vw, 2.8rem);
+  }
+  
+  .subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .container {
+    width: 98%;
+    margin: 0 auto 1.4rem;
+  }
+  
+  .card {
+    padding: 0.7rem 0.8rem;
+  }
+  
+  .christmas-decorations {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+  }
+  
+  .snowflake {
+    font-size: 0.9rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.3rem;
+  }
+  
+  .star {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 280px) {
+  .hero {
+    padding: 2.5rem 0.4rem 1.2rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
+  }
+  
+  .subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .container {
+    width: 99%;
+    margin: 0 auto 1.2rem;
+  }
+  
+  .card {
+    padding: 0.6rem 0.7rem;
+  }
+  
+  .christmas-decorations {
+    top: 4px;
+    left: 4px;
+    right: 4px;
+  }
+  
+  .snowflake {
+    font-size: 0.8rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.1rem;
+  }
+  
+  .star {
+    font-size: 1.1rem;
+  }
+}
+
+/* Enhanced Mobile Navigation */
+.nav-menu {
+  flex-direction: column;
+  background-color: var(--surface);
+  width: 100%;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.nav-item {
+  margin: 1rem 0;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--christmas-red);
+  text-shadow: 0 0 3px rgba(255, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Enhanced Mobile Navigation Toggle */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--christmas-red);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+.nav-menu.active {
+  left: 0;
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Enhanced Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem 1.5rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .container {
+    width: 95%;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .card {
+    padding: 0.8rem 1rem;
+  }
+  
+  blockquote {
+    font-size: 1rem;
+  }
+  
+  footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .christmas-decorations {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+  }
+  
+  .snowflake {
+    font-size: 1rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.5rem;
+  }
+  
+  .star {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2.5rem 0.5rem 1rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+  }
+  
+  .container {
+    width: 100%;
+    margin: 0 auto 1rem;
+  }
+  
+  .card {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  blockquote {
+    font-size: 0.9rem;
+  }
+  
+  footer {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .christmas-decorations {
+    top: 3px;
+    left: 3px;
+    right: 3px;
+  }
+  
+  .snowflake {
+    font-size: 0.8rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.2rem;
+  }
+  
+  .star {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero {
+    padding: 2rem 0.3rem 0.8rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.1rem, 3vw, 2rem);
+  }
+  
+  .container {
+    width: 98%;
+    margin: 0 auto 0.8rem;
+  }
+  
+  .card {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  blockquote {
+    font-size: 0.85rem;
+  }
+  
+  footer {
+    padding: 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .christmas-decorations {
+    top: 2px;
+    left: 2px;
+    right: 2px;
+  }
+  
+  .snowflake {
+    font-size: 0.6rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1rem;
+  }
+  
+  .star {
+    font-size: 0.9rem;
+  }
+}
+
+/* Enhanced Mobile Navigation Toggle */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--christmas-red);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+.nav-menu.active {
+  left: 0;
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Enhanced Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem 1.5rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .container {
+    width: 95%;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .card {
+    padding: 0.8rem 1rem;
+  }
+  
+  blockquote {
+    font-size: 1rem;
+  }
+  
+  footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .christmas-decorations {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+  }
+  
+  .snowflake {
+    font-size: 1rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.5rem;
+  }
+  
+  .star {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2.5rem 0.5rem 1rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+  }
+  
+  .container {
+    width: 100%;
+    margin: 0 auto 1rem;
+  }
+  
+  .card {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  blockquote {
+    font-size: 0.9rem;
+  }
+  
+  footer {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .christmas-decorations {
+    top: 3px;
+    left: 3px;
+    right: 3px;
+  }
+  
+  .snowflake {
+    font-size: 0.8rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.2rem;
+  }
+  
+  .star {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero {
+    padding: 2rem 0.3rem 0.8rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.1rem, 3vw, 2rem);
+  }
+  
+  .container {
+    width: 98%;
+    margin: 0 auto 0.8rem;
+  }
+  
+  .card {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  blockquote {
+    font-size: 0.85rem;
+  }
+  
+  footer {
+    padding: 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .christmas-decorations {
+    top: 2px;
+    left: 2px;
+    right: 2px;
+  }
+  
+  .snowflake {
+    font-size: 0.6rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1rem;
+  }
+  
+  .star {
+    font-size: 0.9rem;
+  }
+}
+
+/* Enhanced Hover Effects for Buttons and Links */
+button {
+  margin-top: 1.2rem;
+  border: 2px solid var(--christmas-red);
+  color: var(--christmas-red);
+  background: transparent;
+  border-radius: 999px;
+  padding: 0.7rem 1.1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: rgba(255, 0, 0, 0.3);
+  transform: translateY(-2px) rotate(1deg);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+  animation: christmasGlow 0.5s ease-in-out;
+}
+
+.nav-link {
+  color: var(--christmas-red);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--christmas-green);
+  text-shadow: 0 0 3px rgba(0, 255, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+footer a {
+  color: var(--christmas-red);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: var(--christmas-green);
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  animation: christmasGlow 0.5s ease-in-out;
+}
+
+/* Enhanced Hover Effects for Cards */
+.card {
+  background: linear-gradient(135deg, rgba(17, 26, 43, 0.86), rgba(23, 32, 51, 0.86));
+  border: 2px solid var(--christmas-red);
+  border-radius: 0.9rem;
+  padding: 1rem 1.1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
+  border-color: var(--christmas-green);
+}
+
+/* Enhanced Hover Effects for Quote */
+blockquote:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+}
+
+/* Enhanced Hover Effects for Footer */
+footer:hover {
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(0, 255, 0, 0.1));
+}
+
+/* Enhanced Hover Effects for Christmas Decorations */
+.christmas-decorations:hover .snowflake {
+  animation: snowflakeFall 1s ease-in-out infinite;
+}
+
+.christmas-decorations:hover .christmas-tree {
+  animation: treeGlow 1s ease-in-out infinite alternate;
+}
+
+.christmas-decorations:hover .star {
+  animation: starPulse 0.75s ease-in-out infinite;
+}
+
+/* Enhanced Hover Effects for Christmas Header */
+.christmas-header:hover .christmas-greeting {
+  text-shadow: 3px 3px 6px rgba(255, 0, 0, 0.5);
+}
+
+.christmas-header:hover .christmas-snow .snow {
+  animation: snowflakeFall 1s ease-in-out infinite;
+}
+
+/* Enhanced Hover Effects for Christmas Footer */
+.christmas-footer:hover .christmas-wishes {
+  text-shadow: 2px 2px 4px rgba(0, 255, 0, 0.5);
+}
+
+.christmas-footer:hover .christmas-bell {
+  animation: bellRing 1s ease-in-out infinite;
+}
+
+/* Enhanced Hover Effects for Christmas Footer Decorations */
+.christmas-footer-decorations:hover .footer-snowflake {
+  animation: snowflakeFall 1s ease-in-out infinite;
+}
+
+.christmas-footer-decorations:hover .footer-candy-cane {
+  animation: candyCaneGlow 1s ease-in-out infinite alternate;
+}
+
+.christmas-footer-decorations:hover .footer-gift {
+  animation: giftBounce 1s ease-in-out infinite;
+}
+
+.christmas-footer-decorations:hover .footer-reindeer {
+  animation: reindeerWiggle 1s ease-in-out infinite;
+}
+
+.christmas-footer-decorations:hover .footer-wreath {
+  animation: wreathSpin 1s ease-in-out infinite;
+}
+
+.christmas-footer-decorations:hover .footer-ornament {
+  animation: ornamentPulse 1s ease-in-out infinite;
+}
+
+.christmas-footer-decorations:hover .footer-bell {
+  animation: bellRing 1s ease-in-out infinite;
+}
+
+/* Additional Animations */
+@keyframes candyCaneGlow {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.2); }
+}
+
+@keyframes giftBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes reindeerWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}
+
+@keyframes wreathSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ornamentPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Enhanced Mobile Navigation */
+.nav-menu {
+  flex-direction: column;
+  background-color: var(--surface);
+  width: 100%;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.nav-item {
+  margin: 1rem 0;
+}
+
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--christmas-red);
+  text-shadow: 0 0 3px rgba(255, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Enhanced Mobile Navigation Toggle */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--christmas-red);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+.nav-menu.active {
+  left: 0;
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Enhanced Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem 1.5rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .container {
+    width: 95%;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .card {
+    padding: 0.8rem 1rem;
+  }
+  
+  blockquote {
+    font-size: 1rem;
+  }
+  
+  footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .christmas-decorations {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+  }
+  
+  .snowflake {
+    font-size: 1rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.5rem;
+  }
+  
+  .star {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2.5rem 0.5rem 1rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+  }
+  
+  .container {
+    width: 100%;
+    margin: 0 auto 1rem;
+  }
+  
+  .card {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  blockquote {
+    font-size: 0.9rem;
+  }
+  
+  footer {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .christmas-decorations {
+    top: 3px;
+    left: 3px;
+    right: 3px;
+  }
+  
+  .snowflake {
+    font-size: 0.8rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.2rem;
+  }
+  
+  .star {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero {
+    padding: 2rem 0.3rem 0.8rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.1rem, 3vw, 2rem);
+  }
+  
+  .container {
+    width: 98%;
+    margin: 0 auto 0.8rem;
+  }
+  
+  .card {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  blockquote {
+    font-size: 0.85rem;
+  }
+  
+  footer {
+    padding: 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .christmas-decorations {
+    top: 2px;
+    left: 2px;
+    right: 2px;
+  }
+  
+  .snowflake {
+    font-size: 0.6rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1rem;
+  }
+  
+  .star {
+    font-size: 0.9rem;
+  }
+}
