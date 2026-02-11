@@ -8,6 +8,9 @@
   --egyptian-gold: #d4af37;
   --egyptian-turquoise: #00ced1;
   --egyptian-slate: #1a1a2e;
+  --egyptian-sand: #f4e5c2;
+  --egyptian-nile: #0a6c64;
+  --egyptian-sphinx: #8b6914;
 }
 
 * {
@@ -100,6 +103,16 @@ button:hover {
   right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--egyptian-gold), var(--egyptian-turquoise));
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--egyptian-turquoise), var(--egyptian-gold));
 }
 
 h2 {
@@ -207,4 +220,180 @@ footer a:hover {
     padding: 0.8rem;
     font-size: 0.8rem;
   }
+}
+
+/* Additional Mobile Responsive Styles for better UX */
+@media (max-width: 320px) {
+  .hero {
+    padding: 2rem 0.3rem 0.8rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.1rem, 3vw, 2rem);
+  }
+  
+  .container {
+    width: 98%;
+    margin: 0 auto 0.8rem;
+  }
+  
+  .card {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  blockquote {
+    font-size: 0.85rem;
+  }
+  
+  footer {
+    padding: 0.6rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* Egyptian-themed enhancements */
+.card {
+  background: linear-gradient(135deg, rgba(17, 26, 43, 0.86), rgba(23, 32, 51, 0.86));
+  border: 2px solid var(--egyptian-gold);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--egyptian-gold), var(--egyptian-turquoise));
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--egyptian-turquoise), var(--egyptian-gold));
+}
+
+button {
+  margin-top: 1.2rem;
+  border: 2px solid var(--egyptian-gold);
+  color: var(--egyptian-gold);
+  background: transparent;
+  border-radius: 999px;
+  padding: 0.7rem 1.1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--egyptian-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.5);
+}
+
+h1 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: clamp(2rem, 7vw, 4rem);
+  color: var(--egyptian-gold);
+  text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 44rem;
+  color: var(--egyptian-turquoise);
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 206, 209, 0.3);
+}
+
+blockquote {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--egyptian-turquoise);
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 206, 209, 0.3);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  padding: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+footer a {
+  color: var(--egyptian-gold);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: var(--egyptian-turquoise);
+}
+
+/* Egyptian-themed background pattern */
+body {
+  background:
+    radial-gradient(90rem 40rem at 10% -5%, #1d2a44 10%, transparent 60%),
+    radial-gradient(90rem 50rem at 100% 0%, #152033 0%, transparent 55%),
+    var(--bg);
+  line-height: 1.6;
+}
+
+/* Egyptian-themed border patterns */
+.card {
+  border-image: linear-gradient(45deg, var(--egyptian-gold), var(--egyptian-turquoise), var(--egyptian-sphinx)) 1;
+}
+
+/* Egyptian-themed hover effects */
+button:hover {
+  background: rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px) rotate(1deg);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Egyptian-themed text effects */
+.eyebrow {
+  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.5), 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+h1 {
+  text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.1);
+}
+
+.subtitle {
+  text-shadow: 1px 1px 2px rgba(0, 206, 209, 0.3), 0 0 10px rgba(0, 206, 209, 0.2);
+}
+
+blockquote {
+  text-shadow: 1px 1px 2px rgba(0, 206, 209, 0.3), 0 0 10px rgba(0, 206, 209, 0.2);
+}
+
+/* Egyptian-themed footer */
+footer {
+  border-top: 2px solid var(--egyptian-gold);
+  background: linear-gradient(135deg, rgba(17, 26, 43, 0.5), rgba(23, 32, 51, 0.5));
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: var(--egyptian-turquoise);
+  text-shadow: 0 0 5px rgba(0, 206, 209, 0.5);
 }

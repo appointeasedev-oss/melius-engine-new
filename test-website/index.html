@@ -9,18 +9,21 @@
     />
     <title>Marcus Aurelius | Philosopher King</title>
     <link rel="stylesheet" href="styles.css" />
+    <meta name="theme-color" content="#d4af37" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   </head>
   <body>
     <header class="hero" id="top">
-      <p class="eyebrow">Roman Emperor • Stoic Thinker</p>
+      <p class="eyebrow" role="doc-subtitle">Roman Emperor • Stoic Thinker</p>
       <h1>Marcus Aurelius</h1>
       <p class="subtitle">A Philosopher King who ruled with discipline, duty, and reason.</p>
-      <button id="quote-btn" type="button" aria-controls="quote-text">Show another reflection</button>
+      <button id="quote-btn" type="button" aria-controls="quote-text" aria-label="Show another reflection">Show another reflection</button>
     </header>
 
-    <main class="container">
-      <section class="card">
-        <h2>Who was Marcus Aurelius?</h2>
+    <main class="container" role="main">
+      <section class="card" aria-labelledby="who-was-title">
+        <h2 id="who-was-title">Who was Marcus Aurelius?</h2>
         <p>
           Marcus Aurelius Antoninus (121–180 CE) was Roman emperor from 161 to 180 CE and is often
           remembered as history’s clearest example of a philosopher king. While leading campaigns and
@@ -28,16 +31,16 @@
         </p>
       </section>
 
-      <section class="card" aria-live="polite">
-        <h2>Reflection from Stoicism</h2>
-        <blockquote id="quote-text">
+      <section class="card" aria-labelledby="reflection-title" aria-live="polite">
+        <h2 id="reflection-title">Reflection from Stoicism</h2>
+        <blockquote id="quote-text" role="doc-quote">
           “You have power over your mind — not outside events. Realize this, and you will find
           strength.”
         </blockquote>
       </section>
 
-      <section class="card timeline">
-        <h2>Why “Philosopher King” fits</h2>
+      <section class="card timeline" aria-labelledby="philosopher-king-title">
+        <h2 id="philosopher-king-title">Why “Philosopher King” fits</h2>
         <ul>
           <li><strong>Duty over comfort:</strong> He treated power as service, not privilege.</li>
           <li><strong>Reason over impulse:</strong> He practiced self-command in public life.</li>
@@ -46,7 +49,7 @@
       </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
       <p>Simple HTML + CSS + JavaScript tribute page.</p>
       <a href="#top">Back to top ↑</a>
     </footer>
