@@ -1,4 +1,4 @@
-/* Summer Theme Styles */
+/* Summer Theme Styles - Enhanced Mobile Responsive */
 
 /* CSS Variables for Summer Theme */
 :root {
@@ -10,16 +10,26 @@
   --wave-color: #4682B4;
   --summer-pink: #FF69B4;
   --summer-purple: #9370DB;
+  --summer-coral: #FF7F7F;
+  --summer-turquoise: #40E0D0;
+  --summer-gold: #FFC125;
+  --summer-sky: #87CEEB;
+}
+
+/* Base Summer Background */
+body {
+  background-color: #fafafa;
 }
 
 /* Enhanced Summer Background Pattern */
 .summer-bg {
+  background-color: #fafafa;
   background-image: 
-    radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(135, 206, 235, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(152, 251, 152, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 60% 60%, rgba(255, 105, 180, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 10% 90%, rgba(147, 112, 219, 0.05) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(135, 206, 235, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(152, 251, 152, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 60% 60%, rgba(255, 105, 180, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 10% 90%, rgba(147, 112, 219, 0.04) 0%, transparent 50%);
 }
 
 /* Enhanced Sun Rays Animation */
@@ -46,8 +56,8 @@
     opacity: 1;
   }
   50% {
-    transform: scale(1.2);
-    opacity: 0.8;
+    transform: scale(1.15);
+    opacity: 0.85;
   }
 }
 
@@ -56,7 +66,7 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
@@ -64,9 +74,14 @@
 .summer-button {
   background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange), var(--summer-pink));
   border: 2px solid var(--summer-blue);
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
   box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 105, 180, 0.2);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .summer-button::before {
@@ -76,7 +91,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   transition: left 0.5s;
 }
 
@@ -86,18 +101,24 @@
 
 .summer-button:hover {
   background: linear-gradient(135deg, var(--summer-orange), var(--summer-yellow), var(--summer-pink));
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(135, 206, 235, 0.3), 0 0 25px rgba(255, 105, 180, 0.3);
+}
+
+.summer-button:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* Enhanced Summer Card Variants */
 .summer-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(152, 251, 152, 0.05), rgba(255, 105, 180, 0.02));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(152, 251, 152, 0.03), rgba(255, 105, 180, 0.02));
   border: 2px solid var(--summer-blue);
-  box-shadow: 0 8px 32px rgba(135, 206, 235, 0.1), 0 0 30px rgba(255, 105, 180, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(135, 206, 235, 0.08), 0 0 30px rgba(255, 105, 180, 0.05);
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .summer-card::before {
@@ -112,10 +133,10 @@
       45deg,
       transparent,
       transparent 10px,
-      rgba(152, 251, 152, 0.05) 10px,
-      rgba(152, 251, 152, 0.05) 20px
+      rgba(152, 251, 152, 0.03) 10px,
+      rgba(152, 251, 152, 0.03) 20px
     ),
-    radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.05) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -126,8 +147,13 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
   transition: left 0.8s;
+}
+
+.summer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(135, 206, 235, 0.12), 0 0 35px rgba(255, 105, 180, 0.08);
 }
 
 .summer-card:hover::after {
@@ -139,9 +165,14 @@
   background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange), var(--summer-pink));
   color: white;
   border: 1px solid var(--summer-blue);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-weight: 500;
   box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3), 0 0 10px rgba(255, 105, 180, 0.2);
   position: relative;
   overflow: hidden;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 
 .summer-badge::before {
@@ -163,7 +194,7 @@
 .summer-badge:hover {
   background: linear-gradient(135deg, var(--summer-orange), var(--summer-yellow), var(--summer-pink));
   transform: translateY(-2px);
-  box-shadow: 0 3px 12px rgba(135, 206, 235, 0.3), 0 0 15px rgba(255, 105, 180, 0.3);
+  box-shadow: 0 4px 14px rgba(135, 206, 235, 0.3), 0 0 18px rgba(255, 105, 180, 0.3);
 }
 
 /* Enhanced Summer Header Styles */
@@ -172,6 +203,8 @@
   color: white;
   position: relative;
   overflow: hidden;
+  padding: 2rem;
+  border-radius: 0 0 24px 24px;
 }
 
 .summer-header::before {
@@ -185,31 +218,31 @@
     45deg,
     transparent,
     transparent 20px,
-    rgba(152, 251, 152, 0.3) 20px,
-    rgba(152, 251, 152, 0.3) 40px
+    rgba(152, 251, 152, 0.2) 20px,
+    rgba(152, 251, 152, 0.2) 40px
   );
   pointer-events: none;
-  animation: shimmer 3s infinite, float 4s ease-in-out infinite;
+  animation: shimmer 3s infinite, headerFloat 4s ease-in-out infinite;
 }
 
 @keyframes shimmer {
   0% {
-    opacity: 0.5;
+    opacity: 0.4;
   }
   50% {
-    opacity: 1;
+    opacity: 0.8;
   }
   100% {
-    opacity: 0.5;
+    opacity: 0.4;
   }
 }
 
-@keyframes float {
+@keyframes headerFloat {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
   }
 }
 
@@ -219,18 +252,20 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 105, 180, 0.3);
+  text-shadow: none;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
 }
 
 /* Enhanced Summer Border Glow */
 .summer-border {
   border: 2px solid var(--summer-blue);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 15px rgba(255, 105, 180, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.25), 0 0 15px rgba(255, 105, 180, 0.15);
 }
 
 /* Enhanced Summer Shadow Effects */
 .summer-shadow {
-  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2), 0 4px 15px rgba(135, 206, 235, 0.1), 0 0 20px rgba(255, 105, 180, 0.1);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15), 0 4px 15px rgba(135, 206, 235, 0.08), 0 0 20px rgba(255, 105, 180, 0.08);
 }
 
 /* Enhanced Wave Animation */
@@ -239,10 +274,11 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px;
-  background: linear-gradient(180deg, transparent, var(--wave-color));
+  height: 80px;
+  background: linear-gradient(180deg, transparent, rgba(70, 130, 180, 0.3));
   z-index: 0;
   pointer-events: none;
+  border-radius: 100% 100% 0 0;
 }
 
 .wave::before,
@@ -251,18 +287,18 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: var(--wave-color);
-  opacity: 0.5;
+  background: rgba(70, 130, 180, 0.2);
+  border-radius: 100% 100% 0 0;
 }
 
 .wave::before {
   bottom: 0;
-  animation: wave 6s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite, float 5s ease-in-out infinite;
+  animation: wave 6s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite, waveFloat 5s ease-in-out infinite;
 }
 
 .wave::after {
   bottom: 0;
-  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite, float 5s ease-in-out infinite;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite, waveFloat 5s ease-in-out infinite;
   animation-delay: -2s;
 }
 
@@ -278,11 +314,22 @@
   }
 }
 
-/* Mobile Responsive Styles */
+@keyframes waveFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
+
+/* Tablet Breakpoint (768px and below) */
 @media (max-width: 768px) {
   .sun {
-    top: 5px;
-    right: 5px;
+    top: 8px;
+    right: 8px;
   }
   
   .sun::before {
@@ -290,19 +337,28 @@
   }
   
   .wave {
-    height: 60px;
+    height: 50px;
   }
   
   .summer-header {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .summer-header .text-5xl {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+  
+  .summer-header .text-3xl {
+    font-size: clamp(1rem, 4vw, 1.5rem);
   }
   
   .summer-header .text-4xl {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
   }
   
   .summer-header .text-2xl {
-    font-size: 1.25rem;
+    font-size: clamp(0.875rem, 3vw, 1.25rem);
   }
   
   .grid {
@@ -311,156 +367,419 @@
   }
   
   .summer-card {
-    padding: 1rem;
+    padding: 1.25rem;
+    border-radius: 14px;
+  }
+  
+  .summer-card .text-3xl {
+    font-size: clamp(1.25rem, 5vw, 1.75rem);
   }
   
   .summer-card .text-2xl {
-    font-size: 1.5rem;
+    font-size: clamp(1.125rem, 4vw, 1.5rem);
+  }
+  
+  .summer-card .text-xl {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
   }
   
   .summer-card .text-lg {
+    font-size: clamp(0.875rem, 2.5vw, 1rem);
+  }
+  
+  .summer-button {
+    padding: 0.75rem 1.5rem;
     font-size: 1rem;
+    border-radius: 10px;
+  }
+  
+  .summer-badge {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border-radius: 16px;
+  }
+  
+  .container {
+    padding: 1rem;
   }
 }
 
+/* Mobile Breakpoint (480px and below) */
 @media (max-width: 480px) {
+  .sun {
+    top: 5px;
+    right: 5px;
+  }
+  
+  .sun::before {
+    font-size: 2rem;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+  }
+  
+  .wave {
+    height: 35px;
+  }
+  
+  .summer-header {
+    padding: 1rem 0.75rem;
+    border-radius: 0 0 16px 16px;
+  }
+  
+  .summer-header .text-5xl {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+  
+  .summer-header .text-3xl {
+    font-size: clamp(0.875rem, 4vw, 1.25rem);
+  }
+  
+  .summer-header .text-4xl {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+  }
+  
+  .summer-header .text-2xl {
+    font-size: clamp(0.75rem, 3vw, 1rem);
+  }
+  
+  .summer-header .flex-wrap {
+    gap: 0.5rem;
+  }
+  
+  .summer-card {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 12px;
+    border-width: 1.5px;
+  }
+  
+  .summer-card .text-3xl {
+    font-size: clamp(1.125rem, 5vw, 1.5rem);
+  }
+  
+  .summer-card .text-2xl {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+  
+  .summer-card .text-xl {
+    font-size: clamp(0.85rem, 3vw, 1rem);
+  }
+  
+  .summer-card .text-lg {
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  }
+  
+  .summer-card:hover {
+    transform: none;
+  }
+  
+  .summer-button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    border-width: 1.5px;
+  }
+  
+  .summer-button:hover {
+    transform: none;
+  }
+  
+  .summer-badge {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    border-radius: 14px;
+  }
+  
+  .summer-badge:hover {
+    transform: none;
+  }
+  
+  .container {
+    padding: 0.75rem;
+  }
+}
+
+/* Extra Small Mobile Breakpoint (360px and below) */
+@media (max-width: 360px) {
   .sun {
     top: 3px;
     right: 3px;
   }
   
   .sun::before {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
   
   .wave {
-    height: 40px;
+    height: 25px;
   }
   
   .summer-header {
-    padding: 0.75rem;
+    padding: 0.75rem 0.5rem;
   }
   
-  .summer-header .text-4xl {
-    font-size: 1.5rem;
+  .summer-header .text-5xl {
+    font-size: 1.35rem;
   }
   
-  .summer-header .text-2xl {
-    font-size: 1rem;
+  .summer-header .text-3xl {
+    font-size: 0.8rem;
   }
   
   .summer-card {
-    padding: 0.75rem;
+    padding: 0.875rem;
+    border-radius: 10px;
   }
   
-  .summer-card .text-2xl {
-    font-size: 1.25rem;
+  .summer-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
   
-  .summer-card .text-lg {
-    font-size: 0.875rem;
+  .summer-badge {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+  
+  .container {
+    padding: 0.5rem;
   }
 }
 
-/* Fluid Typography */
-@media (min-width: 768px) {
+/* ==================== FLUID TYPOGRAPHY ==================== */
+
+@media (min-width: 769px) {
+  .summer-header .text-5xl {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+  
   .summer-header .text-4xl {
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(1.75rem, 4.5vw, 3rem);
+  }
+  
+  .summer-header .text-3xl {
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
   }
   
   .summer-header .text-2xl {
-    font-size: clamp(1rem, 3vw, 2rem);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+  }
+  
+  .summer-card .text-3xl {
+    font-size: clamp(1.5rem, 4vw, 2rem);
   }
   
   .summer-card .text-2xl {
-    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+  }
+  
+  .summer-card .text-xl {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
   }
   
   .summer-card .text-lg {
-    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
   }
 }
 
-/* Touch-Friendly Mobile Styles */
+/* ==================== TOUCH-FRIENDLY MOBILE STYLES ==================== */
+
 @media (hover: none) and (pointer: coarse) {
+  /* Disable hover transforms on touch devices */
   .summer-button:hover,
-  .summer-badge:hover {
+  .summer-badge:hover,
+  .summer-card:hover {
     transform: none;
   }
   
-  .summer-button:active,
-  .summer-badge:active {
-    transform: scale(0.98);
+  /* Active states for touch feedback */
+  .summer-button:active {
+    transform: scale(0.97);
+    opacity: 0.9;
   }
   
+  .summer-badge:active {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  
+  .summer-card:active {
+    transform: scale(0.99);
+    opacity: 0.95;
+  }
+  
+  /* Hide card hover animation on touch */
   .summer-card:hover::after {
     left: -100%;
   }
   
-  .summer-card:active::after {
-    left: 100%;
+  /* Minimum touch target size (44px recommended) */
+  button,
+  .summer-button,
+  .summer-badge,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Larger touch targets */
+  .summer-button {
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .summer-badge {
+    padding: 8px 14px;
+  }
+  
+  .summer-card {
+    margin: 0.5rem 0;
+    padding: 1.25rem;
   }
 }
 
-/* Reduced Motion */
+/* ==================== REDUCED MOTION ==================== */
+
 @media (prefers-reduced-motion: reduce) {
   .sun,
   .summer-header::before,
   .wave::before,
   .wave::after,
   .summer-card::after,
-  .summer-badge::before {
-    animation: none;
-  }
-  
+  .summer-badge::before,
   .summer-button::before {
-    display: none;
-  }
-}
-
-/* Responsive Breakpoints and Mobile-First CSS */
-@media (max-width: 768px) {
-  .container {
-    padding: 1rem;
+    animation: none !important;
+    transition: none !important;
   }
   
-  button {
-    min-height: 44px;
-  }
-}
-
-/* Additional Mobile-First Styles */
-@media (max-width: 480px) {
-  .container {
-    padding: 0.75rem;
-  }
-  
-  button {
-    min-height: 42px;
-    font-size: 1rem;
-  }
-  
-  input,
-  textarea,
-  select {
-    font-size: 1rem;
-    padding: 0.75rem;
-  }
-}
-
-/* Touch-Friendly Elements */
-@media (hover: none) and (pointer: coarse) {
-  button,
   .summer-button,
-  .summer-badge {
-    min-height: 44px;
-    min-width: 44px;
-    padding: 0.75rem;
+  .summer-badge,
+  .summer-card {
+    transition: none !important;
+  }
+}
+
+/* ==================== LANDSCAPE MOBILE STYLES ==================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .sun {
+    top: 5px;
+    right: 10px;
+  }
+  
+  .sun::before {
+    font-size: 1.75rem;
+  }
+  
+  .wave {
+    height: 20px;
+  }
+  
+  .summer-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .summer-header .text-5xl {
+    font-size: 1.5rem;
+  }
+  
+  .summer-header .text-3xl {
+    font-size: 0.9rem;
   }
   
   .summer-card {
-    margin: 0.5rem 0;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: 0.75rem;
+  }
+  
+  .summer-card .text-3xl {
+    font-size: 1.25rem;
+  }
+}
+
+/* ==================== FORM ELEMENTS MOBILE STYLES ==================== */
+
+@media (max-width: 768px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+    padding: 0.75rem;
+    border-radius: 10px;
+  }
+  
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-width: 24px;
+    min-height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    padding: 0.625rem;
+    border-radius: 8px;
+  }
+}
+
+/* ==================== GRID LAYOUT MOBILE STYLES ==================== */
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .md\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    gap: 0.75rem;
+  }
+  
+  .md\:grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================== ACCESSIBILITY ENHANCEMENTS ==================== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .summer-button,
+  .summer-badge {
+    border-width: 3px;
+  }
+  
+  .summer-card {
+    border-width: 3px;
+  }
+}
+
+/* Focus visible styles */
+.summer-button:focus-visible,
+.summer-badge:focus-visible,
+.summer-card:focus-visible {
+  outline: 3px solid var(--summer-blue);
+  outline-offset: 2px;
+}
+
+/* ==================== SAFE AREA INSETS (for notched devices) ==================== */
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  .wave {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .container {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
   }
 }

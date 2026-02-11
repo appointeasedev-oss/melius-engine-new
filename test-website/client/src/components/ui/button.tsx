@@ -22,15 +22,17 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         christmas: "christmas-button",
         summer:
-          "summer-button",
+          "summer-button rounded-xl font-semibold text-white transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98] focus-visible:ring-4 focus-visible:ring-summer-blue/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
+        sm: "h-8 rounded-lg gap-1.5 px-3 has-[>svg]:px-2.5 text-xs",
+        lg: "h-11 rounded-xl px-6 has-[>svg]:px-4 text-base",
+        xl: "h-12 rounded-xl px-8 text-lg",
         icon: "size-9",
         "icon-sm": "size-8",
         "icon-lg": "size-10",
+        "touch": "min-h-[44px] min-w-[44px] px-5 py-3 text-base",
       },
       iconPosition: {
         left: "flex-row-reverse",
@@ -42,6 +44,16 @@ const buttonVariants = cva(
       {
         iconPosition: ["left", "right"],
         class: "[&_.button-content]:hidden sm:[&_.button-content]:inline-flex",
+      },
+      {
+        variant: "summer",
+        size: "lg",
+        class: "rounded-2xl",
+      },
+      {
+        variant: "summer",
+        size: "xl",
+        class: "rounded-2xl",
       },
     ],
     defaultVariants: {
@@ -82,6 +94,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp
         ref={ref}
         data-slot="button"
+        data-variant={variant}
         disabled={disabled || loading}
         className={cn(
           buttonVariants({ variant, size, iconPosition, className }),
@@ -89,6 +102,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             "cursor-not-allowed": loading,
             "justify-center": iconPosition === "only",
             "relative [&_.button-children]:invisible [&_.spinner]:visible": loading,
+            "touch-manipulation": variant === "summer",
           }
         )}
         {...props}
@@ -102,7 +116,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                   iconPosition === "left" || iconPosition === "right",
                 "mx-auto": !children,
                 "size-4": size === "sm",
-                "size-5": size === "lg",
+                "size-5": size === "lg" || size === "xl" || size === "touch",
               }
             )}
             aria-hidden="true"
@@ -117,42 +131,152 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-// Add mobile-specific button styling for better touch targets
+// Enhanced mobile-specific button styling for summer theme with better touch targets and effects
 const mobileButtonStyles = `
+  /* Summer Button Enhancements - Rounded Corners & Hover Effects */
+  .summer-button {
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  .summer-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+      0 8px 25px rgba(255, 215, 0, 0.35),
+      0 4px 15px rgba(255, 105, 180, 0.25),
+      0 0 30px rgba(135, 206, 235, 0.2);
+  }
+  
+  .summer-button:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: 0.1s;
+  }
+  
+  .summer-button:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 3px rgba(135, 206, 235, 0.5),
+      0 4px 15px rgba(255, 215, 0, 0.3),
+      0 0 20px rgba(255, 105, 180, 0.2);
+  }
+  
+  /* Mobile Touch-Friendly Styles */
   @media (max-width: 768px) {
     .summer-button {
-      padding: 0.75rem 1.5rem;
-      min-height: 44px;
+      padding: 0.875rem 1.5rem;
+      min-height: 48px;
+      min-width: 48px;
       font-size: 1rem;
+      border-radius: 14px;
+      gap: 0.5rem;
+    }
+    
+    .summer-button.lg,
+    .summer-button[data-size="lg"] {
+      padding: 1rem 2rem;
+      min-height: 52px;
+      font-size: 1.125rem;
+      border-radius: 16px;
     }
     
     button {
-      padding: 0.75rem 1.5rem;
       min-height: 44px;
-      font-size: 1rem;
     }
   }
   
   @media (max-width: 480px) {
     .summer-button {
       padding: 0.75rem 1.25rem;
-      min-height: 42px;
+      min-height: 44px;
+      min-width: 44px;
+      font-size: 0.9375rem;
+      border-radius: 12px;
+    }
+    
+    .summer-button.lg,
+    .summer-button[data-size="lg"] {
+      padding: 0.875rem 1.5rem;
+      min-height: 48px;
       font-size: 1rem;
+      border-radius: 14px;
     }
     
     button {
-      padding: 0.75rem 1.25rem;
-      min-height: 42px;
+      min-height: 44px;
       font-size: 1rem;
+    }
+  }
+  
+  /* Extra small screens */
+  @media (max-width: 360px) {
+    .summer-button {
+      padding: 0.625rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+  
+  /* Touch Device Optimizations */
+  @media (hover: none) and (pointer: coarse) {
+    .summer-button {
+      -webkit-tap-highlight-color: rgba(255, 215, 0, 0.2);
+      min-height: 48px;
+      min-width: 48px;
+      padding: 0.875rem 1.5rem;
+    }
+    
+    .summer-button:hover {
+      transform: none;
+      box-shadow: inherit;
+    }
+    
+    .summer-button:active {
+      transform: scale(0.96);
+      background: linear-gradient(135deg, #FFA500, #FFD700, #FF69B4);
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    button,
+    [role="button"] {
+      min-height: 48px;
+      min-width: 48px;
+    }
+  }
+  
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .summer-button {
+      transition: none;
+    }
+    
+    .summer-button:hover,
+    .summer-button:active {
+      transform: none;
+    }
+  }
+  
+  /* High Contrast Mode */
+  @media (prefers-contrast: high) {
+    .summer-button {
+      border-width: 3px;
+      border-color: currentColor;
     }
   }
 `;
 
-// Inject mobile button styles
+// Inject mobile button styles safely
 if (typeof window !== "undefined") {
-  const style = document.createElement("style");
-  style.textContent = mobileButtonStyles;
-  document.head.appendChild(style);
+  const existingStyle = document.getElementById('summer-button-styles');
+  if (!existingStyle) {
+    const style = document.createElement("style");
+    style.id = 'summer-button-styles';
+    style.textContent = mobileButtonStyles;
+    document.head.appendChild(style);
+  }
 }
 
 export { Button, buttonVariants };
