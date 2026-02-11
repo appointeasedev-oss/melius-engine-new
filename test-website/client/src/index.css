@@ -417,3 +417,50 @@
     display: none;
   }
 }
+
+/* Responsive Breakpoints and Mobile-First CSS */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  button {
+    min-height: 44px;
+  }
+}
+
+/* Additional Mobile-First Styles */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+  
+  button {
+    min-height: 42px;
+    font-size: 1rem;
+  }
+  
+  input,
+  textarea,
+  select {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Touch-Friendly Elements */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  .summer-button,
+  .summer-badge {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem;
+  }
+  
+  .summer-card {
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+}

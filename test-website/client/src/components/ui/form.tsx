@@ -156,6 +156,42 @@ function FormMessage({ className, ...props }: React.ComponentProps<"p">) {
   );
 }
 
+// Add mobile-optimized form styles
+const mobileFormStyles = `
+  @media (max-width: 768px) {
+    input,
+    textarea,
+    select {
+      font-size: 1rem;
+      padding: 0.75rem;
+    }
+    
+    form {
+      gap: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    input,
+    textarea,
+    select {
+      font-size: 1rem;
+      padding: 0.75rem;
+    }
+    
+    form {
+      gap: 0.75rem;
+    }
+  }
+`;
+
+// Inject mobile form styles
+if (typeof window !== "undefined") {
+  const style = document.createElement("style");
+  style.textContent = mobileFormStyles;
+  document.head.appendChild(style);
+}
+
 export {
   useFormField,
   Form,

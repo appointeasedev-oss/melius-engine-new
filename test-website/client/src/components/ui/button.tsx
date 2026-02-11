@@ -117,4 +117,42 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
+// Add mobile-specific button styling for better touch targets
+const mobileButtonStyles = `
+  @media (max-width: 768px) {
+    .summer-button {
+      padding: 0.75rem 1.5rem;
+      min-height: 44px;
+      font-size: 1rem;
+    }
+    
+    button {
+      padding: 0.75rem 1.5rem;
+      min-height: 44px;
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .summer-button {
+      padding: 0.75rem 1.25rem;
+      min-height: 42px;
+      font-size: 1rem;
+    }
+    
+    button {
+      padding: 0.75rem 1.25rem;
+      min-height: 42px;
+      font-size: 1rem;
+    }
+  }
+`;
+
+// Inject mobile button styles
+if (typeof window !== "undefined") {
+  const style = document.createElement("style");
+  style.textContent = mobileButtonStyles;
+  document.head.appendChild(style);
+}
+
 export { Button, buttonVariants };

@@ -94,6 +94,44 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
+// Add mobile-specific card styling
+const mobileCardStyles = `
+  @media (max-width: 768px) {
+    .summer-card {
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 0.5rem;
+    }
+    
+    .christmas-card {
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .summer-card {
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border-radius: 0.5rem;
+    }
+    
+    .christmas-card {
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border-radius: 0.5rem;
+    }
+  }
+`;
+
+// Inject mobile card styles
+if (typeof window !== "undefined") {
+  const style = document.createElement("style");
+  style.textContent = mobileCardStyles;
+  document.head.appendChild(style);
+}
+
 export {
   Card,
   ChristmasCard,
