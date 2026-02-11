@@ -3,37 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marcus Aurelius — Philosopher King</title>
+    <meta
+      name="description"
+      content="A simple tribute website to Marcus Aurelius, Roman emperor and philosopher king."
+    />
+    <title>Marcus Aurelius | Philosopher King</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
-      <p class="eyebrow">Stoic Rome</p>
+    <header class="hero" id="top">
+      <p class="eyebrow">Roman Emperor • Stoic Thinker</p>
       <h1>Marcus Aurelius</h1>
-      <p class="subtitle">The Philosopher King of the Roman Empire</p>
-      <button id="quote-btn" type="button">Reflect on a Stoic Thought</button>
+      <p class="subtitle">A Philosopher King who ruled with discipline, duty, and reason.</p>
+      <button id="quote-btn" type="button" aria-controls="quote-text">Show another reflection</button>
     </header>
 
-    <main class="content">
-      <section>
-        <h2>Why He Is Called a Philosopher King</h2>
+    <main class="container">
+      <section class="card">
+        <h2>Who was Marcus Aurelius?</h2>
         <p>
-          Marcus Aurelius ruled as emperor while practicing a life of discipline, reason,
-          and duty. His private writings, later known as <em>Meditations</em>, reveal a leader
-          who believed power should serve virtue rather than ego.
+          Marcus Aurelius Antoninus (121–180 CE) was Roman emperor from 161 to 180 CE and is often
+          remembered as history’s clearest example of a philosopher king. While leading campaigns and
+          governing a vast empire, he wrote private notes on character, mortality, and responsibility.
         </p>
       </section>
 
-      <section class="quote-card" aria-live="polite">
-        <h2>Reflection</h2>
+      <section class="card" aria-live="polite">
+        <h2>Reflection from Stoicism</h2>
         <blockquote id="quote-text">
-          “You have power over your mind — not outside events. Realize this, and you will find strength.”
+          “You have power over your mind — not outside events. Realize this, and you will find
+          strength.”
         </blockquote>
+      </section>
+
+      <section class="card timeline">
+        <h2>Why “Philosopher King” fits</h2>
+        <ul>
+          <li><strong>Duty over comfort:</strong> He treated power as service, not privilege.</li>
+          <li><strong>Reason over impulse:</strong> He practiced self-command in public life.</li>
+          <li><strong>Virtue over fame:</strong> His writings focus on integrity, not applause.</li>
+        </ul>
       </section>
     </main>
 
     <footer>
-      <p>Built as a simple HTML, CSS, and JavaScript tribute page.</p>
+      <p>Simple HTML + CSS + JavaScript tribute page.</p>
+      <a href="#top">Back to top ↑</a>
     </footer>
 
     <script src="script.js"></script>
