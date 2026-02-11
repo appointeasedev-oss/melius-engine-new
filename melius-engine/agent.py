@@ -115,7 +115,25 @@ class MeliusEngine:
         Analyze the project and suggest UI/Theme improvements. 
         If you need to read specific files, list them in "files_to_read".
         
-        CRITICAL: Your response must be a valid JSON object.
+        
+CRITICAL:
+Return JSON in this exact format:
+
+{{
+  "files_to_read": [],
+  "analysis": "string",
+  "improvements": [
+    {{
+      "file": "relative/path.tsx",
+      "description": "precise UI change"
+    }}
+  ]
+}}
+
+Do NOT add extra keys.
+Do NOT nest improvements.
+Do NOT return prose outside JSON.
+
         """
         
         plan = self.client.chat(prompt)
