@@ -42,7 +42,7 @@ export default function Home() {
               </p>
 
               <h1 className="max-w-3xl text-3xl font-bold leading-tight sm:text-5xl summer-text">
-                Continuously improve your codebase — automatically.
+                🌞 Continuously improve your codebase — automatically. 🌞
               </h1>
 
               <p className="mt-6 max-w-2xl text-base text-slate-600 sm:text-lg summer-text">
@@ -53,13 +53,13 @@ export default function Home() {
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link href="/contact">
                   <a className="inline-flex items-center justify-center rounded-full summer-button px-7 py-3 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5">
-                    Start now
+                    🚀 Start now
                   </a>
                 </Link>
 
                 <Link href="/about">
                   <a className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-slate-700 transition-all hover:border-slate-400 hover:bg-slate-100">
-                    Learn more
+                    📖 Learn more
                   </a>
                 </Link>
               </div>
@@ -72,17 +72,17 @@ export default function Home() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                icon: "🔎",
+                icon: "🌞",
                 title: "Deep analysis",
                 text: "Scans your repository with context awareness to surface practical, high-impact improvements.",
               },
               {
-                icon: "⚙️",
+                icon: "🌊",
                 title: "Smart execution",
                 text: "Applies clean UI and code updates while preserving structure and intent.",
               },
               {
-                icon: "✅",
+                icon: "✨",
                 title: "Safety checks",
                 text: "Verifies every change and retries automatically when issues are detected.",
               },
