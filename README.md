@@ -76,4 +76,3 @@ graph TD
 
 ---
 
-**Author**: Manus AI
