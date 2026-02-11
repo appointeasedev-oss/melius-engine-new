@@ -20,7 +20,6 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        loading: "opacity-75 pointer-events-none",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -40,10 +39,6 @@ const buttonVariants = cva(
       {
         iconPosition: ["left", "right"],
         class: "[&_.button-content]:hidden sm:[&_.button-content]:inline-flex",
-      },
-      {
-        loading: true,
-        class: "relative [&_.button-children]:invisible [&_.spinner]:visible",
       },
     ],
     defaultVariants: {
@@ -90,6 +85,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {
             "cursor-not-allowed": loading,
             "justify-center": iconPosition === "only",
+            "relative [&_.button-children]:invisible [&_.spinner]:visible": loading,
           }
         )}
         {...props}

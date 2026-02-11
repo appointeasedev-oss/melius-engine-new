@@ -40,11 +40,11 @@ const createPostSchema = z.object({
 });
 
 // Routes
-app.get(`${API_PREFIX}/health`, (req, res) => {
+app.get(`${API_PREFIX}/health`, (_req: unknown, res: { json: (body: unknown) => void }) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-app.post(`${API_PREFIX}/posts`, (req, res, next) => {
+app.post(`${API_PREFIX}/posts`, (req: { body: unknown }, res: { status: (code: number) => { json: (body: unknown) => void } }, next: (error?: unknown) => void) => {
   try {
     const validated = createPostSchema.parse(req.body);
     // In real implementation, process the data here
@@ -64,7 +64,7 @@ app.post(`${API_PREFIX}/posts`, (req, res, next) => {
 });
 
 // 404 Handler
-app.use((req, res, next) => {
+app.use((_req: unknown, res: { status: (code: number) => { json: (body: unknown) => void } }, _next: unknown) => {
   res.status(404).json({
     statusCode: 404,
     message: 'Endpoint not found'
@@ -72,7 +72,7 @@ app.use((req, res, next) => {
 });
 
 // Error handler
-app.use((err: ApiError, req: express.Request, res: express.Response, next: express.NextFunction) => {
+app.use((err: ApiError, _req: unknown, res: { status: (code: number) => { json: (body: unknown) => void } }, _next: unknown) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || 'Internal server error';
   

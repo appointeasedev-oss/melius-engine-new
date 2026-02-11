@@ -63,8 +63,6 @@ export function ManusDialog({
     <Dialog
       open={onOpenChange ? open : internalOpen}
       onOpenChange={handleOpenChange}
-      role="dialog"
-      aria-modal="true"
     >
       <DialogContent
         className={`py-5 rounded-[20px] w-[400px] shadow-[0px_4px_11px_0px_rgba(0,0,0,0.08)] backdrop-blur-2xl p-0 gap-0 text-center transition-colors duration-300 ${dialogStyles[theme]}`}
