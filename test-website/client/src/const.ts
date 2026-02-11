@@ -15,3 +15,21 @@ export const getLoginUrl = () => {
 
   return url.toString();
 };
+
+// Summer Theme Constants
+export const SUMMER_COLORS = {
+  yellow: "#FFD700",
+  orange: "#FFA500",
+  blue: "#87CEEB",
+  green: "#98FB98",
+};
+
+export const SUMMER_ANIMATIONS = {
+  sunPulse: "pulse 2s infinite",
+  wave: "wave 6s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite",
+  shimmer: "shimmer 3s infinite",
+};
+
+export const SUMMER_ICONS = {
+  sun: "☀",
+};

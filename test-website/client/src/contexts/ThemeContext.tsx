@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "light" | "dark";
+type Theme = "light" | "dark" | "summer";
 
 interface ThemeContextType {
   theme: Theme;
@@ -44,7 +44,18 @@ export function ThemeProvider({
 
   const toggleTheme = switchable
     ? () => {
-        setTheme(prev => (prev === "light" ? "dark" : "light"));
+        setTheme(prev => {
+          switch (prev) {
+            case "light":
+              return "summer";
+            case "summer":
+              return "dark";
+            case "dark":
+              return "light";
+            default:
+              return "light";
+          }
+        });
       }
     : undefined;
 

@@ -14,6 +14,8 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <div className="min-h-screen bg-slate-50 text-slate-900">
+          <div className="sun"></div>
+          <div className="wave"></div>
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/about" component={About} />

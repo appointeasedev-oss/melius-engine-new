@@ -1,71 +1,74 @@
-/* Christmas Theme Styles */
+/* Summer Theme Styles */
 
-/* CSS Variables for Christmas Theme */
+/* CSS Variables for Summer Theme */
 :root {
-  --christmas-red: #dc2626;
-  --christmas-green: #059669;
-  --christmas-gold: #fbbf24;
-  --snowflake-color: #ffffff;
+  --summer-yellow: #FFD700;
+  --summer-orange: #FFA500;
+  --summer-blue: #87CEEB;
+  --summer-green: #98FB98;
+  --sun-color: #FFD700;
+  --wave-color: #4682B4;
 }
 
-/* Christmas Background Pattern */
-.christmas-bg {
+/* Summer Background Pattern */
+.summer-bg {
   background-image: 
-    radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(5, 150, 105, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(251, 191, 36, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(135, 206, 235, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(152, 251, 152, 0.1) 0%, transparent 50%);
 }
 
-/* Falling Snowflakes Animation */
-.snowflake {
+/* Sun Rays Animation */
+.sun {
   position: fixed;
-  top: -10px;
+  top: 10px;
+  right: 10px;
   z-index: 1;
   user-select: none;
   pointer-events: none;
-  animation: fall linear infinite;
 }
 
-.snowflake::before {
-  content: "❆";
-  color: var(--snowflake-color);
-  font-size: 1.5rem;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+.sun::before {
+  content: "☀";
+  color: var(--sun-color);
+  font-size: 3rem;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  animation: pulse 2s infinite;
 }
 
-@keyframes fall {
-  0% {
-    transform: translateY(-100vh) rotate(0deg);
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
     opacity: 1;
   }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0.3;
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
   }
 }
 
-/* Christmas Button Variants */
-.christmas-button {
-  background: linear-gradient(135deg, var(--christmas-red), var(--christmas-green));
-  border: 2px solid var(--christmas-gold);
-  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+/* Summer Button Variants */
+.summer-button {
+  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange));
+  border: 2px solid var(--summer-blue);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
 }
 
-.christmas-button:hover {
-  background: linear-gradient(135deg, var(--christmas-green), var(--christmas-red));
+.summer-button:hover {
+  background: linear-gradient(135deg, var(--summer-orange), var(--summer-yellow));
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.3);
+  box-shadow: 0 6px 20px rgba(135, 206, 235, 0.3);
 }
 
-/* Christmas Card Variants */
-.christmas-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(220, 38, 38, 0.05));
-  border: 2px solid var(--christmas-gold);
-  box-shadow: 0 8px 32px rgba(220, 38, 38, 0.1);
+/* Summer Card Variants */
+.summer-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(152, 251, 152, 0.05));
+  border: 2px solid var(--summer-blue);
+  box-shadow: 0 8px 32px rgba(135, 206, 235, 0.1);
   backdrop-filter: blur(10px);
 }
 
-.christmas-card::before {
+.summer-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -77,35 +80,35 @@
       45deg,
       transparent,
       transparent 10px,
-      rgba(220, 38, 38, 0.05) 10px,
-      rgba(220, 38, 38, 0.05) 20px
+      rgba(152, 251, 152, 0.05) 10px,
+      rgba(152, 251, 152, 0.05) 20px
     );
   pointer-events: none;
 }
 
-/* Christmas Badge Variants */
-.christmas-badge {
-  background: linear-gradient(135deg, var(--christmas-red), var(--christmas-green));
+/* Summer Badge Variants */
+.summer-badge {
+  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange));
   color: white;
-  border: 1px solid var(--christmas-gold);
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+  border: 1px solid var(--summer-blue);
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
 }
 
-.christmas-badge:hover {
-  background: linear-gradient(135deg, var(--christmas-green), var(--christmas-red));
+.summer-badge:hover {
+  background: linear-gradient(135deg, var(--summer-orange), var(--summer-yellow));
   transform: translateY(-1px);
-  box-shadow: 0 3px 12px rgba(5, 150, 105, 0.3);
+  box-shadow: 0 3px 12px rgba(135, 206, 235, 0.3);
 }
 
-/* Christmas Header Styles */
-.christmas-header {
-  background: linear-gradient(135deg, var(--christmas-red), var(--christmas-green));
+/* Summer Header Styles */
+.summer-header {
+  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange), var(--summer-blue));
   color: white;
   position: relative;
   overflow: hidden;
 }
 
-.christmas-header::before {
+.summer-header::before {
   content: "";
   position: absolute;
   top: 0;
@@ -116,8 +119,8 @@
     45deg,
     transparent,
     transparent 20px,
-    rgba(251, 191, 36, 0.3) 20px,
-    rgba(251, 191, 36, 0.3) 40px
+    rgba(152, 251, 152, 0.3) 20px,
+    rgba(152, 251, 152, 0.3) 40px
   );
   pointer-events: none;
   animation: shimmer 3s infinite;
@@ -135,22 +138,67 @@
   }
 }
 
-/* Christmas Text Effects */
-.christmas-text {
-  background: linear-gradient(135deg, var(--christmas-red), var(--christmas-green), var(--christmas-gold));
+/* Summer Text Effects */
+.summer-text {
+  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange), var(--summer-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
-/* Christmas Border Glow */
-.christmas-border {
-  border: 2px solid var(--christmas-gold);
-  box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+/* Summer Border Glow */
+.summer-border {
+  border: 2px solid var(--summer-blue);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
 }
 
-/* Christmas Shadow Effects */
-.christmas-shadow {
-  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.2), 0 4px 15px rgba(5, 150, 105, 0.1);
+/* Summer Shadow Effects */
+.summer-shadow {
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2), 0 4px 15px rgba(135, 206, 235, 0.1);
+}
+
+/* Wave Animation */
+.wave {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(180deg, transparent, var(--wave-color));
+  z-index: 0;
+  pointer-events: none;
+}
+
+.wave::before,
+.wave::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--wave-color);
+  opacity: 0.5;
+}
+
+.wave::before {
+  bottom: 0;
+  animation: wave 6s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+}
+
+.wave::after {
+  bottom: 0;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  animation-delay: -2s;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-25%) translateZ(0) scaleY(0.8);
+  }
+  100% {
+    transform: translateX(-50%) translateZ(0) scaleY(1);
+  }
 }
