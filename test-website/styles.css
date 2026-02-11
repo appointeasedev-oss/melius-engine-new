@@ -11,6 +11,8 @@
   --egyptian-sand: #f4e5c2;
   --egyptian-nile: #0a6c64;
   --egyptian-sphinx: #8b6914;
+  --christmas-red: #ff0000;
+  --christmas-green: #00ff00;
 }
 
 * {
@@ -43,29 +45,32 @@ body {
 
 .eyebrow {
   margin: 0;
-  color: var(--egyptian-gold);
+  color: var(--christmas-red);
   text-transform: uppercase;
   letter-spacing: 0.16em;
   font-size: 0.75rem;
+  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.5);
 }
 
 h1 {
   margin: 0.5rem 0 0.75rem;
   font-size: clamp(2rem, 7vw, 4rem);
-  color: var(--egyptian-gold);
-  text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+  color: var(--christmas-red);
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.3);
 }
 
 .subtitle {
   margin: 0 auto;
   max-width: 44rem;
-  color: var(--egyptian-turquoise);
+  color: var(--christmas-green);
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3);
 }
 
 button {
   margin-top: 1.2rem;
-  border: 2px solid var(--egyptian-gold);
-  color: var(--egyptian-gold);
+  border: 2px solid var(--christmas-red);
+  color: var(--christmas-red);
   background: transparent;
   border-radius: 999px;
   padding: 0.7rem 1.1rem;
@@ -75,8 +80,9 @@ button {
 }
 
 button:hover {
-  background: rgba(212, 175, 55, 0.3);
-  transform: translateY(-2px);
+  background: rgba(255, 0, 0, 0.3);
+  transform: translateY(-2px) rotate(1deg);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
 }
 
 .container {
@@ -88,7 +94,7 @@ button:hover {
 
 .card {
   background: rgba(17, 26, 43, 0.86);
-  border: 1px solid var(--egyptian-gold);
+  border: 2px solid var(--christmas-red);
   border-radius: 0.9rem;
   padding: 1rem 1.1rem;
   position: relative;
@@ -102,7 +108,7 @@ button:hover {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--egyptian-gold), var(--egyptian-turquoise));
+  background: linear-gradient(90deg, var(--christmas-red), var(--christmas-green));
 }
 
 .card::after {
@@ -112,20 +118,21 @@ button:hover {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--egyptian-turquoise), var(--egyptian-gold));
+  background: linear-gradient(90deg, var(--christmas-green), var(--christmas-red));
 }
 
 h2 {
   margin: 0 0 0.55rem;
-  color: var(--egyptian-gold);
+  color: var(--christmas-red);
   font-size: 1.5rem;
 }
 
 blockquote {
   margin: 0;
   font-size: 1.1rem;
-  color: var(--egyptian-turquoise);
+  color: var(--christmas-green);
   font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3);
 }
 
 .timeline ul {
@@ -153,252 +160,17 @@ footer p {
 }
 
 footer a {
-  color: var(--egyptian-gold);
+  color: var(--christmas-red);
   text-decoration: none;
 }
 
 footer a:hover {
   text-decoration: underline;
+  color: var(--christmas-green);
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
 }
 
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-  .hero {
-    padding: 3rem 1rem 1.5rem;
-  }
-  
-  h1 {
-    font-size: clamp(1.5rem, 5vw, 3rem);
-  }
-  
-  .subtitle {
-    font-size: 0.9rem;
-  }
-  
-  .container {
-    width: 95%;
-    margin: 0 auto 1.5rem;
-  }
-  
-  .card {
-    padding: 0.8rem 1rem;
-  }
-  
-  blockquote {
-    font-size: 1rem;
-  }
-  
-  footer {
-    padding: 1rem;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 2.5rem 0.5rem 1rem;
-  }
-  
-  h1 {
-    font-size: clamp(1.2rem, 4vw, 2.5rem);
-  }
-  
-  .container {
-    width: 100%;
-    margin: 0 auto 1rem;
-  }
-  
-  .card {
-    padding: 0.6rem 0.8rem;
-  }
-  
-  blockquote {
-    font-size: 0.9rem;
-  }
-  
-  footer {
-    padding: 0.8rem;
-    font-size: 0.8rem;
-  }
-}
-
-/* Additional Mobile Responsive Styles for better UX */
-@media (max-width: 320px) {
-  .hero {
-    padding: 2rem 0.3rem 0.8rem;
-  }
-  
-  h1 {
-    font-size: clamp(1.1rem, 3vw, 2rem);
-  }
-  
-  .container {
-    width: 98%;
-    margin: 0 auto 0.8rem;
-  }
-  
-  .card {
-    padding: 0.5rem 0.6rem;
-  }
-  
-  blockquote {
-    font-size: 0.85rem;
-  }
-  
-  footer {
-    padding: 0.6rem;
-    font-size: 0.7rem;
-  }
-}
-
-/* Egyptian-themed enhancements */
-.card {
-  background: linear-gradient(135deg, rgba(17, 26, 43, 0.86), rgba(23, 32, 51, 0.86));
-  border: 2px solid var(--egyptian-gold);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--egyptian-gold), var(--egyptian-turquoise));
-}
-
-.card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--egyptian-turquoise), var(--egyptian-gold));
-}
-
-button {
-  margin-top: 1.2rem;
-  border: 2px solid var(--egyptian-gold);
-  color: var(--egyptian-gold);
-  background: transparent;
-  border-radius: 999px;
-  padding: 0.7rem 1.1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  background: rgba(212, 175, 55, 0.3);
-  transform: translateY(-2px);
-}
-
-.eyebrow {
-  margin: 0;
-  color: var(--egyptian-gold);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.75rem;
-  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.5);
-}
-
-h1 {
-  margin: 0.5rem 0 0.75rem;
-  font-size: clamp(2rem, 7vw, 4rem);
-  color: var(--egyptian-gold);
-  text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
-}
-
-.subtitle {
-  margin: 0 auto;
-  max-width: 44rem;
-  color: var(--egyptian-turquoise);
-  font-style: italic;
-  text-shadow: 1px 1px 2px rgba(0, 206, 209, 0.3);
-}
-
-blockquote {
-  margin: 0;
-  font-size: 1.1rem;
-  color: var(--egyptian-turquoise);
-  font-style: italic;
-  text-shadow: 1px 1px 2px rgba(0, 206, 209, 0.3);
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.85rem;
-  flex-wrap: wrap;
-  color: var(--muted);
-  padding: 1.2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-footer a {
-  color: var(--egyptian-gold);
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-  color: var(--egyptian-turquoise);
-}
-
-/* Egyptian-themed background pattern */
-body {
-  background:
-    radial-gradient(90rem 40rem at 10% -5%, #1d2a44 10%, transparent 60%),
-    radial-gradient(90rem 50rem at 100% 0%, #152033 0%, transparent 55%),
-    var(--bg);
-  line-height: 1.6;
-}
-
-/* Egyptian-themed border patterns */
-.card {
-  border-image: linear-gradient(45deg, var(--egyptian-gold), var(--egyptian-turquoise), var(--egyptian-sphinx)) 1;
-}
-
-/* Egyptian-themed hover effects */
-button:hover {
-  background: rgba(212, 175, 55, 0.3);
-  transform: translateY(-2px) rotate(1deg);
-  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
-}
-
-/* Egyptian-themed text effects */
-.eyebrow {
-  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.5), 0 0 10px rgba(212, 175, 55, 0.2);
-}
-
-h1 {
-  text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.1);
-}
-
-.subtitle {
-  text-shadow: 1px 1px 2px rgba(0, 206, 209, 0.3), 0 0 10px rgba(0, 206, 209, 0.2);
-}
-
-blockquote {
-  text-shadow: 1px 1px 2px rgba(0, 206, 209, 0.3), 0 0 10px rgba(0, 206, 209, 0.2);
-}
-
-/* Egyptian-themed footer */
-footer {
-  border-top: 2px solid var(--egyptian-gold);
-  background: linear-gradient(135deg, rgba(17, 26, 43, 0.5), rgba(23, 32, 51, 0.5));
-}
-
-footer a:hover {
-  text-decoration: underline;
-  color: var(--egyptian-turquoise);
-  text-shadow: 0 0 5px rgba(0, 206, 209, 0.5);
-}
-
-/* Christmas-themed additions */
+/* Christmas-themed decorations */
 .christmas-decorations {
   position: absolute;
   top: 10px;
@@ -441,118 +213,6 @@ footer a:hover {
   50% { transform: scale(1.2); }
 }
 
-/* Christmas-themed color adjustments */
-:root {
-  --christmas-red: #ff0000;
-  --christmas-green: #00ff00;
-}
-
-.eyebrow {
-  color: var(--christmas-red);
-}
-
-h1 {
-  color: var(--christmas-red);
-  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.3);
-}
-
-.subtitle {
-  color: var(--christmas-green);
-  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3);
-}
-
-blockquote {
-  color: var(--christmas-green);
-  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3);
-}
-
-button {
-  border-color: var(--christmas-red);
-  color: var(--christmas-red);
-}
-
-button:hover {
-  background: rgba(255, 0, 0, 0.3);
-}
-
-.card {
-  border-color: var(--christmas-red);
-}
-
-.card::before,
-.card::after {
-  background: linear-gradient(90deg, var(--christmas-red), var(--christmas-green));
-}
-
-footer a {
-  color: var(--christmas-red);
-}
-
-footer a:hover {
-  color: var(--christmas-green);
-}
-
-/* Christmas-themed mobile adjustments */
-@media (max-width: 768px) {
-  .christmas-decorations {
-    top: 5px;
-    left: 5px;
-    right: 5px;
-  }
-  
-  .snowflake {
-    font-size: 1rem;
-  }
-  
-  .christmas-tree {
-    font-size: 1.5rem;
-  }
-  
-  .star {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .christmas-decorations {
-    top: 3px;
-    left: 3px;
-    right: 3px;
-  }
-  
-  .snowflake {
-    font-size: 0.8rem;
-  }
-  
-  .christmas-tree {
-    font-size: 1.2rem;
-  }
-  
-  .star {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 320px) {
-  .christmas-decorations {
-    top: 2px;
-    left: 2px;
-    right: 2px;
-  }
-  
-  .snowflake {
-    font-size: 0.6rem;
-  }
-  
-  .christmas-tree {
-    font-size: 1rem;
-  }
-  
-  .star {
-    font-size: 0.9rem;
-  }
-}
-
 /* Mobile Navigation Enhancements */
 .mobile-nav {
   display: flex;
@@ -571,7 +231,7 @@ footer a:hover {
 .bar {
   width: 25px;
   height: 3px;
-  background-color: var(--egyptian-gold);
+  background-color: var(--christmas-red);
   margin: 3px 0;
   transition: 0.3s;
 }
@@ -588,14 +248,14 @@ footer a:hover {
 }
 
 .nav-link {
-  color: var(--egyptian-gold);
+  color: var(--christmas-red);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 .nav-link:hover {
-  color: var(--egyptian-turquoise);
+  color: var(--christmas-green);
 }
 
 /* Mobile Navigation Toggle */
@@ -630,7 +290,7 @@ footer a:hover {
   }
   
   .nav-link:hover {
-    color: var(--egyptian-gold);
+    color: var(--christmas-red);
   }
 }
 
@@ -645,4 +305,329 @@ footer a:hover {
 
 .nav-toggle.active .bar:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem 1.5rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .container {
+    width: 95%;
+    margin: 0 auto 1.5rem;
+  }
+  
+  .card {
+    padding: 0.8rem 1rem;
+  }
+  
+  blockquote {
+    font-size: 1rem;
+  }
+  
+  footer {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .christmas-decorations {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+  }
+  
+  .snowflake {
+    font-size: 1rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.5rem;
+  }
+  
+  .star {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 2.5rem 0.5rem 1rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+  }
+  
+  .container {
+    width: 100%;
+    margin: 0 auto 1rem;
+  }
+  
+  .card {
+    padding: 0.6rem 0.8rem;
+  }
+  
+  blockquote {
+    font-size: 0.9rem;
+  }
+  
+  footer {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .christmas-decorations {
+    top: 3px;
+    left: 3px;
+    right: 3px;
+  }
+  
+  .snowflake {
+    font-size: 0.8rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.2rem;
+  }
+  
+  .star {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero {
+    padding: 2rem 0.3rem 0.8rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.1rem, 3vw, 2rem);
+  }
+  
+  .container {
+    width: 98%;
+    margin: 0 auto 0.8rem;
+  }
+  
+  .card {
+    padding: 0.5rem 0.6rem;
+  }
+  
+  blockquote {
+    font-size: 0.85rem;
+  }
+  
+  footer {
+    padding: 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .christmas-decorations {
+    top: 2px;
+    left: 2px;
+    right: 2px;
+  }
+  
+  .snowflake {
+    font-size: 0.6rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1rem;
+  }
+  
+  .star {
+    font-size: 0.9rem;
+  }
+}
+
+/* Egyptian-themed enhancements */
+.card {
+  background: linear-gradient(135deg, rgba(17, 26, 43, 0.86), rgba(23, 32, 51, 0.86));
+  border: 2px solid var(--christmas-red);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--christmas-red), var(--christmas-green));
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--christmas-green), var(--christmas-red));
+}
+
+button:hover {
+  background: rgba(255, 0, 0, 0.3);
+  transform: translateY(-2px) rotate(1deg);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+}
+
+.eyebrow {
+  text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+h1 {
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.3), 0 0 15px rgba(255, 0, 0, 0.1);
+}
+
+.subtitle {
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3), 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+blockquote {
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3), 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+footer {
+  border-top: 2px solid var(--christmas-red);
+  background: linear-gradient(135deg, rgba(17, 26, 43, 0.5), rgba(23, 32, 51, 0.5));
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: var(--christmas-green);
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Egyptian-themed background pattern */
+body {
+  background:
+    radial-gradient(90rem 40rem at 10% -5%, #1d2a44 10%, transparent 60%),
+    radial-gradient(90rem 50rem at 100% 0%, #152033 0%, transparent 55%),
+    var(--bg);
+  line-height: 1.6;
+}
+
+/* Egyptian-themed border patterns */
+.card {
+  border-image: linear-gradient(45deg, var(--christmas-red), var(--christmas-green), var(--egyptian-sphinx)) 1;
+}
+
+/* Egyptian-themed text effects */
+.eyebrow {
+  text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+h1 {
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.3), 0 0 15px rgba(255, 0, 0, 0.1);
+}
+
+.subtitle {
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3), 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+blockquote {
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3), 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+/* Egyptian-themed footer */
+footer {
+  border-top: 2px solid var(--christmas-red);
+  background: linear-gradient(135deg, rgba(17, 26, 43, 0.5), rgba(23, 32, 51, 0.5));
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: var(--christmas-green);
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Christmas-themed footer additions */
+.christmas-footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(0, 255, 0, 0.1));
+  border-radius: 0.5rem;
+  border: 2px solid var(--christmas-red);
+}
+
+.christmas-wishes {
+  font-style: italic;
+  color: var(--christmas-green);
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3);
+}
+
+.christmas-bell {
+  font-size: 1.5rem;
+  animation: bellRing 2s ease-in-out infinite;
+}
+
+@keyframes bellRing {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+}
+
+/* Christmas-themed header additions */
+.christmas-header {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(0, 255, 0, 0.1));
+  border-radius: 0.5rem;
+  border: 2px solid var(--christmas-red);
+}
+
+.christmas-greeting {
+  font-size: 1.2rem;
+  color: var(--christmas-red);
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.3);
+}
+
+.christmas-snow {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.christmas-snow .snow {
+  font-size: 1.2rem;
+  animation: snowflakeFall 3s ease-in-out infinite;
+}
+
+/* Additional Christmas-themed animations */
+@keyframes bellRing {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+}
+
+@keyframes christmasGlow {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.2); }
+}
+
+/* Christmas-themed hover effects */
+button:hover {
+  background: rgba(255, 0, 0, 0.3);
+  transform: translateY(-2px) rotate(1deg);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+  animation: christmasGlow 0.5s ease-in-out;
+}
+
+/* Christmas-themed footer hover effects */
+footer a:hover {
+  text-decoration: underline;
+  color: var(--christmas-green);
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  animation: christmasGlow 0.5s ease-in-out;
 }
