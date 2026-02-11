@@ -10,12 +10,17 @@ import Contact from "@/pages/Contact";
 
 const App = () => (
   <ErrorBoundary>
-    <ThemeProvider defaultTheme="light">
+    <ThemeProvider defaultTheme="summer">
       <TooltipProvider>
         <Toaster />
-        <div className="min-h-screen bg-slate-50 text-slate-900">
+        <div className="min-h-screen summer-bg">
           <div className="sun"></div>
           <div className="wave"></div>
+          <div className="summer-header">
+            <div className="text-4xl font-bold summer-text mb-8">
+              Welcome to Summer Mode!
+            </div>
+          </div>
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/about" component={About} />
