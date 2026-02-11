@@ -106,7 +106,7 @@ button:hover {
 }
 
 .card::before {
-  content: '';
+  content: 
   position: absolute;
   top: 0;
   left: 0;
@@ -116,7 +116,7 @@ button:hover {
 }
 
 .card::after {
-  content: '';
+  content: 
   position: absolute;
   bottom: 0;
   left: 0;
@@ -464,7 +464,7 @@ footer a:hover {
 }
 
 .card::before {
-  content: '';
+  content: 
   position: absolute;
   top: 0;
   left: 0;
@@ -474,7 +474,7 @@ footer a:hover {
 }
 
 .card::after {
-  content: '';
+  content: 
   position: absolute;
   bottom: 0;
   left: 0;
