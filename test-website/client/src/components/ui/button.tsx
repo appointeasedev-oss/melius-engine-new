@@ -142,27 +142,33 @@ const mobileButtonStyles = `
     touch-action: manipulation;
     user-select: none;
     -webkit-user-select: none;
+    --border-opacity: 1;
+    --shadow-opacity: 1;
   }
   
   .summer-button:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 
-      0 8px 25px rgba(255, 215, 0, 0.35),
-      0 4px 15px rgba(255, 105, 180, 0.25),
-      0 0 30px rgba(135, 206, 235, 0.2);
+      0 8px 25px rgba(255, 215, 0, 0.35 * var(--shadow-opacity)),
+      0 4px 15px rgba(255, 105, 180, 0.25 * var(--shadow-opacity)),
+      0 0 30px rgba(135, 206, 235, 0.2 * var(--shadow-opacity));
   }
   
   .summer-button:active {
     transform: translateY(0) scale(0.98);
     transition-duration: 0.1s;
+    box-shadow: 
+      0 4px 15px rgba(255, 215, 0, 0.2 * var(--shadow-opacity)),
+      0 2px 8px rgba(255, 105, 180, 0.15 * var(--shadow-opacity)),
+      0 0 20px rgba(135, 206, 235, 0.1 * var(--shadow-opacity));
   }
   
   .summer-button:focus-visible {
     outline: none;
     box-shadow:
-      0 0 0 3px rgba(135, 206, 235, 0.5),
-      0 4px 15px rgba(255, 215, 0, 0.3),
-      0 0 20px rgba(255, 105, 180, 0.2);
+      0 0 0 3px rgba(135, 206, 235, 0.5 * var(--shadow-opacity)),
+      0 4px 15px rgba(255, 215, 0, 0.3 * var(--shadow-opacity)),
+      0 0 20px rgba(255, 105, 180, 0.2 * var(--shadow-opacity));
   }
   
   /* Mobile Touch-Friendly Styles */
@@ -174,6 +180,8 @@ const mobileButtonStyles = `
       font-size: 1rem;
       border-radius: 14px;
       gap: 0.5rem;
+      border-width: 2px;
+      border-color: rgba(135, 206, 235, 1 * var(--border-opacity));
     }
     
     .summer-button.lg,
@@ -182,10 +190,14 @@ const mobileButtonStyles = `
       min-height: 52px;
       font-size: 1.125rem;
       border-radius: 16px;
+      border-width: 2.5px;
+      border-color: rgba(135, 206, 235, 1 * var(--border-opacity));
     }
     
     button {
       min-height: 44px;
+      border-width: 2px;
+      border-color: rgba(135, 206, 235, 1 * var(--border-opacity));
     }
   }
   
@@ -196,6 +208,8 @@ const mobileButtonStyles = `
       min-width: 44px;
       font-size: 0.9375rem;
       border-radius: 12px;
+      border-width: 1.5px;
+      border-color: rgba(135, 206, 235, 1 * var(--border-opacity));
     }
     
     .summer-button.lg,
@@ -204,11 +218,15 @@ const mobileButtonStyles = `
       min-height: 48px;
       font-size: 1rem;
       border-radius: 14px;
+      border-width: 2px;
+      border-color: rgba(135, 206, 235, 1 * var(--border-opacity));
     }
     
     button {
       min-height: 44px;
       font-size: 1rem;
+      border-width: 1.5px;
+      border-color: rgba(135, 206, 235, 1 * var(--border-opacity));
     }
   }
   
@@ -217,16 +235,21 @@ const mobileButtonStyles = `
     .summer-button {
       padding: 0.625rem 1rem;
       font-size: 0.875rem;
+      border-radius: 10px;
+      border-width: 1.5px;
+      border-color: rgba(135, 206, 235, 1 * var(--border-opacity));
     }
   }
   
   /* Touch Device Optimizations */
   @media (hover: none) and (pointer: coarse) {
     .summer-button {
-      -webkit-tap-highlight-color: rgba(255, 215, 0, 0.2);
+      -webkit-tap-highlight-color: rgba(255, 215, 0, 0.2 * var(--shadow-opacity));
       min-height: 48px;
       min-width: 48px;
       padding: 0.875rem 1.5rem;
+      border-width: 2px;
+      border-color: rgba(135, 206, 235, 1 * var(--border-opacity));
     }
     
     .summer-button:hover {
@@ -238,12 +261,18 @@ const mobileButtonStyles = `
       transform: scale(0.96);
       background: linear-gradient(135deg, #FFA500, #FFD700, #FF69B4);
       -webkit-tap-highlight-color: transparent;
+      box-shadow: 
+        0 2px 8px rgba(255, 215, 0, 0.15 * var(--shadow-opacity)),
+        0 1px 4px rgba(255, 105, 180, 0.1 * var(--shadow-opacity)),
+        0 0 10px rgba(135, 206, 235, 0.05 * var(--shadow-opacity));
     }
     
     button,
     [role="button"] {
       min-height: 48px;
       min-width: 48px;
+      border-width: 2px;
+      border-color: rgba(135, 206, 235, 1 * var(--border-opacity));
     }
   }
   
@@ -251,6 +280,8 @@ const mobileButtonStyles = `
   @media (prefers-reduced-motion: reduce) {
     .summer-button {
       transition: none;
+      --shadow-opacity: 0.5;
+      --border-opacity: 0.7;
     }
     
     .summer-button:hover,
@@ -264,6 +295,7 @@ const mobileButtonStyles = `
     .summer-button {
       border-width: 3px;
       border-color: currentColor;
+      --border-opacity: 1;
     }
   }
 `;

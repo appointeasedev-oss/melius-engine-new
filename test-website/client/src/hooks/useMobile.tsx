@@ -25,6 +25,18 @@ export interface UseMobileOptions<T extends boolean | string> {
    * Enable smoother transitions for summer theme animations
    */
   enableSmoothTransitions?: boolean;
+  /**
+   * Adjust font sizes for mobile devices (default: true)
+   */
+  adjustFontSizes?: boolean;
+  /**
+   * Adjust spacing for mobile devices (default: true)
+   */
+  adjustSpacing?: boolean;
+  /**
+   * Adjust touch targets for mobile devices (default: true)
+   */
+  adjustTouchTargets?: boolean;
 }
 
 const MOBILE_BREAKPOINT = 768;
@@ -53,7 +65,10 @@ export function useMobile<T extends boolean | string = boolean>(
     fallback = false as T,
     useUserAgent = false,
     debounceDelay = 100,
-    enableSmoothTransitions = true
+    enableSmoothTransitions = true,
+    adjustFontSizes = true,
+    adjustSpacing = true,
+    adjustTouchTargets = true
   } = options || {};
 
   const [state, setState] = React.useState<T>(fallback);
@@ -101,6 +116,57 @@ export function useMobile<T extends boolean | string = boolean>(
       mql.removeEventListener("change", handleResize);
     };
   }, [breakpoint, getDeviceType, debouncedHandleResize]);
+
+  // Adjust font sizes for mobile devices
+  React.useEffect(() => {
+    if (adjustFontSizes && state) {
+      const elements = document.querySelectorAll(
+        ".summer-text, .summer-button, .summer-badge, .summer-card .text-xl, .summer-card .text-lg"
+      );
+      elements.forEach(element => {
+        const currentFontSize = parseFloat(getComputedStyle(element).fontSize);
+        element.style.fontSize = `${currentFontSize * 0.9}px`;
+      });
+    }
+  }, [state, adjustFontSizes]);
+
+  // Adjust spacing for mobile devices
+  React.useEffect(() => {
+    if (adjustSpacing && state) {
+      const elements = document.querySelectorAll(
+        ".summer-card, .summer-button, .summer-badge, .container"
+      );
+      elements.forEach(element => {
+        const currentPadding = parseFloat(getComputedStyle(element).padding);
+        element.style.padding = `${currentPadding * 0.8}px`;
+      });
+    }
+  }, [state, adjustSpacing]);
+
+  // Adjust touch targets for mobile devices
+  React.useEffect(() => {
+    if (adjustTouchTargets && state) {
+      const elements = document.querySelectorAll(
+        ".summer-button, .summer-badge, .summer-card, button, [role='button']"
+      );
+      elements.forEach(element => {
+        const currentHeight = element.getBoundingClientRect().height;
+        const currentWidth = element.getBoundingClientRect().width;
+        
+        if (currentHeight < 44) {
+          element.style.minHeight = "44px";
+        }
+        if (currentWidth < 44) {
+          element.style.minWidth = "44px";
+        }
+        
+        // Ensure proper touch target spacing
+        if (getComputedStyle(element).display === "inline-block") {
+          element.style.margin = "8px";
+        }
+      });
+    }
+  }, [state, adjustTouchTargets]);
 
   // Smooth transitions for summer theme animations
   React.useEffect(() => {
