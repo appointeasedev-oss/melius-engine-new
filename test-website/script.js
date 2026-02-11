@@ -16,7 +16,69 @@ if (quoteText && quoteButton) {
   });
 }
 
-// Christmas-themed interactive elements
+// Mobile navigation toggle functionality
+const navToggle = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('.nav-menu');
+
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navToggle.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', navToggle.classList.contains('active'));
+  });
+  
+  // Close mobile menu when clicking on a link
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', false);
+    });
+  });
+}
+
+// Christmas countdown timer
+const christmasCountdown = () => {
+  const currentDate = new Date();
+  const christmasDate = new Date(currentDate.getFullYear(), 11, 25);
+  if (currentDate.getMonth() === 11 && currentDate.getDate() > 25) {
+    christmasDate.setFullYear(christmasDate.getFullYear() + 1);
+  }
+  const diffTime = christmasDate - currentDate;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  
+  const countdownElement = document.createElement('div');
+  countdownElement.className = 'christmas-countdown';
+  countdownElement.textContent = `🎄 ${diffDays} days until Christmas! 🎄`;
+  countdownElement.style.position = 'fixed';
+  countdownElement.style.top = '80px';
+  countdownElement.style.left = '50%';
+  countdownElement.style.transform = 'translateX(-50%)';
+  countdownElement.style.fontSize = '16px';
+  countdownElement.style.color = '#ff0000';
+  countdownElement.style.fontWeight = 'bold';
+  countdownElement.style.zIndex = '10001';
+  countdownElement.style.animation = 'greetingFadeIn 3s ease-in-out 2s forwards';
+  document.body.appendChild(countdownElement);
+};
+
+christmasCountdown();
+
+// Enhanced snowfall animation
+const createSnowflake = () => {
+  const snowflake = document.createElement('div');
+  snowflake.className = 'snowflake';
+  snowflake.style.position = 'absolute';
+  snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+  snowflake.style.color = '#ffffff';
+  snowflake.style.opacity = '0.8';
+  snowflake.style.left = Math.random() * 100 + '%';
+  snowflake.style.animation = 'snowflakeFall ' + (5 + Math.random() * 10) + 's linear infinite';
+  snowflake.innerHTML = '❄️';
+  return snowflake;
+};
+
 const snowflakes = [];
 const snowflakeCount = 50;
 const snowContainer = document.createElement('div');
@@ -31,14 +93,7 @@ snowContainer.style.zIndex = '9999';
 document.body.appendChild(snowContainer);
 
 for (let i = 0; i < snowflakeCount; i++) {
-  const snowflake = document.createElement('div');
-  snowflake.className = 'snowflake';
-  snowflake.style.position = 'absolute';
-  snowflake.style.fontSize = '1rem';
-  snowflake.style.color = '#ffffff';
-  snowflake.style.opacity = '0.8';
-  snowflake.style.left = Math.random() * 100 + '%';
-  snowflake.style.animation = 'snowflakeFall ' + (5 + Math.random() * 10) + 's linear infinite';
+  const snowflake = createSnowflake();
   snowflakes.push(snowflake);
   snowContainer.appendChild(snowflake);
 }

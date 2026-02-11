@@ -13,6 +13,9 @@
   --egyptian-sphinx: #8b6914;
   --christmas-red: #ff0000;
   --christmas-green: #00ff00;
+  --christmas-gold: #d4af37;
+  --christmas-white: #ffffff;
+  --christmas-dark-green: #006400;
 }
 
 * {
@@ -450,7 +453,7 @@ footer a:hover {
   }
 }
 
-/* Egyptian-themed enhancements */
+/* Christmas-themed enhancements */
 .card {
   background: linear-gradient(135deg, rgba(17, 26, 43, 0.86), rgba(23, 32, 51, 0.86));
   border: 2px solid var(--christmas-red);
@@ -510,7 +513,7 @@ footer a:hover {
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
 }
 
-/* Egyptian-themed background pattern */
+/* Christmas-themed background pattern */
 body {
   background:
     radial-gradient(90rem 40rem at 10% -5%, #1d2a44 10%, transparent 60%),
@@ -519,12 +522,12 @@ body {
   line-height: 1.6;
 }
 
-/* Egyptian-themed border patterns */
+/* Christmas-themed border patterns */
 .card {
-  border-image: linear-gradient(45deg, var(--christmas-red), var(--christmas-green), var(--egyptian-sphinx)) 1;
+  border-image: linear-gradient(45deg, var(--christmas-red), var(--christmas-green), var(--christmas-gold)) 1;
 }
 
-/* Egyptian-themed text effects */
+/* Christmas-themed text effects */
 .eyebrow {
   text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.2);
 }
@@ -541,10 +544,145 @@ blockquote {
   text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3), 0 0 10px rgba(0, 255, 0, 0.2);
 }
 
-/* Egyptian-themed footer */
+/* Christmas-themed footer */
 footer {
   border-top: 2px solid var(--christmas-red);
   background: linear-gradient(135deg, rgba(17, 26, 43, 0.5), rgba(23, 32, 51, 0.5));
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: var(--christmas-green);
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Christmas-themed footer additions */
+.christmas-footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(0, 255, 0, 0.1));
+  border-radius: 0.5rem;
+  border: 2px solid var(--christmas-red);
+}
+
+.christmas-wishes {
+  font-style: italic;
+  color: var(--christmas-green);
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3);
+}
+
+.christmas-bell {
+  font-size: 1.5rem;
+  animation: bellRing 2s ease-in-out infinite;
+}
+
+@keyframes bellRing {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+}
+
+/* Christmas-themed header additions */
+.christmas-header {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(0, 255, 0, 0.1));
+  border-radius: 0.5rem;
+  border: 2px solid var(--christmas-red);
+}
+
+.christmas-greeting {
+  font-size: 1.2rem;
+  color: var(--christmas-red);
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.3);
+}
+
+.christmas-snow {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.christmas-snow .snow {
+  font-size: 1.2rem;
+  animation: snowflakeFall 3s ease-in-out infinite;
+}
+
+/* Additional Christmas-themed animations */
+@keyframes bellRing {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+}
+
+@keyframes christmasGlow {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.2); }
+}
+
+/* Christmas-themed hover effects */
+button:hover {
+  background: rgba(255, 0, 0, 0.3);
+  transform: translateY(-2px) rotate(1deg);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+  animation: christmasGlow 0.5s ease-in-out;
+}
+
+/* Christmas-themed footer hover effects */
+footer a:hover {
+  text-decoration: underline;
+  color: var(--christmas-green);
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  animation: christmasGlow 0.5s ease-in-out;
+}
+
+/* Christmas-themed text effects */
+.eyebrow {
+  color: var(--christmas-red);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+h1 {
+  margin: 0.5rem 0 0.75rem;
+  font-size: clamp(2rem, 7vw, 4rem);
+  color: var(--christmas-red);
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.3), 0 0 15px rgba(255, 0, 0, 0.1);
+}
+
+.subtitle {
+  margin: 0 auto;
+  max-width: 44rem;
+  color: var(--christmas-green);
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3), 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+blockquote {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--christmas-green);
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3), 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+/* Christmas-themed footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  padding: 1.2rem;
+  border-top: 2px solid var(--christmas-red);
+  background: linear-gradient(135deg, rgba(17, 26, 43, 0.5), rgba(23, 32, 51, 0.5));
+}
+
+footer a {
+  color: var(--christmas-red);
+  text-decoration: none;
 }
 
 footer a:hover {
