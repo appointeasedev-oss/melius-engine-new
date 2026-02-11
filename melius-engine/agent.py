@@ -199,7 +199,10 @@ Do NOT return prose outside JSON.
                             self.write_file(file_path, fixed_content)
                     
                     if verification.get("pending"):
-                        self.log_event("to-do", {{"file": file_path, "pending": verification["pending"]}})
+                        self.log_event("to-do", {
+    "file": file_path,
+    "pending": verification["pending"]
+})
 
 if __name__ == "__main__":
     engine = MeliusEngine()
