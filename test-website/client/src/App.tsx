@@ -32,6 +32,43 @@ const App = () => (
               </div>
             </div>
           </div>
+          <div className="container mx-auto px-4 py-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="summer-card p-6">
+                <div className="summer-text text-2xl font-bold mb-4">
+                  ☀️ Sunny Vibes
+                </div>
+                <p className="text-lg text-muted-foreground mb-4">
+                  Feel the warmth and energy of summer with our vibrant theme.
+                </p>
+                <button className="summer-button px-6 py-3">
+                  Explore More
+                </button>
+              </div>
+              <div className="summer-card p-6">
+                <div className="summer-text text-2xl font-bold mb-4">
+                  🌊 Ocean Breeze
+                </div>
+                <p className="text-lg text-muted-foreground mb-4">
+                  Cool off with refreshing ocean-inspired colors and animations.
+                </p>
+                <button className="summer-button px-6 py-3">
+                  Dive In
+                </button>
+              </div>
+              <div className="summer-card p-6">
+                <div className="summer-text text-2xl font-bold mb-4">
+                  🌴 Tropical Paradise
+                </div>
+                <p className="text-lg text-muted-foreground mb-4">
+                  Escape to a tropical paradise with lush greens and sunny yellows.
+                </p>
+                <button className="summer-button px-6 py-3">
+                  Get Started
+                </button>
+              </div>
+            </div>
+          </div>
           <Switch>
             <Route path="/" component={Home} />
             <Route path="/about" component={About} />

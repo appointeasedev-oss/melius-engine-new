@@ -19,6 +19,8 @@ const badgeVariants = cva(
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
         christmas:
           "christmas-badge",
+        summer:
+          "summer-badge",
       },
     },
     defaultVariants: {

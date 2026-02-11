@@ -22,6 +22,11 @@ export const SUMMER_COLORS = {
   orange: "#FFA500",
   blue: "#87CEEB",
   green: "#98FB98",
+  coral: "#FF6B6B",
+  teal: "#4ECDC4",
+  sunset: "#FF6B35",
+  ocean: "#2E86AB",
+  palm: "#29B463",
 };
 
 export const SUMMER_ANIMATIONS = {
