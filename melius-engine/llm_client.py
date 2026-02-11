@@ -13,7 +13,6 @@ class LLMClient:
         self.api_keys = [k for k in self.api_keys if k]
         # Updated models list based on user request
         self.models = [
-            "openrouter/pony-alpha",
             "arcee-ai/trinity-large-preview:free",
             "liquid/lfm-2.5-1.2b-thinking:free",
             "tngtech/tng-r1t-chimera:free",
