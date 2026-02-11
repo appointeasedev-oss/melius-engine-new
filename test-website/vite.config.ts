@@ -5,7 +5,6 @@ import fs from "node:fs";
 import path from "node:path";
 import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
-import { visualizer } from "rollup-plugin-visualizer";
 
 // =============================================================================
 // Manus Debug Collector - Vite Plugin
@@ -160,13 +159,7 @@ const plugins = [
 ];
 
 export default defineConfig({
-  plugins: [
-    ...plugins,
-    process.env.ANALYZE_BUNDLE && visualizer({
-      filename: './dist/stats.html',
-      sourcemap: true,
-    }),
-  ],
+  plugins,
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
