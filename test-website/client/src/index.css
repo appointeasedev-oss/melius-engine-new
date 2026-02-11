@@ -8,17 +8,21 @@
   --summer-green: #98FB98;
   --sun-color: #FFD700;
   --wave-color: #4682B4;
+  --summer-pink: #FF69B4;
+  --summer-purple: #9370DB;
 }
 
-/* Summer Background Pattern */
+/* Enhanced Summer Background Pattern */
 .summer-bg {
   background-image: 
     radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(135, 206, 235, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(152, 251, 152, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 40% 20%, rgba(152, 251, 152, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 60% 60%, rgba(255, 105, 180, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 10% 90%, rgba(147, 112, 219, 0.05) 0%, transparent 50%);
 }
 
-/* Sun Rays Animation */
+/* Enhanced Sun Rays Animation */
 .sun {
   position: fixed;
   top: 10px;
@@ -31,9 +35,9 @@
 .sun::before {
   content: "\2600";
   color: var(--sun-color);
-  font-size: 3rem;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-  animation: pulse 2s infinite;
+  font-size: 3.5rem;
+  text-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
+  animation: pulse 2s infinite, float 3s ease-in-out infinite;
 }
 
 @keyframes pulse {
@@ -42,30 +46,58 @@
     opacity: 1;
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.2);
     opacity: 0.8;
   }
 }
 
-/* Summer Button Variants */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Enhanced Summer Button Variants */
 .summer-button {
-  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange));
+  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange), var(--summer-pink));
   border: 2px solid var(--summer-blue);
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 105, 180, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.summer-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.summer-button:hover::before {
+  left: 100%;
 }
 
 .summer-button:hover {
-  background: linear-gradient(135deg, var(--summer-orange), var(--summer-yellow));
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(135, 206, 235, 0.3);
+  background: linear-gradient(135deg, var(--summer-orange), var(--summer-yellow), var(--summer-pink));
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(135, 206, 235, 0.3), 0 0 25px rgba(255, 105, 180, 0.3);
 }
 
-/* Summer Card Variants */
+/* Enhanced Summer Card Variants */
 .summer-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(152, 251, 152, 0.05));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(152, 251, 152, 0.05), rgba(255, 105, 180, 0.02));
   border: 2px solid var(--summer-blue);
-  box-shadow: 0 8px 32px rgba(135, 206, 235, 0.1);
+  box-shadow: 0 8px 32px rgba(135, 206, 235, 0.1), 0 0 30px rgba(255, 105, 180, 0.1);
   backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
 }
 
 .summer-card::before {
@@ -82,27 +114,61 @@
       transparent 10px,
       rgba(152, 251, 152, 0.05) 10px,
       rgba(152, 251, 152, 0.05) 20px
-    );
+    ),
+    radial-gradient(circle at 50% 50%, rgba(255, 105, 180, 0.1) 0%, transparent 50%);
   pointer-events: none;
 }
 
-/* Summer Badge Variants */
+.summer-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+  transition: left 0.8s;
+}
+
+.summer-card:hover::after {
+  left: 100%;
+}
+
+/* Enhanced Summer Badge Variants */
 .summer-badge {
-  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange));
+  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange), var(--summer-pink));
   color: white;
   border: 1px solid var(--summer-blue);
-  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3), 0 0 10px rgba(255, 105, 180, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.summer-badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+}
+
+.summer-badge:hover::before {
+  transform: translateX(100%);
 }
 
 .summer-badge:hover {
-  background: linear-gradient(135deg, var(--summer-orange), var(--summer-yellow));
-  transform: translateY(-1px);
-  box-shadow: 0 3px 12px rgba(135, 206, 235, 0.3);
+  background: linear-gradient(135deg, var(--summer-orange), var(--summer-yellow), var(--summer-pink));
+  transform: translateY(-2px);
+  box-shadow: 0 3px 12px rgba(135, 206, 235, 0.3), 0 0 15px rgba(255, 105, 180, 0.3);
 }
 
-/* Summer Header Styles */
+/* Enhanced Summer Header Styles */
 .summer-header {
-  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange), var(--summer-blue));
+  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange), var(--summer-blue), var(--summer-pink), var(--summer-purple));
   color: white;
   position: relative;
   overflow: hidden;
@@ -123,7 +189,7 @@
     rgba(152, 251, 152, 0.3) 40px
   );
   pointer-events: none;
-  animation: shimmer 3s infinite;
+  animation: shimmer 3s infinite, float 4s ease-in-out infinite;
 }
 
 @keyframes shimmer {
@@ -138,27 +204,36 @@
   }
 }
 
-/* Summer Text Effects */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Enhanced Summer Text Effects */
 .summer-text {
-  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange), var(--summer-blue));
+  background: linear-gradient(135deg, var(--summer-yellow), var(--summer-orange), var(--summer-blue), var(--summer-pink), var(--summer-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 105, 180, 0.3);
 }
 
-/* Summer Border Glow */
+/* Enhanced Summer Border Glow */
 .summer-border {
   border: 2px solid var(--summer-blue);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 15px rgba(255, 105, 180, 0.2);
 }
 
-/* Summer Shadow Effects */
+/* Enhanced Summer Shadow Effects */
 .summer-shadow {
-  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2), 0 4px 15px rgba(135, 206, 235, 0.1);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2), 0 4px 15px rgba(135, 206, 235, 0.1), 0 0 20px rgba(255, 105, 180, 0.1);
 }
 
-/* Wave Animation */
+/* Enhanced Wave Animation */
 .wave {
   position: fixed;
   bottom: 0;
@@ -182,12 +257,12 @@
 
 .wave::before {
   bottom: 0;
-  animation: wave 6s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  animation: wave 6s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite, float 5s ease-in-out infinite;
 }
 
 .wave::after {
   bottom: 0;
-  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite, float 5s ease-in-out infinite;
   animation-delay: -2s;
 }
 
@@ -200,5 +275,145 @@
   }
   100% {
     transform: translateX(-50%) translateZ(0) scaleY(1);
+  }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .sun {
+    top: 5px;
+    right: 5px;
+  }
+  
+  .sun::before {
+    font-size: 2.5rem;
+  }
+  
+  .wave {
+    height: 60px;
+  }
+  
+  .summer-header {
+    padding: 1rem;
+  }
+  
+  .summer-header .text-4xl {
+    font-size: 2rem;
+  }
+  
+  .summer-header .text-2xl {
+    font-size: 1.25rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .summer-card {
+    padding: 1rem;
+  }
+  
+  .summer-card .text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .summer-card .text-lg {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sun {
+    top: 3px;
+    right: 3px;
+  }
+  
+  .sun::before {
+    font-size: 2rem;
+  }
+  
+  .wave {
+    height: 40px;
+  }
+  
+  .summer-header {
+    padding: 0.75rem;
+  }
+  
+  .summer-header .text-4xl {
+    font-size: 1.5rem;
+  }
+  
+  .summer-header .text-2xl {
+    font-size: 1rem;
+  }
+  
+  .summer-card {
+    padding: 0.75rem;
+  }
+  
+  .summer-card .text-2xl {
+    font-size: 1.25rem;
+  }
+  
+  .summer-card .text-lg {
+    font-size: 0.875rem;
+  }
+}
+
+/* Fluid Typography */
+@media (min-width: 768px) {
+  .summer-header .text-4xl {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+  
+  .summer-header .text-2xl {
+    font-size: clamp(1rem, 3vw, 2rem);
+  }
+  
+  .summer-card .text-2xl {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+  }
+  
+  .summer-card .text-lg {
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+  }
+}
+
+/* Touch-Friendly Mobile Styles */
+@media (hover: none) and (pointer: coarse) {
+  .summer-button:hover,
+  .summer-badge:hover {
+    transform: none;
+  }
+  
+  .summer-button:active,
+  .summer-badge:active {
+    transform: scale(0.98);
+  }
+  
+  .summer-card:hover::after {
+    left: -100%;
+  }
+  
+  .summer-card:active::after {
+    left: 100%;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .sun,
+  .summer-header::before,
+  .wave::before,
+  .wave::after,
+  .summer-card::after,
+  .summer-badge::before {
+    animation: none;
+  }
+  
+  .summer-button::before {
+    display: none;
   }
 }

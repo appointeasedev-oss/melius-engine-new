@@ -17,6 +17,14 @@ export interface UseMobileOptions<T extends boolean | string> {
    * When true, performs user agent detection in addition to viewport check
    */
   useUserAgent?: boolean;
+  /**
+   * Debounce delay for resize events (default: 100ms)
+   */
+  debounceDelay?: number;
+  /**
+   * Enable smoother transitions for summer theme animations
+   */
+  enableSmoothTransitions?: boolean;
 }
 
 const MOBILE_BREAKPOINT = 768;
@@ -31,7 +39,7 @@ const MOBILE_USER_AGENTS = [
 ];
 
 /**
- * Enhanced mobile detection hook with TypeScript generics
+ * Enhanced mobile detection hook with TypeScript generics and summer theme optimizations
  * @template T - Return type (boolean by default)
  * @param options - Customization options
  * @returns Device detection result
@@ -43,10 +51,20 @@ export function useMobile<T extends boolean | string = boolean>(
     breakpoint = MOBILE_BREAKPOINT,
     detectDevice,
     fallback = false as T,
-    useUserAgent = false
+    useUserAgent = false,
+    debounceDelay = 100,
+    enableSmoothTransitions = true
   } = options || {};
 
   const [state, setState] = React.useState<T>(fallback);
+
+  // Debounced resize handler for better performance
+  const debouncedHandleResize = React.useCallback(
+    debounce((handleResize: () => void) => {
+      handleResize();
+    }, debounceDelay),
+    [debounceDelay]
+  );
 
   const isMobileViewport = React.useCallback(() => {
     return window.innerWidth < breakpoint;
@@ -68,7 +86,9 @@ export function useMobile<T extends boolean | string = boolean>(
 
   React.useEffect(() => {
     const handleResize = () => {
-      setState(getDeviceType());
+      debouncedHandleResize(() => {
+        setState(getDeviceType());
+      });
     };
 
     // Initial detection
@@ -80,7 +100,38 @@ export function useMobile<T extends boolean | string = boolean>(
     return () => {
       mql.removeEventListener("change", handleResize);
     };
-  }, [breakpoint, getDeviceType]);
+  }, [breakpoint, getDeviceType, debouncedHandleResize]);
+
+  // Smooth transitions for summer theme animations
+  React.useEffect(() => {
+    if (enableSmoothTransitions) {
+      const elements = document.querySelectorAll(
+        ".summer-button, .summer-card, .summer-badge, .summer-header"
+      );
+      elements.forEach(element => {
+        element.style.transition = "all 0.3s ease-in-out";
+      });
+    }
+  }, [enableSmoothTransitions]);
 
   return state;
+}
+
+/**
+ * Simple debounce utility for better resize performance
+ */
+function debounce<T extends (...args: any[]) => any>(
+  func: T,
+  wait: number
+) {
+  let timeout: number;
+  return (...args: Parameters<T>): ReturnType<T> => {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait) as any;
+    return func(...args);
+  };
 }
