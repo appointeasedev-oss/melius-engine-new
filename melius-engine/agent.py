@@ -1,13 +1,14 @@
 import os
 import json
 import glob
+import shutil
 from llm_client import LLMClient
 from sole import SoleManager
 
 class MeliusEngine:
     def __init__(self):
-        self.client = LLMClient()
         self.root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        self.client = LLMClient(self.root_dir)
         self.exclude_dirs = ["melius-engine", ".git", "history", "log", "to-do", "error", ".github"]
         self.sole_manager = SoleManager(self.root_dir)
         self.read_files_cache = {}
@@ -22,7 +23,6 @@ class MeliusEngine:
         return all_files
 
     def read_file(self, file_path):
-        # Prevent redundant reading by using a cache
         if file_path in self.read_files_cache:
             return self.read_files_cache[file_path]
             
@@ -38,17 +38,22 @@ class MeliusEngine:
         return None
 
     def write_file(self, file_path, content):
-        # RESTRICTION: Do not modify build files or dependencies
+        # RESTRICTION: Only modify UI files. Do not touch build/dependency files.
         restricted_files = ["vercel.json", "package.json", "pnpm-lock.yaml", "package-lock.json", "vite.config.ts", "tsconfig.json"]
         if os.path.basename(file_path) in restricted_files:
             print(f"Modification restricted: {file_path}")
+            return False
+
+        # Ensure it's a UI related file (tsx, css, html, etc.)
+        ui_extensions = [".tsx", ".css", ".html", ".js", ".ts", ".jsx"]
+        if not any(file_path.endswith(ext) for ext in ui_extensions):
+            print(f"Modification restricted (Not UI): {file_path}")
             return False
 
         full_path = os.path.join(self.root_dir, file_path)
         os.makedirs(os.path.dirname(full_path), exist_ok=True)
         with open(full_path, "w", encoding="utf-8") as f:
             f.write(content)
-        # Update cache after write
         self.read_files_cache[file_path] = content
         return True
 
@@ -64,19 +69,14 @@ class MeliusEngine:
     def run(self):
         event = self.sole_manager.get_event()
         
-        # If event is empty but something was expected, or if specific "no change" logic is needed
-        # User: "if in it no chnage written ai doo nothing and clean all logs and reset system"
-        # I interpret "no change" as event being empty or a specific flag.
-        if event == "":
-            # "if its blank AI just change theam as per what it want or cuureent upcomming event"
-            # So if blank, it still does something. 
-            # "if in it no chnage written ai doo nothing and clean all logs and reset system"
-            # This implies if the user explicitly says "no change" or similar. 
-            # Let's check for a specific "no change" value.
-            pass
-        
+        # Reset logic: "if in it no chnage written ai doo nothing and clean all logs and reset system"
         if event.lower() == "no change":
-            self.sole_manager.reset_system()
+            print("Resetting system as requested...")
+            for d in ["log", "error", "to-do", "history"]:
+                dir_path = os.path.join(self.root_dir, d)
+                if os.path.exists(dir_path):
+                    shutil.rmtree(dir_path)
+                os.makedirs(dir_path, exist_ok=True)
             return
 
         # 1. Check for existing state
@@ -100,7 +100,7 @@ class MeliusEngine:
         # 2. Initial Analysis & Planning
         prompt = f"""
         You are Melius Engine, an autonomous AI agent. 
-        Current Event/Request: {event if event else "Blank (Suggest a theme based on upcoming season/events)"}
+        Current Event/Request from event.json: {event if event else "Blank (Suggest a theme based on upcoming season/events)"}
         
         Repository files: {all_files}
         Existing To-Dos: {existing_todos}
@@ -110,20 +110,12 @@ class MeliusEngine:
         1. You can ONLY modify UI-related files (CSS, TSX components, basic UI theme).
         2. DO NOT modify build files, configurations, or dependencies (vercel.json, package.json, vite.config.ts, etc.).
         3. Do not ask to re-read files if they are already in the context.
+        4. Focus exclusively on UI theme changes based on the event: {event}.
         
-        Analyze the project and suggest UI/Theme improvements based on the event. 
+        Analyze the project and suggest UI/Theme improvements. 
         If you need to read specific files, list them in "files_to_read".
         
         CRITICAL: Your response must be a valid JSON object.
-        
-        Example format:
-        {{
-            "analysis": "...",
-            "files_to_read": ["test-website/client/src/index.css"],
-            "improvements": [
-                {{"file": "test-website/client/src/index.css", "description": "Update colors for Christmas theme"}}
-            ]
-        }}
         """
         
         plan = self.client.chat(prompt)

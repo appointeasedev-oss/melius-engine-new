@@ -2,10 +2,11 @@ import os
 import json
 import requests
 import time
-from datetime import datetime
+import glob
 
 class LLMClient:
-    def __init__(self):
+    def __init__(self, root_dir):
+        self.root_dir = root_dir
         self.api_keys = [
             os.getenv(f"OPENROUTER_API_KEY_{i}") for i in range(1, 6)
         ]
@@ -19,13 +20,14 @@ class LLMClient:
             "qwen/qwen3-coder:free",
             "nousresearch/hermes-3-llama-3.1-405b:free"
         ]
-        # Use a new history file for every session to avoid confusion
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.history_file = f"history/chat_history_{timestamp}.json"
+        # Use numbered history files to avoid confusion
+        history_dir = os.path.join(self.root_dir, "history")
+        os.makedirs(history_dir, exist_ok=True)
+        count = len(glob.glob(f"{history_dir}/*.json")) + 1
+        self.history_file = os.path.join(history_dir, f"{count}.json")
         self.history = []
 
     def save_history(self):
-        os.makedirs(os.path.dirname(self.history_file), exist_ok=True)
         with open(self.history_file, "w") as f:
             json.dump(self.history, f, indent=2)
 
@@ -75,7 +77,6 @@ class LLMClient:
         
         # Fallback for testing environment if no API keys are provided
         if not self.api_keys:
-             # Return a mock response for testing if no keys are found
              mock_response = {"analysis": "Mock analysis", "files_to_read": [], "improvements": []}
              self.history.append({"role": "assistant", "content": json.dumps(mock_response)})
              self.save_history()
