@@ -32,26 +32,27 @@ export default function Home() {
       <main>
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24">
-          <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-blue-100/60 p-8 shadow-sm sm:p-14">
+          <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-white via-slate-50 to-blue-100/60 p-8 shadow-sm sm:p-14 summer-bg">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_60%)]" />
+            <div className="sun"></div>
 
             <div className="relative">
-              <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-blue-700">
+              <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-blue-700 summer-badge">
                 Autonomous Dev Assistant
               </p>
 
-              <h1 className="max-w-3xl text-3xl font-bold leading-tight sm:text-5xl">
+              <h1 className="max-w-3xl text-3xl font-bold leading-tight sm:text-5xl summer-text">
                 Continuously improve your codebase — automatically.
               </h1>
 
-              <p className="mt-6 max-w-2xl text-base text-slate-600 sm:text-lg">
+              <p className="mt-6 max-w-2xl text-base text-slate-600 sm:text-lg summer-text">
                 Melius Engine analyzes your repository, applies high-impact fixes,
                 and verifies every change through a clean, autonomous workflow.
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link href="/contact">
-                  <a className="inline-flex items-center justify-center rounded-full bg-slate-900 px-7 py-3 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5">
+                  <a className="inline-flex items-center justify-center rounded-full summer-button px-7 py-3 text-sm font-semibold text-white transition-all hover:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5">
                     Start now
                   </a>
                 </Link>
@@ -88,12 +89,12 @@ export default function Home() {
             ].map((item) => (
               <article
                 key={item.title}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+                className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md summer-card"
               >
                 <div className="mb-4 text-3xl transition-transform group-hover:scale-110">
                   {item.icon}
                 </div>
-                <h2 className="text-lg font-semibold">{item.title}</h2>
+                <h2 className="text-lg font-semibold summer-text">{item.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">
                   {item.text}
                 </p>

@@ -20,6 +20,17 @@ const App = () => (
             <div className="text-4xl font-bold summer-text mb-8">
               Welcome to Summer Mode!
             </div>
+            <div className="summer-text text-2xl mb-4">
+              Enjoy the vibrant summer vibes with warm colors and animations
+            </div>
+            <div className="flex gap-4">
+              <div className="summer-badge">
+                Sun: {new Date().toLocaleTimeString()}
+              </div>
+              <div className="summer-badge">
+                Temp: 75°F
+              </div>
+            </div>
           </div>
           <Switch>
             <Route path="/" component={Home} />
