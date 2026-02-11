@@ -1,37 +1,58 @@
+import { Link } from "wouter";
+
+const navLinkClass =
+  "rounded-full px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900";
+
 export default function About() {
   return (
-    <div className="min-h-screen bg-white">
-      <nav className="border-b border-gray-200 sticky top-0 bg-white/95 backdrop-blur">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold text-gray-900">Melius Engine</div>
-          <div className="text-sm text-gray-600">About Us</div>
+    <div className="min-h-screen">
+      <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/90 backdrop-blur-xl">
+        <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
+          <Link href="/">
+            <a className="text-lg font-bold tracking-tight text-slate-900 sm:text-xl">Melius Engine</a>
+          </Link>
+          <nav className="flex items-center gap-2">
+            <Link href="/">
+              <a className={navLinkClass}>Home</a>
+            </Link>
+            <Link href="/contact">
+              <a className={navLinkClass}>Contact</a>
+            </Link>
+          </nav>
         </div>
-      </nav>
+      </header>
 
-      <section className="max-w-4xl mx-auto px-6 py-20">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">About Melius Engine</h1>
-        <div className="prose prose-lg text-gray-600 mx-auto">
-          <p className="mb-6">
-            Melius Engine was created with a simple goal: to make code improvement autonomous and effortless. 
-            By leveraging the power of modern LLMs, we provide a system that works around the clock to ensure your 
-            codebase stays clean, efficient, and up-to-date.
+      <main className="mx-auto max-w-5xl px-4 py-14 sm:px-6 sm:py-20">
+        <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12">
+          <p className="mb-4 inline-flex rounded-full border border-violet-100 bg-violet-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-violet-700">
+            About the product
           </p>
-          <p className="mb-6">
-            Our engine is designed to be non-intrusive, focusing on meaningful improvements while respecting your 
-            project's architecture and constraints. With the latest update, we've introduced event-driven UI 
-            modifications, allowing your application to adapt to seasonal events like Christmas or Diwali automatically.
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Built for continuous improvement</h1>
+          <p className="mt-5 text-base leading-relaxed text-slate-600 sm:text-lg">
+            Melius Engine helps teams keep their UI and workflows clean by continuously detecting opportunities,
+            applying refinements, and validating outcomes in an automated loop.
           </p>
-          <h2 className="text-2xl font-bold text-gray-900 mt-12 mb-4">Our Vision</h2>
-          <p>
-            We believe in a future where AI and developers work in harmony. Melius Engine handles the repetitive 
-            tasks of refactoring and UI polishing, freeing up developers to focus on building innovative features.
-          </p>
-        </div>
-      </section>
 
-      <footer className="border-t border-gray-200 bg-gray-50 py-8">
-        <div className="max-w-6xl mx-auto px-6 text-center text-gray-600 text-sm">
-          <p>Melius Engine • Autonomous Code Improvement System</p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <h2 className="text-base font-semibold text-slate-900">Mission</h2>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                Reduce repetitive maintenance work so developers can focus on product quality and user value.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <h2 className="text-base font-semibold text-slate-900">Approach</h2>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                AI-assisted, event-driven updates with guardrails to keep modifications targeted and safe.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-6 text-center text-sm text-slate-500 sm:px-6">
+          Melius Engine • Autonomous code quality partner
         </div>
       </footer>
     </div>
