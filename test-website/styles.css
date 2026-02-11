@@ -397,3 +397,252 @@ footer a:hover {
   color: var(--egyptian-turquoise);
   text-shadow: 0 0 5px rgba(0, 206, 209, 0.5);
 }
+
+/* Christmas-themed additions */
+.christmas-decorations {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+.snowflake {
+  font-size: 1.5rem;
+  animation: snowflakeFall 3s ease-in-out infinite;
+}
+
+@keyframes snowflakeFall {
+  0% { transform: translateY(-20px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(20px); opacity: 0; }
+}
+
+.christmas-tree {
+  font-size: 2rem;
+  animation: treeGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes treeGlow {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.2); }
+}
+
+.star {
+  font-size: 1.8rem;
+  animation: starPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes starPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Christmas-themed color adjustments */
+:root {
+  --christmas-red: #ff0000;
+  --christmas-green: #00ff00;
+}
+
+.eyebrow {
+  color: var(--christmas-red);
+}
+
+h1 {
+  color: var(--christmas-red);
+  text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.3);
+}
+
+.subtitle {
+  color: var(--christmas-green);
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3);
+}
+
+blockquote {
+  color: var(--christmas-green);
+  text-shadow: 1px 1px 2px rgba(0, 255, 0, 0.3);
+}
+
+button {
+  border-color: var(--christmas-red);
+  color: var(--christmas-red);
+}
+
+button:hover {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+.card {
+  border-color: var(--christmas-red);
+}
+
+.card::before,
+.card::after {
+  background: linear-gradient(90deg, var(--christmas-red), var(--christmas-green));
+}
+
+footer a {
+  color: var(--christmas-red);
+}
+
+footer a:hover {
+  color: var(--christmas-green);
+}
+
+/* Christmas-themed mobile adjustments */
+@media (max-width: 768px) {
+  .christmas-decorations {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+  }
+  
+  .snowflake {
+    font-size: 1rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.5rem;
+  }
+  
+  .star {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .christmas-decorations {
+    top: 3px;
+    left: 3px;
+    right: 3px;
+  }
+  
+  .snowflake {
+    font-size: 0.8rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1.2rem;
+  }
+  
+  .star {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .christmas-decorations {
+    top: 2px;
+    left: 2px;
+    right: 2px;
+  }
+  
+  .snowflake {
+    font-size: 0.6rem;
+  }
+  
+  .christmas-tree {
+    font-size: 1rem;
+  }
+  
+  .star {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Navigation Enhancements */
+.mobile-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--egyptian-gold);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin-left: 1.5rem;
+}
+
+.nav-link {
+  color: var(--egyptian-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--egyptian-turquoise);
+}
+
+/* Mobile Navigation Toggle */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: absolute;
+    left: -100%;
+    top: 100%;
+    flex-direction: column;
+    background-color: var(--surface);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .nav-item {
+    margin: 1rem 0;
+  }
+  
+  .nav-link {
+    color: var(--text);
+  }
+  
+  .nav-link:hover {
+    color: var(--egyptian-gold);
+  }
+}
+
+/* Mobile Navigation Animation */
+.nav-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}

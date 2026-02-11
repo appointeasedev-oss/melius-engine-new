@@ -15,24 +15,24 @@
   </head>
   <body>
     <header class="hero" id="top">
-      <nav class="mobile-nav">
-        <div class="nav-toggle" id="mobile-menu">
+      <nav class="mobile-nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-toggle" id="mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
         </div>
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <a href="#top" class="nav-link">Home</a>
+        <ul class="nav-menu" role="menu" aria-label="Navigation links">
+          <li class="nav-item" role="none">
+            <a href="#top" class="nav-link" role="menuitem" tabindex="-1">Home</a>
           </li>
-          <li class="nav-item">
-            <a href="#who-was-title" class="nav-link">About</a>
+          <li class="nav-item" role="none">
+            <a href="#who-was-title" class="nav-link" role="menuitem" tabindex="-1">About</a>
           </li>
-          <li class="nav-item">
-            <a href="#reflection-title" class="nav-link">Reflection</a>
+          <li class="nav-item" role="none">
+            <a href="#reflection-title" class="nav-link" role="menuitem" tabindex="-1">Reflection</a>
           </li>
-          <li class="nav-item">
-            <a href="#philosopher-king-title" class="nav-link">Why Philosopher King</a>
+          <li class="nav-item" role="none">
+            <a href="#philosopher-king-title" class="nav-link" role="menuitem" tabindex="-1">Why Philosopher King</a>
           </li>
         </ul>
       </nav>
@@ -46,6 +46,17 @@
         <div class="snowflake">❄️</div>
         <div class="christmas-tree">🎄</div>
         <div class="star">⭐</div>
+      </div>
+      <!-- Christmas-themed header additions -->
+      <div class="christmas-header">
+        <div class="christmas-greeting">Merry Christmas from Marcus Aurelius</div>
+        <div class="christmas-snow">
+          <div class="snow">❄️</div>
+          <div class="snow">❄️</div>
+          <div class="snow">❄️</div>
+          <div class="snow">❄️</div>
+          <div class="snow">❄️</div>
+        </div>
       </div>
     </header>
 
@@ -80,6 +91,11 @@
     <footer role="contentinfo">
       <p>Simple HTML + CSS + JavaScript tribute page.</p>
       <a href="#top">Back to top ↑</a>
+      <!-- Christmas-themed footer additions -->
+      <div class="christmas-footer">
+        <div class="christmas-wishes">Wishing you a Stoic Christmas and a Reflective New Year</div>
+        <div class="christmas-bell">🔔</div>
+      </div>
     </footer>
 
     <script src="script.js"></script>
