@@ -308,6 +308,188 @@ footer a:hover {
   }
 }
 
+/* Mobile-specific responsive design */
+@media (max-width: 375px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .nav-link {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .card {
+    padding: 12px;
+  }
+  
+  .card h2 {
+    font-size: 1.5rem;
+  }
+  
+  #quote-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  
+  #quote-text {
+    font-size: 1rem;
+    padding: 15px;
+  }
+  
+  .timeline::before {
+    left: 5px;
+  }
+  
+  .timeline li::before {
+    left: -14px;
+  }
+}
+
+/* Tablet-specific responsive design */
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .card {
+    padding: 18px;
+  }
+  
+  .card h2 {
+    font-size: 1.8rem;
+  }
+  
+  #quote-btn {
+    padding: 14px 25px;
+    font-size: 0.95rem;
+  }
+  
+  #quote-text {
+    font-size: 1.1rem;
+    padding: 18px;
+  }
+}
+
+/* Desktop-specific responsive design */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+  
+  .container {
+    padding: 30px;
+  }
+  
+  .card {
+    padding: 25px;
+  }
+  
+  #quote-btn {
+    padding: 16px 28px;
+    font-size: 1.05rem;
+  }
+}
+
+/* Large desktop responsive design */
+@media (min-width: 1025px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+  
+  .container {
+    padding: 40px;
+  }
+  
+  .card {
+    padding: 35px;
+  }
+  
+  #quote-btn {
+    padding: 18px 32px;
+    font-size: 1.1rem;
+  }
+  
+  #quote-text {
+    font-size: 1.3rem;
+    padding: 25px;
+  }
+}
+
+/* Landscape mobile responsive design */
+@media (max-width: 767px) and (orientation: landscape) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .nav-link {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .card {
+    padding: 10px;
+  }
+  
+  .card h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Portrait tablet responsive design */
+@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+  
+  .card h2 {
+    font-size: 1.7rem;
+  }
+}
+
+/* Enhanced touch interactions for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  #quote-btn {
+    min-height: 44px;
+    min-width: 120px;
+  }
+  
+  .back-to-top {
+    min-height: 44px;
+  }
+  
+  .card {
+    margin: 15px 0;
+  }
+}
+
+/* Improved button focus states for accessibility */
+.nav-link:focus,
+#quote-btn:focus,
+.back-to-top:focus {
+  outline: 3px solid var(--hieroglyph-gold);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--sand-light);
+}
+
 /* Egyptian-themed header additions */
 .egyptian-header {
   position: absolute;
