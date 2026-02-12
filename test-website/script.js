@@ -201,3 +201,94 @@ window.addEventListener('scroll', () => {
     // Scroll-related operations can go here
   }, 100);
 });
+
+// Enhanced mobile menu with improved accessibility
+const mobileNav = document.querySelector('.mobile-nav');
+mobileNav.setAttribute('aria-label', 'Main navigation menu');
+
+// Enhanced focus management for better accessibility
+const focusableElements = navMenu.querySelectorAll('a, button, input, select, textarea');
+focusableElements.forEach(element => {
+  element.addEventListener('focus', () => {
+    element.style.outline = '2px solid var(--hieroglyph-gold)';
+    element.style.outlineOffset = '2px';
+  });
+  
+  element.addEventListener('blur', () => {
+    element.style.outline = 'none';
+  });
+});
+
+// Enhanced keyboard navigation support
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+    closeMenu();
+  }
+});
+
+// Enhanced loading state with better UX
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.style.opacity = '0';
+  setTimeout(() => {
+    document.body.style.transition = 'opacity 0.5s';
+    document.body.style.opacity = '1';
+  }, 100);
+});
+
+// Enhanced button interactions with better feedback
+const allButtons = document.querySelectorAll('button, [role="button"]');
+allButtons.forEach(button => {
+  button.addEventListener('mouseenter', () => {
+    button.style.transform = 'scale(1.05)';
+    button.style.transition = 'transform 0.2s';
+  });
+  
+  button.addEventListener('mouseleave', () => {
+    button.style.transform = 'scale(1)';
+  });
+  
+  button.addEventListener('click', () => {
+    button.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      button.style.transform = 'scale(1)';
+    }, 100);
+  });
+});
+
+// Enhanced touch support for mobile devices
+document.addEventListener('touchstart', (event) => {
+  if (event.target.closest('.nav-link')) {
+    event.target.closest('.nav-link').style.opacity = '0.7';
+  }
+});
+
+document.addEventListener('touchend', (event) => {
+  if (event.target.closest('.nav-link')) {
+    event.target.closest('.nav-link').style.opacity = '1';
+  }
+});
+
+// Enhanced console error handling for better debugging
+window.addEventListener('error', (event) => {
+  console.error('JavaScript error:', event.error);
+});
+
+// Enhanced performance optimization: Debounce scroll events
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    // Scroll-related operations can go here
+  }, 100);
+});
+
+// Enhanced mobile menu auto-close on window resize with debounce
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+      closeMenu();
+    }
+  }, 250);
+});
