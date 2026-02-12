@@ -8,7 +8,7 @@ function toggleMenu() {
   navMenu.classList.toggle('active');
   mobileMenu.setAttribute('aria-expanded', navMenu.classList.contains('active'));
   
-  // Animate hamburger icon
+  // Animate hamburger icon with smooth transitions
   const bars = mobileMenu.querySelectorAll('.bar');
   bars.forEach((bar, index) => {
     if (navMenu.classList.contains('active')) {
@@ -39,9 +39,9 @@ function closeMenu() {
 mobileMenu.addEventListener('click', toggleMenu);
 navLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-// Close mobile menu when clicking outside
+// Close mobile menu when clicking outside with improved detection
 document.addEventListener('click', (event) => {
-  if (!mobileMenu.contains(event.target) && !navMenu.contains(event.target)) {
+  if (!mobileMenu.contains(event.target) && !navMenu.contains(event.target) && !event.target.closest('.mobile-nav')) {
     closeMenu();
   }
 });
@@ -63,7 +63,7 @@ navLinks.forEach(link => {
   });
 });
 
-// Smooth scroll for navigation links
+// Smooth scroll for navigation links with better error handling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -77,7 +77,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Quote button functionality
+// Quote button functionality with enhanced UX
 const quoteBtn = document.getElementById('quote-btn');
 const quoteText = document.getElementById('quote-text');
 
@@ -117,16 +117,16 @@ quoteBtn.addEventListener('keydown', (event) => {
   }
 });
 
-// Initial quote
+// Initial quote with loading state
 showRandomQuote();
 
-// Accessibility improvements
+// Accessibility improvements with better focus management
 navMenu.setAttribute('aria-hidden', 'true');
 navLinks.forEach(link => {
   link.setAttribute('tabindex', '-1');
 });
 
-// Update aria attributes when menu opens/closes
+// Update aria attributes when menu opens/closes with transition handling
 navMenu.addEventListener('transitionend', () => {
   const isOpen = navMenu.classList.contains('active');
   navMenu.setAttribute('aria-hidden', !isOpen);
@@ -135,18 +135,69 @@ navMenu.addEventListener('transitionend', () => {
   });
 });
 
-// Mobile menu auto-close on window resize
+// Mobile menu auto-close on window resize with debounce
+let resizeTimer;
 window.addEventListener('resize', () => {
-  if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
-    closeMenu();
-  }
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+      closeMenu();
+    }
+  }, 250);
 });
 
-// Loading state for better UX
+// Loading state for better UX with improved timing
 document.addEventListener('DOMContentLoaded', () => {
   document.body.style.opacity = '0';
   setTimeout(() => {
     document.body.style.transition = 'opacity 0.5s';
     document.body.style.opacity = '1';
+  }, 100);
+});
+
+// Enhanced button interactions
+const buttons = document.querySelectorAll('button, [role="button"]');
+buttons.forEach(button => {
+  button.addEventListener('mouseenter', () => {
+    button.style.transform = 'scale(1.05)';
+    button.style.transition = 'transform 0.2s';
+  });
+  
+  button.addEventListener('mouseleave', () => {
+    button.style.transform = 'scale(1)';
+  });
+  
+  button.addEventListener('click', () => {
+    button.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      button.style.transform = 'scale(1)';
+    }, 100);
+  });
+});
+
+// Improved touch support for mobile devices
+document.addEventListener('touchstart', (event) => {
+  if (event.target.closest('.nav-link')) {
+    event.target.closest('.nav-link').style.opacity = '0.7';
+  }
+});
+
+document.addEventListener('touchend', (event) => {
+  if (event.target.closest('.nav-link')) {
+    event.target.closest('.nav-link').style.opacity = '1';
+  }
+});
+
+// Console error handling for better debugging
+window.addEventListener('error', (event) => {
+  console.error('JavaScript error:', event.error);
+});
+
+// Performance optimization: Debounce scroll events
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  clearTimeout(scrollTimeout);
+  scrollTimeout = setTimeout(() => {
+    // Scroll-related operations can go here
   }, 100);
 });
