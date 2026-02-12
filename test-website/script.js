@@ -1,1 +1,1 @@
-Enhanced mobile menu interactions implemented with smooth transitions.
+Added responsive mobile menu toggle for navigation. Hamburger icon enables collapse from desktop view.
