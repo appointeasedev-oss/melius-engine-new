@@ -346,3 +346,152 @@ if (document.readyState === 'loading') {
 } else {
   improveMobileAccessibility();
 }
+
+// Enhanced mobile menu with smooth transitions
+const enhanceMobileMenu = () => {
+  // Add smooth transition to nav menu
+  const navMenu = document.querySelector('.nav-menu');
+  if (navMenu) {
+    navMenu.style.transition = 'all 0.3s ease';
+    navMenu.style.opacity = '0';
+    navMenu.style.transform = 'translateX(-100%)';
+  }
+  
+  // Add smooth transition to nav toggle
+  const navToggle = document.getElementById('mobile-menu');
+  if (navToggle) {
+    navToggle.style.transition = 'all 0.3s ease';
+  }
+  
+  // Add smooth transition to bars
+  const bars = document.querySelectorAll('.bar');
+  bars.forEach(bar => {
+    bar.style.transition = 'all 0.3s ease';
+  });
+  
+  // Add smooth transition to nav links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.style.transition = 'all 0.3s ease';
+  });
+};
+
+// Initialize enhanced mobile menu after DOM is loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', enhanceMobileMenu);
+} else {
+  enhanceMobileMenu();
+}
+
+// Add smooth transitions to mobile menu
+const addMobileMenuTransitions = () => {
+  const navMenu = document.querySelector('.nav-menu');
+  const navToggle = document.getElementById('mobile-menu');
+  const bars = document.querySelectorAll('.bar');
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  if (navMenu && navToggle) {
+    // Add transition styles
+    navMenu.style.transition = 'all 0.3s ease';
+    navToggle.style.transition = 'all 0.3s ease';
+    bars.forEach(bar => {
+      bar.style.transition = 'all 0.3s ease';
+    });
+    navLinks.forEach(link => {
+      link.style.transition = 'all 0.3s ease';
+    });
+    
+    // Add animation when menu is active
+    if (navMenu.classList.contains('active')) {
+      navMenu.style.opacity = '1';
+      navMenu.style.transform = 'translateX(0)';
+    }
+  }
+};
+
+// Call the function to add transitions
+addMobileMenuTransitions();
+
+// Add smooth transitions to mobile menu on resize
+window.addEventListener('resize', () => {
+  addMobileMenuTransitions();
+});
+
+// Add smooth transitions to mobile menu on orientation change
+window.addEventListener('orientationchange', () => {
+  addMobileMenuTransitions();
+});
+
+// Add smooth transitions to mobile menu on DOM changes
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      addMobileMenuTransitions();
+    }
+  });
+});
+
+observer.observe(document.body, {
+  attributes: true,
+  childList: false,
+  subtree: false
+});
+
+// Add smooth transitions to mobile menu on click
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('nav-toggle') || e.target.classList.contains('nav-link')) {
+    addMobileMenuTransitions();
+  }
+});
+
+// Add smooth transitions to mobile menu on keydown
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' || e.key === 'Enter') {
+    addMobileMenuTransitions();
+  }
+});
+
+// Add smooth transitions to mobile menu on touchstart
+document.addEventListener('touchstart', (e) => {
+  if (e.target.classList.contains('nav-toggle') || e.target.classList.contains('nav-link')) {
+    addMobileMenuTransitions();
+  }
+});
+
+// Add smooth transitions to mobile menu on touchend
+document.addEventListener('touchend', (e) => {
+  if (e.target.classList.contains('nav-toggle') || e.target.classList.contains('nav-link')) {
+    addMobileMenuTransitions();
+  }
+});
+
+// Add smooth transitions to mobile menu on touchmove
+document.addEventListener('touchmove', (e) => {
+  if (e.target.classList.contains('nav-toggle') || e.target.classList.contains('nav-link')) {
+    addMobileMenuTransitions();
+  }
+});
+
+// Add smooth transitions to mobile menu on scroll
+document.addEventListener('scroll', () => {
+  addMobileMenuTransitions();
+});
+
+// Add smooth transitions to mobile menu on wheel
+document.addEventListener('wheel', () => {
+  addMobileMenuTransitions();
+});
+
+// Add smooth transitions to mobile menu on mousewheel
+document.addEventListener('mousewheel', () => {
+  addMobileMenuTransitions();
+});
+
+// Add smooth transitions to mobile menu on DOMContentLoaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    addMobileMenuTransitions();
+  });
+} else {
+  addMobileMenuTransitions();
+}
