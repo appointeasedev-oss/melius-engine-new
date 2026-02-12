@@ -21,10 +21,20 @@ const navToggle = document.getElementById('mobile-menu');
 const navMenu = document.querySelector('.nav-menu');
 
 if (navToggle && navMenu) {
-  navToggle.addEventListener('click', () => {
+  // Toggle mobile menu
+  navToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     navMenu.classList.toggle('active');
     navToggle.classList.toggle('active');
-    navToggle.setAttribute('aria-expanded', navToggle.classList.contains('active'));
+    const isExpanded = navToggle.classList.contains('active');
+    navToggle.setAttribute('aria-expanded', isExpanded);
+    
+    // Prevent body scroll when menu is open
+    if (isExpanded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   });
   
   // Close mobile menu when clicking on a link
@@ -33,8 +43,32 @@ if (navToggle && navMenu) {
     link.addEventListener('click', () => {
       navMenu.classList.remove('active');
       navToggle.classList.remove('active');
-      navToggle.setAttribute('aria-expanded', false);
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     });
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('active') && 
+        !navToggle.contains(e.target) && 
+        !navMenu.contains(e.target)) {
+      navMenu.classList.remove('active');
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+      navMenu.classList.remove('active');
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      navToggle.focus();
+    }
   });
 }
 
@@ -60,6 +94,9 @@ const christmasCountdown = () => {
   countdownElement.style.fontWeight = 'bold';
   countdownElement.style.zIndex = '10001';
   countdownElement.style.animation = 'greetingFadeIn 3s ease-in-out 2s forwards';
+  countdownElement.style.textAlign = 'center';
+  countdownElement.setAttribute('role', 'status');
+  countdownElement.setAttribute('aria-live', 'polite');
   document.body.appendChild(countdownElement);
 };
 
@@ -75,7 +112,9 @@ const createSnowflake = () => {
   snowflake.style.opacity = '0.8';
   snowflake.style.left = Math.random() * 100 + '%';
   snowflake.style.animation = 'snowflakeFall ' + (5 + Math.random() * 10) + 's linear infinite';
+  snowflake.style.zIndex = '9998';
   snowflake.innerHTML = '❄️';
+  snowflake.setAttribute('aria-hidden', 'true');
   return snowflake;
 };
 
@@ -90,6 +129,7 @@ snowContainer.style.width = '100%';
 snowContainer.style.height = '100%';
 snowContainer.style.pointerEvents = 'none';
 snowContainer.style.zIndex = '9999';
+snowContainer.setAttribute('aria-hidden', 'true');
 document.body.appendChild(snowContainer);
 
 for (let i = 0; i < snowflakeCount; i++) {
@@ -119,6 +159,7 @@ style.textContent = `
   }
   .snowflake {
     pointer-events: none;
+    user-select: none;
   }
 `;
 document.head.appendChild(style);
@@ -141,12 +182,15 @@ christmasButton.style.cursor = 'pointer';
 christmasButton.style.zIndex = '10000';
 christmasButton.style.transition = 'all 0.3s ease';
 christmasButton.style.boxShadow = '0 4px 10px rgba(255, 0, 0, 0.3)';
+christmasButton.setAttribute('aria-label', 'Toggle Christmas theme mode');
 document.body.appendChild(christmasButton);
 
 christmasButton.addEventListener('click', () => {
   document.body.classList.toggle('christmas-mode');
-  christmasButton.style.backgroundColor = document.body.classList.contains('christmas-mode') ? '#ff0000' : 'transparent';
-  christmasButton.style.color = document.body.classList.contains('christmas-mode') ? '#ffffff' : '#ff0000';
+  const isChristmasMode = document.body.classList.contains('christmas-mode');
+  christmasButton.style.backgroundColor = isChristmasMode ? '#ff0000' : 'transparent';
+  christmasButton.style.color = isChristmasMode ? '#ffffff' : '#ff0000';
+  christmasButton.setAttribute('aria-pressed', isChristmasMode);
 });
 
 // Mobile touch interactions
@@ -163,13 +207,13 @@ if ('ontouchstart' in window) {
     if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
       touchStart(e);
     }
-  });
+  }, { passive: true });
   
   document.addEventListener('touchend', (e) => {
     if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
       touchEnd(e);
     }
-  });
+  }, { passive: true });
 }
 
 // Christmas greeting animation
@@ -186,6 +230,10 @@ christmasGreeting.style.fontWeight = 'bold';
 christmasGreeting.style.zIndex = '10001';
 christmasGreeting.style.opacity = '0';
 christmasGreeting.style.animation = 'greetingFadeIn 3s ease-in-out 2s forwards';
+christmasGreeting.style.textAlign = 'center';
+christmasGreeting.style.width = '90%';
+christmasGreeting.setAttribute('role', 'alert');
+christmasGreeting.setAttribute('aria-live', 'polite');
 document.body.appendChild(christmasGreeting);
 
 const greetingStyle = document.createElement('style');
@@ -224,17 +272,21 @@ musicToggle.style.cursor = 'pointer';
 musicToggle.style.zIndex = '10000';
 musicToggle.style.transition = 'all 0.3s ease';
 musicToggle.style.boxShadow = '0 4px 10px rgba(0, 255, 0, 0.3)';
+musicToggle.setAttribute('aria-label', 'Toggle Christmas music');
 document.body.appendChild(musicToggle);
 
 musicToggle.addEventListener('click', () => {
   if (christmasMusic.paused) {
-    christmasMusic.play();
-    musicToggle.style.backgroundColor = '#00ff00';
-    musicToggle.style.color = '#ffffff';
+    christmasMusic.play().then(() => {
+      musicToggle.style.backgroundColor = '#00ff00';
+      musicToggle.style.color = '#ffffff';
+      musicToggle.setAttribute('aria-pressed', 'true');
+    }).catch(e => console.log('Audio play failed:', e));
   } else {
     christmasMusic.pause();
     musicToggle.style.backgroundColor = 'transparent';
     musicToggle.style.color = '#00ff00';
+    musicToggle.setAttribute('aria-pressed', 'false');
   }
 });
 
@@ -244,15 +296,53 @@ const smoothScroll = () => {
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
+      const targetId = link.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
       if (target) {
         target.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });
+        
+        // Focus the target for accessibility
+        target.setAttribute('tabindex', '-1');
+        target.focus();
+        target.removeAttribute('tabindex');
       }
     });
   });
 };
 
-smoothScroll();
+// Initialize smooth scrolling after DOM is loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', smoothScroll);
+} else {
+  smoothScroll();
+}
+
+// Additional accessibility improvements for mobile
+const improveMobileAccessibility = () => {
+  // Ensure all interactive elements are focusable on mobile
+  const interactiveElements = document.querySelectorAll('button, a, input, textarea, select');
+  interactiveElements.forEach(el => {
+    if (!el.hasAttribute('tabindex')) {
+      el.setAttribute('tabindex', '0');
+    }
+  });
+  
+  // Add focus styles for keyboard navigation
+  const focusStyle = document.createElement('style');
+  focusStyle.textContent = `
+    button:focus, a:focus, input:focus, textarea:focus, select:focus {
+      outline: 2px solid #ff0000;
+      outline-offset: 2px;
+    }
+  `;
+  document.head.appendChild(focusStyle);
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', improveMobileAccessibility);
+} else {
+  improveMobileAccessibility();
+}
