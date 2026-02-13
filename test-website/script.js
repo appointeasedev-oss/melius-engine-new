@@ -94,7 +94,7 @@ let currentQuoteIndex = 0;
 function showRandomQuote() {
   let newIndex;
   do {
-    newIndex = Math.floor(Math.random() * quotes.length);
+    newIndex = Math.floor(random() * quotes.length);
   } while (newIndex === currentQuoteIndex);
   
   currentQuoteIndex = newIndex;
@@ -292,3 +292,8 @@ window.addEventListener('resize', () => {
     }
   }, 250);
 });
+
+// Helper function for random number generation
+function random() {
+  return Math.random();
+}
