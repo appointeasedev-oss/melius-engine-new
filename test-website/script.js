@@ -667,3 +667,201 @@ quoteBtn.addEventListener('keydown', function(event) {
 
 // Add initial quote with loading state
 showRandomQuote();
+
+// Additional animations for black hole-related elements
+function animateBlackHoleElements() {
+  const blackHoleElements = document.querySelectorAll('.black-hole-decorations .event-horizon, .black-hole-decorations .accretion-disk, .black-hole-decorations .stellar-remnant');
+  
+  blackHoleElements.forEach((element, index) => {
+    element.style.animationDelay = `${index * 0.5}s`;
+  });
+}
+
+function animateBlackHoleIcons() {
+  const blackHoleIcons = document.querySelectorAll('.black-hole-icon');
+  
+  blackHoleIcons.forEach((icon, index) => {
+    icon.style.animationDelay = `${index * 0.2}s`;
+  });
+}
+
+function animateBlackHoleCore() {
+  const blackHoleCore = document.querySelector('.black-hole-core');
+  const accretionDisk = document.querySelector('.accretion-disk-animation');
+  
+  if (blackHoleCore) {
+    blackHoleCore.style.animation = 'pulse 4s ease-in-out infinite';
+    blackHoleCore.style.animationDelay = '0s';
+  }
+  
+  if (accretionDisk) {
+    accretionDisk.style.animation = 'spin 6s linear infinite';
+    accretionDisk.style.animationDelay = '2s';
+  }
+}
+
+// Enhanced hover effects for interactive elements
+function enhanceHoverEffects() {
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  
+  interactiveElements.forEach(element => {
+    element.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-3px)';
+      this.style.boxShadow = '0 8px 25px rgba(255, 107, 107, 0.4)';
+    });
+    
+    element.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0)';
+      this.style.boxShadow = '0 4px 15px rgba(255, 107, 107, 0.2)';
+    });
+  });
+}
+
+// Enhanced click effects for interactive elements
+function enhanceClickEffects() {
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  
+  interactiveElements.forEach(element => {
+    element.addEventListener('click', function() {
+      this.style.transform = 'translateY(2px)';
+      setTimeout(() => {
+        this.style.transform = 'translateY(0)';
+      }, 100);
+    });
+  });
+}
+
+// Enhanced keyboard navigation for accessibility
+function enhanceKeyboardNavigation() {
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  
+  interactiveElements.forEach(element => {
+    element.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        this.click();
+      }
+    });
+  });
+}
+
+// Enhanced touch interactions for mobile devices
+function enhanceTouchInteractions() {
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  
+  interactiveElements.forEach(element => {
+    element.addEventListener('touchstart', function() {
+      this.style.transform = 'translateY(2px)';
+    });
+    
+    element.addEventListener('touchend', function() {
+      this.style.transform = 'translateY(0)';
+    });
+  });
+}
+
+// Enhanced parallax effect for black hole elements
+function enhanceParallaxEffect() {
+  const parallaxElements = document.querySelectorAll('.parallax__layer');
+  
+  window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    
+    parallaxElements.forEach((layer, index) => {
+      const speed = index * 0.5;
+      layer.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+  });
+}
+
+// Enhanced animations for black hole-related elements
+document.addEventListener('DOMContentLoaded', function() {
+  animateBlackHoleElements();
+  animateBlackHoleIcons();
+  animateBlackHoleCore();
+  enhanceHoverEffects();
+  enhanceClickEffects();
+  enhanceKeyboardNavigation();
+  enhanceTouchInteractions();
+  enhanceParallaxEffect();
+});
+
+// Enhanced performance optimization
+function optimizePerformance() {
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  
+  interactiveElements.forEach(element => {
+    element.addEventListener('click', function() {
+      // Debounce click events to prevent rapid firing
+      clearTimeout(this.clickTimeout);
+      this.clickTimeout = setTimeout(() => {
+        // Handle click event
+      }, 200);
+    });
+  });
+}
+
+// Enhanced error handling
+function handleErrors() {
+  try {
+    // Initialize black hole animations
+    animateBlackHoleElements();
+    animateBlackHoleIcons();
+    animateBlackHoleCore();
+    enhanceHoverEffects();
+    enhanceClickEffects();
+    enhanceKeyboardNavigation();
+    enhanceTouchInteractions();
+    enhanceParallaxEffect();
+  } catch (error) {
+    console.error('Error initializing black hole animations:', error);
+  }
+}
+
+// Enhanced logging for debugging
+function logEvents() {
+  console.log('Black hole animations initialized successfully');
+  console.log('Enhanced hover effects applied');
+  console.log('Enhanced click effects applied');
+  console.log('Enhanced keyboard navigation applied');
+  console.log('Enhanced touch interactions applied');
+  console.log('Enhanced parallax effect applied');
+}
+
+// Enhanced initialization
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    // Initialize black hole animations
+    animateBlackHoleElements();
+    animateBlackHoleIcons();
+    animateBlackHoleCore();
+    enhanceHoverEffects();
+    enhanceClickEffects();
+    enhanceKeyboardNavigation();
+    enhanceTouchInteractions();
+    enhanceParallaxEffect();
+    
+    // Optimize performance
+    optimizePerformance();
+    
+    // Log events for debugging
+    logEvents();
+  } catch (error) {
+    console.error('Error initializing black hole animations:', error);
+  }
+});
+
+// Enhanced cleanup on page unload
+window.addEventListener('beforeunload', function() {
+  // Clean up event listeners
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  
+  interactiveElements.forEach(element => {
+    element.removeEventListener('mouseenter', enhanceHoverEffects);
+    element.removeEventListener('mouseleave', enhanceHoverEffects);
+    element.removeEventListener('click', enhanceClickEffects);
+    element.removeEventListener('keydown', enhanceKeyboardNavigation);
+    element.removeEventListener('touchstart', enhanceTouchInteractions);
+    element.removeEventListener('touchend', enhanceTouchInteractions);
+  });
+});

@@ -393,324 +393,141 @@ footer a:hover {
   animation-delay: 10s;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  
-  .card {
-    padding: 20px;
-  }
-  
-  .timeline::before {
-    left: 10px;
-  }
-  
-  .timeline li::before {
-    left: -19px;
-  }
+/* Slide container styling */
+.slide-container {
+  background: rgba(10, 10, 10, 0.95);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+  border: 2px solid var(--quasar-yellow);
 }
 
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  
-  .subtitle {
-    font-size: 1rem;
-  }
-  
-  .nav-link {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-  }
-  
-  .card {
-    padding: 15px;
-  }
-  
-  .card h2 {
-    font-size: 1.5rem;
-  }
-  
-  #quote-btn {
-    padding: 12px 20px;
-    font-size: 0.9rem;
-  }
-  
-  #quote-text {
-    font-size: 1rem;
-    padding: 15px;
-  }
-  
-  .timeline::before {
-    left: 5px;
-  }
-  
-  .timeline li::before {
-    left: -14px;
-  }
+.slide-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: linear-gradient(135deg, var(--stellar-blue) 0%, var(--event-horizon) 100%);
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-  
-  .card {
-    padding: 18px;
-  }
-  
-  .card h2 {
-    font-size: 1.8rem;
-  }
-  
-  #quote-btn {
-    padding: 14px 25px;
-    font-size: 0.95rem;
-  }
-  
-  #quote-text {
-    font-size: 1.1rem;
-    padding: 18px;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero h1 {
-    font-size: 3rem;
-  }
-  
-  .container {
-    padding: 30px;
-  }
-  
-  .card {
-    padding: 25px;
-  }
-  
-  #quote-btn {
-    padding: 16px 28px;
-    font-size: 1.05rem;
-  }
-}
-
-@media (min-width: 1025px) {
-  .hero h1 {
-    font-size: 4rem;
-  }
-  
-  .container {
-    padding: 40px;
-  }
-  
-  .card {
-    padding: 35px;
-  }
-  
-  #quote-btn {
-    padding: 18px 32px;
-    font-size: 1.1rem;
-  }
-  
-  #quote-text {
-    font-size: 1.3rem;
-    padding: 25px;
-  }
-}
-
-/* Landscape mobile responsive design */
-@media (max-width: 767px) and (orientation: landscape) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  
-  .subtitle {
-    font-size: 1rem;
-  }
-  
-  .nav-link {
-    padding: 6px 12px;
-    font-size: 0.85rem;
-  }
-  
-  .card {
-    padding: 10px;
-  }
-  
-  .card h2 {
-    font-size: 1.4rem;
-  }
-}
-
-/* Portrait tablet responsive design */
-@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
-  .hero h1 {
-    font-size: 2.3rem;
-  }
-  
-  .card {
-    padding: 20px;
-  }
-  
-  .card h2 {
-    font-size: 1.7rem;
-  }
-}
-
-/* Enhanced touch interactions for mobile devices */
-@media (hover: none) and (pointer: coarse) {
-  .nav-link {
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-  }
-  
-  #quote-btn {
-    min-height: 44px;
-    min-width: 120px;
-  }
-  
-  .back-to-top {
-    min-height: 44px;
-  }
-  
-  .card {
-    margin: 15px 0;
-  }
-}
-
-/* Improved button focus states for accessibility */
-.nav-link:focus,
-#quote-btn:focus,
-.back-to-top:focus {
-  outline: 3px solid var(--quasar-yellow);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 2px var(--event-horizon);
-}
-
-/* Print styles */
-@media print {
-  .mobile-nav,
-  #quote-btn,
-  .black-hole-decorations,
-  .black-hole-header,
-  .black-hole-footer {
-    display: none;
-  }
-  
-  body {
-    background: white;
-    color: black;
-  }
-  
-  .card {
-    box-shadow: none;
-    border: 1px solid #ccc;
-  }
-}
-
-/* Button styling */
-button {
+.slide-btn {
   background: var(--quasar-yellow);
   color: var(--black-hole-dark);
   border: none;
-  padding: 12px 24px;
-  font-size: 1rem;
+  padding: 10px 15px;
+  font-size: 1.2rem;
   cursor: pointer;
   border-radius: 5px;
-  margin: 10px 5px;
   transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
   box-shadow: 0 0 10px var(--quasar-yellow);
 }
 
-button:hover {
+.slide-btn:hover {
   background: var(--accretion-orange);
   color: var(--stellar-white);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 
-button:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.2);
-}
-
-button:focus {
-  outline: 2px solid var(--quasar-yellow);
-  outline-offset: 2px;
-}
-
-/* Action buttons styling */
-.action-btn {
-  background: var(--quasar-yellow);
-  color: var(--black-hole-dark);
-  border: none;
-  padding: 12px 24px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 10px 5px;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
-  box-shadow: 0 0 10px var(--quasar-yellow);
-}
-
-.action-btn:hover {
-  background: var(--accretion-orange);
+.slide-indicator {
   color: var(--stellar-white);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-}
-
-.action-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.2);
-}
-
-.action-btn:focus {
-  outline: 2px solid var(--quasar-yellow);
-  outline-offset: 2px;
-}
-
-/* Contact buttons styling */
-.contact-btn {
-  background: var(--quasar-yellow);
-  color: var(--black-hole-dark);
-  border: none;
-  padding: 12px 24px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 10px 5px;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   font-weight: bold;
-  box-shadow: 0 0 10px var(--quasar-yellow);
 }
 
-.contact-btn:hover {
-  background: var(--accretion-orange);
+.slide-content {
+  padding: 30px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--black-hole-dark) 0%, var(--event-horizon) 100%);
+}
+
+.slide {
+  text-align: center;
   color: var(--stellar-white);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 
-.contact-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.2);
+.slide h3 {
+  color: var(--quasar-yellow);
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px var(--quasar-yellow);
 }
 
-.contact-btn:focus {
-  outline: 2px solid var(--quasar-yellow);
-  outline-offset: 2px;
+.slide p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.slide-image {
+  font-size: 3rem;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+/* Planet grid styling */
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.planet {
+  background: rgba(10, 10, 10, 0.95);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid var(--quasar-yellow);
+  background-image: var(--black-hole-pattern-4);
+  background-size: 100px 100px;
+}
+
+.planet:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+  border-color: var(--accretion-orange);
+}
+
+.planet-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: rotate 5s linear infinite;
+}
+
+.planet h3 {
+  color: var(--quasar-yellow);
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.planet-info {
+  color: var(--stellar-white);
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.planet-details {
+  background: rgba(10, 10, 10, 0.95);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  border: 2px solid var(--quasar-yellow);
+  background-image: var(--black-hole-pattern-3);
+  background-size: 150px 150px;
+  transition: opacity 0.5s ease;
+}
+
+.planet-details h3 {
+  color: var(--quasar-yellow);
+  margin-bottom: 10px;
+}
+
+.planet-details p {
+  color: var(--stellar-white);
+  line-height: 1.6;
 }
 
 /* Booking buttons styling */
@@ -789,503 +606,207 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* Back to top button styling */
-.back-to-top {
-  display: inline-block;
-  background: var(--quasar-yellow);
-  color: var(--black-hole-dark);
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  margin-top: 20px;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 10px var(--quasar-yellow);
+/* Responsive design for slides and planets */
+@media (max-width: 768px) {
+  .slide-container {
+    margin: 0 -20px;
+    border-radius: 0;
+  }
+  
+  .slide-navigation {
+    padding: 10px;
+  }
+  
+  .slide-content {
+    padding: 20px;
+  }
+  
+  .planet-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  
+  .planet {
+    padding: 15px;
+  }
+  
+  .planet-icon {
+    font-size: 2.5rem;
+  }
 }
 
-.back-to-top:hover {
-  background: var(--accretion-orange);
-  color: var(--stellar-white);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-}
-
-.back-to-top:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.2);
-}
-
-.back-to-top:focus {
-  outline: 2px solid var(--quasar-yellow);
-  outline-offset: 2px;
-}
-
-/* Button group styling */
-.button-group {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.button-group button {
-  flex: 1;
-  min-width: 120px;
-}
-
-/* Mobile button styling */
 @media (max-width: 480px) {
-  button {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+  .slide-container {
+    margin: 0 -15px;
+    border-radius: 0;
   }
   
-  .action-btn,
-  .contact-btn {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+  .slide-navigation {
+    padding: 8px;
   }
   
-  .booking-buttons button,
-  .contact-buttons button {
-    padding: 12px 24px;
+  .slide-btn {
+    padding: 8px 12px;
     font-size: 1rem;
   }
   
-  .back-to-top {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Tablet button styling */
-@media (min-width: 481px) and (max-width: 768px) {
-  button {
-    padding: 11px 22px;
-    font-size: 0.95rem;
+  .slide-content {
+    padding: 15px;
   }
   
-  .action-btn,
-  .contact-btn {
-    padding: 11px 22px;
-    font-size: 0.95rem;
-  }
-  
-  .booking-buttons button,
-  .contact-buttons button {
-    padding: 14px 28px;
-    font-size: 1.05rem;
-  }
-  
-  .back-to-top {
-    padding: 9px 18px;
-    font-size: 0.95rem;
-  }
-}
-
-/* Desktop button styling */
-@media (min-width: 769px) and (max-width: 1024px) {
-  button {
-    padding: 13px 26px;
-    font-size: 1.05rem;
-  }
-  
-  .action-btn,
-  .contact-btn {
-    padding: 13px 26px;
-    font-size: 1.05rem;
-  }
-  
-  .booking-buttons button,
-  .contact-buttons button {
-    padding: 16px 32px;
-    font-size: 1.1rem;
-  }
-  
-  .back-to-top {
-    padding: 11px 22px;
-    font-size: 1.05rem;
-  }
-}
-
-/* Large desktop button styling */
-@media (min-width: 1025px) {
-  button {
-    padding: 14px 28px;
-    font-size: 1.1rem;
-  }
-  
-  .action-btn,
-  .contact-btn {
-    padding: 14px 28px;
-    font-size: 1.1rem;
-  }
-  
-  .booking-buttons button,
-  .contact-buttons button {
-    padding: 18px 36px;
+  .slide h3 {
     font-size: 1.2rem;
   }
   
-  .back-to-top {
-    padding: 12px 24px;
-    font-size: 1.1rem;
+  .planet-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+  
+  .planet {
+    padding: 12px;
+  }
+  
+  .planet-icon {
+    font-size: 2rem;
+  }
+  
+  .planet h3 {
+    font-size: 1rem;
+  }
+  
+  .planet-info {
+    font-size: 0.8rem;
   }
 }
 
-/* Black Hole-themed icons and graphics */
-.black-hole-icon {
-  font-size: 1.5rem;
-  margin: 0 5px;
-  animation: rotate 3s linear infinite;
-}
-
-.black-hole-icon:nth-child(1) {
+/* Animation delays for slide navigation */
+.prev-slide {
   animation-delay: 0s;
 }
 
-.black-hole-icon:nth-child(2) {
+.next-slide {
+  animation-delay: 0.2s;
+}
+
+/* Animation delays for planet grid */
+.planet:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.planet:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.planet:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.planet:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.planet:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.planet:nth-child(6) {
   animation-delay: 0.5s;
 }
 
-.black-hole-icon:nth-child(3) {
-  animation-delay: 1s;
+.planet:nth-child(7) {
+  animation-delay: 0.6s;
 }
 
-.black-hole-icon:nth-child(4) {
-  animation-delay: 1.5s;
+.planet:nth-child(8) {
+  animation-delay: 0.7s;
 }
 
-.black-hole-icon:nth-child(5) {
-  animation-delay: 2s;
+/* Enhanced hover effects for slides */
+.slide-container:hover .slide-btn {
+  opacity: 0.8;
 }
 
-/* Black Hole-themed decorations */
-.black-hole-decorations {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
+/* Enhanced hover effects for planets */
+.planet-grid:hover .planet {
+  opacity: 0.8;
 }
 
-.event-horizon {
-  position: absolute;
-  font-size: 2rem;
-  animation: rotate 10s linear infinite;
+.planet-grid:hover .planet:hover {
+  opacity: 1;
 }
 
-.event-horizon:nth-child(1) {
-  top: 10%;
-  left: 10%;
-  animation-delay: 0s;
+/* Focus states for accessibility */
+.slide-btn:focus,
+.planet:focus {
+  outline: 2px solid var(--quasar-yellow);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.3);
 }
 
-.event-horizon:nth-child(2) {
-  top: 20%;
-  right: 10%;
-  animation-delay: 2s;
+/* Print styles */
+@media print {
+  .mobile-nav,
+  #quote-btn,
+  .black-hole-decorations,
+  .black-hole-header,
+  .black-hole-footer,
+  .slide-container,
+  .planet-grid {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
 }
 
-.event-horizon:nth-child(3) {
-  bottom: 10%;
-  left: 20%;
-  animation-delay: 4s;
+/* Additional animations for interactive elements */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.accretion-disk {
-  position: absolute;
-  font-size: 1.5rem;
-  animation: spin 6s linear infinite;
+.slide {
+  animation: slideIn 0.5s ease-out;
 }
 
-.accretion-disk:nth-child(4) {
-  top: 30%;
-  left: 50%;
-  animation-delay: 0s;
+.planet {
+  animation: slideIn 0.5s ease-out;
 }
 
-.accretion-disk:nth-child(5) {
-  bottom: 30%;
-  right: 50%;
-  animation-delay: 3s;
+/* Enhanced transitions for interactive elements */
+.planet,
+.slide-btn,
+.booking-buttons button,
+.contact-buttons button {
+  transition: all 0.3s ease;
 }
 
-.stellar-remnant {
-  position: absolute;
-  font-size: 2rem;
-  animation: pulse 4s ease-in-out infinite;
-}
-
-.stellar-remnant:nth-child(6) {
-  top: 50%;
-  left: 50%;
-  animation-delay: 1s;
-}
-
-.black-hole-event-horizon {
-  animation: rotate 3s linear infinite;
-}
-
-.black-hole-accretion-disk {
-  animation: spin 4s linear infinite;
-}
-
-.black-hole-stellar-remnant {
-  animation: pulse 2s ease-in-out infinite;
-}
-
-/* Black Hole-themed footer decorations */
-.black-hole-footer-decorations {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  font-size: 1.5rem;
-}
-
-/* Black Hole-themed header decorations */
-.black-hole-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  text-align: center;
-  color: var(--quasar-yellow);
-}
-
-.black-hole-greeting {
-  font-size: 1.2rem;
-  font-style: italic;
-  margin-bottom: 10px;
-}
-
-.black-hole-icons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-/* Black Hole-themed footer additions */
-.black-hole-footer {
-  margin-top: 20px;
-  padding-top: 20px;
-  border-top: 1px solid var(--quasar-yellow);
-}
-
-.black-hole-wishes {
-  margin-bottom: 10px;
-  font-style: italic;
-  color: var(--quasar-yellow);
-}
-
-/* Black Hole-themed animations */
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); opacity: 0.8; }
-}
-
-/* Parallax effect for background */
-.parallax {
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.parallax__layer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.parallax__layer--base {
-  transform: translateZ(0);
-}
-
-.parallax__layer--back {
-  transform: translateZ(-1px) scale(2);
-}
-
-.parallax__layer--deep {
-  transform: translateZ(-2px) scale(3);
-}
-
-/* Parallax stars */
-.parallax__stars {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-}
-
-.parallax__star {
-  position: absolute;
-  background: var(--stellar-white);
-  border-radius: 50%;
-  animation: twinkle 2s infinite;
-}
-
-.parallax__star:nth-child(1) {
-  width: 1px;
-  height: 1px;
-  top: 10%;
-  left: 20%;
-  animation-delay: 0s;
-}
-
-.parallax__star:nth-child(2) {
-  width: 2px;
-  height: 2px;
-  top: 50%;
-  left: 80%;
-  animation-delay: 0.5s;
-}
-
-.parallax__star:nth-child(3) {
-  width: 1px;
-  height: 1px;
-  top: 90%;
-  left: 40%;
-  animation-delay: 1s;
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-/* Parallax galaxies */
-.parallax__galaxy {
-  position: absolute;
-  background: radial-gradient(circle, var(--stellar-blue) 0%, transparent 70%);
-  border-radius: 50%;
-  animation: rotate 20s linear infinite;
-}
-
-.parallax__galaxy:nth-child(1) {
-  width: 200px;
-  height: 200px;
-  top: 20%;
-  left: 30%;
-  animation-delay: 0s;
-}
-
-.parallax__galaxy:nth-child(2) {
-  width: 150px;
-  height: 150px;
-  top: 70%;
-  right: 20%;
-  animation-delay: 10s;
-}
-
-/* Black Hole-themed patterns and textures */
-:root {
-  --black-hole-pattern-1: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" fill="%230a0a0a" opacity="0.1"/><circle cx="50" cy="50" r="30" fill="%23ff6b6b" opacity="0.05"/><circle cx="50" cy="50" r="20" fill="%231e3a8a" opacity="0.05"/></svg>');
-  --black-hole-pattern-2: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,50 L50,10 L90,50 L50,90 Z" fill="%23ff6b6b" opacity="0.1"/><path d="M50,50 L70,30 L50,10 L30,30 Z" fill="%231e3a8a" opacity="0.1"/></svg>');
-  --black-hole-pattern-3: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="%239b59b6" opacity="0.05"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="%238e44ad" opacity="0.05"/></svg>');
-  --black-hole-pattern-4: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,50 L10,90 L50,50 Z" fill="%23ffd700" opacity="0.1"/><path d="M90,10 L50,50 L90,90 L50,50 Z" fill="%23ffd700" opacity="0.1"/></svg>');
-}
-
-/* Black Hole-themed color palette */
-:root {
-  --black-hole-dark: #000000;
-  --event-horizon: #0a0a0a;
-  --stellar-blue: #1e3a8a;
-  --accretion-orange: #ff6b6b;
-  --neutron-purple: #9b59b6;
-  --cosmic-lavender: #8e44ad;
-  --stellar-white: #f0ffff;
-  --quasar-yellow: #ffd700;
-  --interstellar-green: #2ecc71;
-}
-
-/* Black Hole-themed decorations */
-.black-hole-decorations {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-}
-
-.event-horizon {
-  position: absolute;
-  font-size: 2rem;
-  animation: rotate 10s linear infinite;
-}
-
-.event-horizon:nth-child(1) {
-  top: 10%;
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.event-horizon:nth-child(2) {
-  top: 20%;
-  right: 10%;
-  animation-delay: 2s;
-}
-
-.event-horizon:nth-child(3) {
-  bottom: 10%;
-  left: 20%;
-  animation-delay: 4s;
-}
-
-.accretion-disk {
-  position: absolute;
-  font-size: 1.5rem;
-  animation: spin 6s linear infinite;
-}
-
-.accretion-disk:nth-child(4) {
-  top: 30%;
-  left: 50%;
-  animation-delay: 0s;
-}
-
-.accretion-disk:nth-child(5) {
-  bottom: 30%;
-  right: 50%;
-  animation-delay: 3s;
-}
-
-.stellar-remnant {
-  position: absolute;
-  font-size: 2rem;
-  animation: pulse 4s ease-in-out infinite;
-}
-
-.stellar-remnant:nth-child(6) {
-  top: 50%;
-  left: 50%;
-  animation-delay: 1s;
-}
-
-.black-hole-event-horizon {
-  animation: rotate 3s linear infinite;
-}
-
-.black-hole-accretion-disk {
-  animation: spin 4s linear infinite;
-}
-
-.black-hole-stellar-remnant {
-  animation: pulse 2s ease-in-out infinite;
+/* Improved touch interactions for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .planet {
+    min-height: 100px;
+  }
+  
+  .slide-btn {
+    min-height: 44px;
+  }
+  
+  .booking-buttons button,
+  .contact-buttons button {
+    min-height: 44px;
+  }
 }
