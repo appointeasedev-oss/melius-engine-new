@@ -82,11 +82,11 @@ const quoteBtn = document.getElementById('quote-btn');
 const quoteText = document.getElementById('quote-text');
 
 const quotes = [
-  "Life is better at the beach!",
-  "Sun, sand, and surf - paradise found!",
-  "Every day is a beach day!",
-  "Salt in the air, sand in my hair!",
-  "Beach more, worry less!"
+  "The black holes of nature are the most perfect macroscopic objects there are in the universe: the only elements in their construction are our concepts of space and time.",
+  "Black holes are where God divided by zero.",
+  "A black hole is a region of spacetime where gravity is so strong that nothing—no particles or even electromagnetic radiation such as light—can escape from it.",
+  "The event horizon is the point of no return; once crossed, the black hole's gravity is too strong to escape.",
+  "Black holes are the most efficient engines in the universe, converting mass into energy with near-perfect efficiency."
 ];
 
 let currentQuoteIndex = 0;
@@ -120,32 +120,85 @@ quoteBtn.addEventListener('keydown', (event) => {
 // Initial quote with loading state
 showRandomQuote();
 
+// Slide navigation
+const slideContainer = document.querySelector('.slide-container');
+const prevSlide = document.getElementById('prev-slide');
+const nextSlide = document.getElementById('next-slide');
+const currentSlide = document.getElementById('current-slide');
+const totalSlides = document.getElementById('total-slides');
+const slideContent = document.getElementById('slide-content');
+
+const slides = [
+  {
+    title: 'Formation of Black Holes',
+    content: 'Black holes are formed through the gravitational collapse of massive stars. When a star with a mass greater than about 20 times that of our Sun exhausts its nuclear fuel, it can no longer support itself against its own gravity and collapses under its own weight.',
+    image: '🌀'
+  },
+  {
+    title: 'Types of Black Holes',
+    content: 'There are several types of black holes, each with unique characteristics and formation processes. Understanding these types helps us comprehend the diversity of these cosmic phenomena.',
+    image: '⚫'
+  },
+  {
+    title: 'Effects of Black Holes',
+    content: 'Black holes have profound effects on their surroundings and the universe at large. Their immense gravitational pull influences the behavior of nearby matter and light.',
+    image: '💫'
+  }
+];
+
+let currentSlideIndex = 0;
+totalSlides.textContent = slides.length;
+
+function showSlide(index) {
+  const slide = slides[index];
+  slideContent.innerHTML = `
+    <div class="slide">
+      <h3>${slide.title}</h3>
+      <p>${slide.content}</p>
+      <div class="slide-image">${slide.image}</div>
+    </div>
+  `;
+  currentSlide.textContent = index + 1;
+}
+
+prevSlide.addEventListener('click', function() {
+  currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+  showSlide(currentSlideIndex);
+});
+
+nextSlide.addEventListener('click', function() {
+  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+  showSlide(currentSlideIndex);
+});
+
+showSlide(currentSlideIndex);
+
 // Added functionality for the new buttons in test-website/index.html
 // Book Activities button functionality
-document.querySelector('[data-action="activities"]').addEventListener('click', function() {
-  // Handle book activities action
-  console.log('Book Activities button clicked');
+document.querySelector('[data-action="research"]').addEventListener('click', function() {
+  // Handle access research papers action
+  console.log('Research Papers button clicked');
   // Add your custom functionality here
-  // Example: Show a booking modal or redirect to booking page
-  alert('Booking activities...');
+  // Example: Show a modal or redirect to research page
+  alert('Accessing research papers...');
 });
 
-// Reserve Accommodations button functionality
-document.querySelector('[data-action="accommodations"]').addEventListener('click', function() {
-  // Handle reserve accommodations action
-  console.log('Reserve Accommodations button clicked');
+// Simulations button functionality
+document.querySelector('[data-action="simulations"]').addEventListener('click', function() {
+  // Handle view simulations action
+  console.log('Simulations button clicked');
   // Add your custom functionality here
-  // Example: Show accommodation options or redirect to booking page
-  alert('Reserving accommodations...');
+  // Example: Show simulations or redirect to simulations page
+  alert('Viewing simulations...');
 });
 
-// Rent Equipment button functionality
-document.querySelector('[data-action="equipment"]').addEventListener('click', function() {
-  // Handle rent equipment action
-  console.log('Rent Equipment button clicked');
+// Webinars button functionality
+document.querySelector('[data-action="webinars"]').addEventListener('click', function() {
+  // Handle join webinars action
+  console.log('Webinars button clicked');
   // Add your custom functionality here
-  // Example: Show available equipment or redirect to rental page
-  alert('Renting equipment...');
+  // Example: Show webinar schedule or redirect to webinars page
+  alert('Joining webinars...');
 });
 
 // Send Message button functionality
@@ -157,18 +210,18 @@ document.querySelector('[data-action="message"]').addEventListener('click', func
   alert('Sending message...');
 });
 
-// Call Us button functionality
-document.querySelector('[data-action="call"]').addEventListener('click', function() {
-  // Handle call us action
-  console.log('Call Us button clicked');
+// Discussion Forum button functionality
+document.querySelector('[data-action="forum"]').addEventListener('click', function() {
+  // Handle join discussion forum action
+  console.log('Discussion Forum button clicked');
   // Add your custom functionality here
-  // Example: Initiate phone call or show phone number
-  alert('Calling...');
+  // Example: Show discussion forum or redirect to forum page
+  alert('Joining discussion forum...');
 });
 
 // FAQs button functionality
 document.querySelector('[data-action="faqs"]').addEventListener('click', function() {
-  // Handle FAQs action
+  // Handle view FAQs action
   console.log('FAQs button clicked');
   // Add your custom functionality here
   // Example: Show frequently asked questions or redirect to FAQ page
@@ -202,7 +255,7 @@ contactButtons.forEach(button => {
 // Enhanced button focus states for accessibility
 bookingButtons.forEach(button => {
   button.addEventListener('focus', function() {
-    this.style.outline = '2px solid var(--sunny-yellow)';
+    this.style.outline = '2px solid var(--quasar-yellow)';
     this.style.outlineOffset = '2px';
   });
   
@@ -213,7 +266,7 @@ bookingButtons.forEach(button => {
 
 contactButtons.forEach(button => {
   button.addEventListener('focus', function() {
-    this.style.outline = '2px solid var(--sunny-yellow)';
+    this.style.outline = '2px solid var(--quasar-yellow)';
     this.style.outlineOffset = '2px';
   });
   
@@ -352,7 +405,7 @@ mobileNav.setAttribute('aria-label', 'Main navigation menu');
 const focusableElements = navMenu.querySelectorAll('a, button, input, select, textarea');
 focusableElements.forEach(element => {
   element.addEventListener('focus', () => {
-    element.style.outline = '2px solid var(--sunny-yellow)';
+    element.style.outline = '2px solid var(--quasar-yellow)';
     element.style.outlineOffset = '2px';
   });
   
@@ -434,3 +487,48 @@ window.addEventListener('resize', () => {
     }
   }, 250);
 });
+
+// Slide navigation enhancements
+const slides = [
+  {
+    title: 'Formation of Black Holes',
+    content: 'Black holes are formed through the gravitational collapse of massive stars. When a star with a mass greater than about 20 times that of our Sun exhausts its nuclear fuel, it can no longer support itself against its own gravity and collapses under its own weight.',
+    image: '🌀'
+  },
+  {
+    title: 'Types of Black Holes',
+    content: 'There are several types of black holes, each with unique characteristics and formation processes. Understanding these types helps us comprehend the diversity of these cosmic phenomena.',
+    image: '⚫'
+  },
+  {
+    title: 'Effects of Black Holes',
+    content: 'Black holes have profound effects on their surroundings and the universe at large. Their immense gravitational pull influences the behavior of nearby matter and light.',
+    image: '💫'
+  }
+];
+
+// Add slide transition animations
+const slideContent = document.getElementById('slide-content');
+slideContent.style.transition = 'opacity 0.5s';
+
+// Add slide navigation keyboard support
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowLeft' && currentSlideIndex > 0) {
+    event.preventDefault();
+    prevSlide.click();
+  }
+  if (event.key === 'ArrowRight' && currentSlideIndex < slides.length - 1) {
+    event.preventDefault();
+    nextSlide.click();
+  }
+});
+
+// Add slide auto-advance feature
+setInterval(() => {
+  if (currentSlideIndex < slides.length - 1) {
+    nextSlide.click();
+  } else {
+    currentSlideIndex = 0;
+    showSlide(currentSlideIndex);
+  }
+}, 5000);

@@ -1,22 +1,22 @@
-/* Beach-themed color palette */
+/* Black Hole-themed color palette */
 :root {
-  --sand-light: #f4e8c1;
-  --sand-dark: #d2b55b;
-  --ocean-blue: #1e3a8a;
-  --sunny-yellow: #ffd700;
-  --palm-green: #7ea04d;
-  --coral-red: #ff6b6b;
-  --beach-sky: #87ceeb;
-  --sea-foam: #2e8b57;
-  --wave-white: #f0ffff;
+  --black-hole-dark: #000000;
+  --event-horizon: #0a0a0a;
+  --stellar-blue: #1e3a8a;
+  --accretion-orange: #ff6b6b;
+  --neutron-purple: #9b59b6;
+  --cosmic-lavender: #8e44ad;
+  --stellar-white: #f0ffff;
+  --quasar-yellow: #ffd700;
+  --interstellar-green: #2ecc71;
 }
 
-/* Beach-inspired patterns and textures */
+/* Black Hole-inspired patterns and textures */
 :root {
-  --beach-pattern-1: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L90,10 L50,90 Z" fill="%23ffd700" opacity="0.1"/><circle cx="20" cy="20" r="5" fill="%23ffd700" opacity="0.1"/><circle cx="80" cy="80" r="5" fill="%23ffd700" opacity="0.1"/></svg>');
-  --beach-pattern-2: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,50 L50,10 L90,50 L50,90 Z" fill="%231e3a8a" opacity="0.1"/><path d="M50,50 L70,30 L50,10 L30,30 Z" fill="%231e3a8a" opacity="0.1"/></svg>');
-  --beach-pattern-3: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="%23ffd700" opacity="0.05"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="%23ffd700" opacity="0.05"/></svg>');
-  --beach-pattern-4: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,50 L10,90 L50,50 Z" fill="%231e3a8a" opacity="0.1"/><path d="M90,10 L50,50 L90,90 L50,50 Z" fill="%231e3a8a" opacity="0.1"/></svg>');
+  --black-hole-pattern-1: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" fill="%230a0a0a" opacity="0.1"/><circle cx="50" cy="50" r="30" fill="%23ff6b6b" opacity="0.05"/><circle cx="50" cy="50" r="20" fill="%231e3a8a" opacity="0.05"/></svg>');
+  --black-hole-pattern-2: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,50 L50,10 L90,50 L50,90 Z" fill="%23ff6b6b" opacity="0.1"/><path d="M50,50 L70,30 L50,10 L30,30 Z" fill="%231e3a8a" opacity="0.1"/></svg>');
+  --black-hole-pattern-3: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="%239b59b6" opacity="0.05"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="%238e44ad" opacity="0.05"/></svg>');
+  --black-hole-pattern-4: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,50 L10,90 L50,50 Z" fill="%23ffd700" opacity="0.1"/><path d="M90,10 L50,50 L90,90 L50,50 Z" fill="%23ffd700" opacity="0.1"/></svg>');
 }
 
 /* General styling */
@@ -28,8 +28,8 @@ body {
   margin: 0;
   font-family: 'Georgia', serif;
   line-height: 1.6;
-  color: var(--ocean-blue);
-  background: linear-gradient(135deg, var(--sand-light) 0%, var(--sand-dark) 100%), var(--beach-pattern-1);
+  color: var(--stellar-white);
+  background: linear-gradient(135deg, var(--black-hole-dark) 0%, var(--event-horizon) 100%), var(--black-hole-pattern-1);
   background-size: cover;
 }
 
@@ -37,17 +37,18 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 10px;
+  border: 2px solid var(--quasar-yellow);
 }
 
 /* Header styling */
 .hero {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(135deg, var(--sunny-yellow) 0%, var(--sand-dark) 100%), var(--beach-pattern-2);
-  color: var(--ocean-blue);
+  background: linear-gradient(135deg, var(--stellar-blue) 0%, var(--event-horizon) 100%), var(--black-hole-pattern-2);
+  color: var(--stellar-white);
   position: relative;
   overflow: hidden;
 }
@@ -59,7 +60,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,10 L90,10 L50,90 Z" fill="%23ffd700" opacity="0.1"/></svg>');
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23ff6b6b" opacity="0.1"/></svg>');
   background-size: 100px 100px;
 }
 
@@ -67,14 +68,15 @@ body {
   font-size: 3.5rem;
   margin: 0;
   font-family: 'Times New Roman', serif;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 0 20px var(--quasar-yellow), 0 0 40px var(--quasar-yellow);
 }
 
 .subtitle {
   font-size: 1.2rem;
   margin: 10px 0;
   font-style: italic;
-  color: var(--ocean-blue);
+  color: var(--stellar-white);
+  text-shadow: 0 0 10px var(--neutron-purple);
 }
 
 /* Navigation styling */
@@ -86,7 +88,7 @@ body {
   backdrop-filter: blur(10px);
   padding: 10px 20px;
   z-index: 1000;
-  background-image: var(--beach-pattern-3);
+  background-image: var(--black-hole-pattern-3);
   background-size: 200px 200px;
 }
 
@@ -106,7 +108,7 @@ body {
   width: 25px;
   height: 3px;
   margin: 5px auto;
-  background: var(--wave-white);
+  background: var(--stellar-white);
   transition: 0.3s;
 }
 
@@ -130,7 +132,7 @@ body {
 }
 
 .nav-link {
-  color: var(--wave-white);
+  color: var(--stellar-white);
   text-decoration: none;
   font-weight: bold;
   padding: 10px 20px;
@@ -144,21 +146,22 @@ body {
 
 /* Card styling */
 .card {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(10, 10, 10, 0.95);
   padding: 30px;
   margin: 20px 0;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border: 2px solid var(--sunny-yellow);
-  background-image: var(--beach-pattern-4);
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+  border: 2px solid var(--quasar-yellow);
+  background-image: var(--black-hole-pattern-4);
   background-size: 150px 150px;
 }
 
 .card h2 {
-  color: var(--ocean-blue);
+  color: var(--quasar-yellow);
   margin-top: 0;
   font-size: 2rem;
   text-align: center;
+  text-shadow: 0 0 10px var(--quasar-yellow);
 }
 
 /* Timeline styling */
@@ -174,7 +177,7 @@ body {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--sunny-yellow);
+  background: var(--quasar-yellow);
 }
 
 .timeline li {
@@ -189,7 +192,7 @@ body {
   top: 5px;
   width: 10px;
   height: 10px;
-  background: var(--sunny-yellow);
+  background: var(--quasar-yellow);
   border-radius: 50%;
 }
 
@@ -197,13 +200,14 @@ body {
 footer {
   text-align: center;
   padding: 30px 20px;
-  background: var(--ocean-blue);
-  color: var(--wave-white);
+  background: var(--event-horizon);
+  color: var(--stellar-white);
   margin-top: 40px;
+  border-top: 1px solid var(--quasar-yellow);
 }
 
 footer a {
-  color: var(--sunny-yellow);
+  color: var(--quasar-yellow);
   text-decoration: none;
 }
 
@@ -211,8 +215,8 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Beach-themed decorations */
-.beach-decorations {
+/* Black Hole-themed decorations */
+.black-hole-decorations {
   position: absolute;
   top: 0;
   left: 0;
@@ -221,63 +225,63 @@ footer a:hover {
   pointer-events: none;
 }
 
-.sand-castle {
+.event-horizon {
   position: absolute;
   font-size: 2rem;
-  animation: float 3s ease-in-out infinite;
+  animation: rotate 10s linear infinite;
 }
 
-.sand-castle:nth-child(1) {
+.event-horizon:nth-child(1) {
   top: 10%;
   left: 10%;
   animation-delay: 0s;
 }
 
-.sand-castle:nth-child(2) {
+.event-horizon:nth-child(2) {
   top: 20%;
   right: 10%;
-  animation-delay: 1s;
-}
-
-.sand-castle:nth-child(3) {
-  bottom: 10%;
-  left: 20%;
   animation-delay: 2s;
 }
 
-.sea-shell {
-  position: absolute;
-  font-size: 1.5rem;
-  animation: spin 4s linear infinite;
+.event-horizon:nth-child(3) {
+  bottom: 10%;
+  left: 20%;
+  animation-delay: 4s;
 }
 
-.sea-shell:nth-child(4) {
+.accretion-disk {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: spin 6s linear infinite;
+}
+
+.accretion-disk:nth-child(4) {
   top: 30%;
   left: 50%;
   animation-delay: 0s;
 }
 
-.sea-shell:nth-child(5) {
+.accretion-disk:nth-child(5) {
   bottom: 30%;
   right: 50%;
-  animation-delay: 2s;
+  animation-delay: 3s;
 }
 
-.palm-tree {
+.stellar-remnant {
   position: absolute;
   font-size: 2rem;
-  animation: bounce 2s ease-in-out infinite;
+  animation: pulse 4s ease-in-out infinite;
 }
 
-.palm-tree:nth-child(6) {
+.stellar-remnant:nth-child(6) {
   top: 50%;
   left: 50%;
   animation-delay: 1s;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes spin {
@@ -285,10 +289,9 @@ footer a:hover {
   100% { transform: rotate(360deg); }
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-30px); }
-  60% { transform: translateY(-15px); }
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
 }
 
 /* Responsive design */
@@ -483,86 +486,70 @@ footer a:hover {
 .nav-link:focus,
 #quote-btn:focus,
 .back-to-top:focus {
-  outline: 3px solid var(--sunny-yellow);
+  outline: 3px solid var(--quasar-yellow);
   outline-offset: 2px;
-  box-shadow: 0 0 0 2px var(--sand-light);
+  box-shadow: 0 0 0 2px var(--event-horizon);
 }
 
-/* Beach-themed header additions */
-.beach-header {
+/* Black Hole-themed header additions */
+.black-hole-header {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   padding: 20px;
   text-align: center;
-  color: var(--sunny-yellow);
+  color: var(--quasar-yellow);
 }
 
-.beach-greeting {
+.black-hole-greeting {
   font-size: 1.2rem;
   font-style: italic;
   margin-bottom: 10px;
 }
 
-.beach-icons {
+.black-hole-icons {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-/* Beach-themed footer additions */
-.beach-footer {
+/* Black Hole-themed footer additions */
+.black-hole-footer {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid var(--sunny-yellow);
+  border-top: 1px solid var(--quasar-yellow);
 }
 
-.beach-wishes {
+.black-hole-wishes {
   margin-bottom: 10px;
   font-style: italic;
-  color: var(--sunny-yellow);
+  color: var(--quasar-yellow);
 }
 
-.beach-footer-decorations {
+.black-hole-footer-decorations {
   display: flex;
   justify-content: center;
   gap: 10px;
   font-size: 1.5rem;
 }
 
-.footer-sand-castle {
-  animation: float 3s ease-in-out infinite;
+.black-hole-event-horizon {
+  animation: rotate 3s linear infinite;
 }
 
-.footer-sea-shell {
+.black-hole-accretion-disk {
   animation: spin 4s linear infinite;
 }
 
-.footer-palm-tree {
-  animation: bounce 2s ease-in-out infinite;
-}
-
-.footer-wave {
-  animation: float 4s ease-in-out infinite;
-}
-
-.footer-sun {
-  animation: spin 2s linear infinite;
-}
-
-.footer-umbrella {
-  animation: bounce 3s ease-in-out infinite;
-}
-
-.footer-seagull {
-  animation: spin 5s linear infinite;
+.black-hole-stellar-remnant {
+  animation: pulse 2s ease-in-out infinite;
 }
 
 /* Quote button styling */
 #quote-btn {
-  background: var(--sunny-yellow);
-  color: var(--ocean-blue);
+  background: var(--quasar-yellow);
+  color: var(--black-hole-dark);
   border: none;
   padding: 15px 30px;
   font-size: 1rem;
@@ -570,11 +557,13 @@ footer a:hover {
   border-radius: 5px;
   margin: 20px 0;
   transition: background-color 0.3s;
+  box-shadow: 0 0 10px var(--quasar-yellow);
 }
 
 #quote-btn:hover {
-  background: var(--coral-red);
-  color: var(--wave-white);
+  background: var(--accretion-orange);
+  color: var(--stellar-white);
+  box-shadow: 0 0 20px var(--accretion-orange);
 }
 
 #quote-btn:active {
@@ -585,18 +574,19 @@ footer a:hover {
 #quote-text {
   font-style: italic;
   font-size: 1.2rem;
-  color: var(--ocean-blue);
+  color: var(--stellar-white);
   margin: 20px 0;
   padding: 20px;
   background: rgba(255, 215, 0, 0.1);
-  border-left: 4px solid var(--sunny-yellow);
+  border-left: 4px solid var(--quasar-yellow);
+  box-shadow: 0 0 10px var(--quasar-yellow);
 }
 
 /* Eyebrow styling */
 .eyebrow {
   font-size: 1.1rem;
   font-style: italic;
-  color: var(--sunny-yellow);
+  color: var(--quasar-yellow);
   margin-bottom: 10px;
 }
 
@@ -608,7 +598,7 @@ html {
 /* Focus styles for accessibility */
 .nav-link:focus,
 #quote-btn:focus {
-  outline: 2px solid var(--sunny-yellow);
+  outline: 2px solid var(--quasar-yellow);
   outline-offset: 2px;
 }
 
@@ -616,9 +606,9 @@ html {
 @media print {
   .mobile-nav,
   #quote-btn,
-  .beach-decorations,
-  .beach-header,
-  .beach-footer {
+  .black-hole-decorations,
+  .black-hole-header,
+  .black-hole-footer {
     display: none;
   }
   
@@ -635,8 +625,8 @@ html {
 
 /* Button styling */
 button {
-  background: var(--sunny-yellow);
-  color: var(--ocean-blue);
+  background: var(--quasar-yellow);
+  color: var(--black-hole-dark);
   border: none;
   padding: 12px 24px;
   font-size: 1rem;
@@ -647,11 +637,12 @@ button {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
+  box-shadow: 0 0 10px var(--quasar-yellow);
 }
 
 button:hover {
-  background: var(--coral-red);
-  color: var(--wave-white);
+  background: var(--accretion-orange);
+  color: var(--stellar-white);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
@@ -662,14 +653,14 @@ button:active {
 }
 
 button:focus {
-  outline: 2px solid var(--sunny-yellow);
+  outline: 2px solid var(--quasar-yellow);
   outline-offset: 2px;
 }
 
 /* Action buttons styling */
 .action-btn {
-  background: var(--sunny-yellow);
-  color: var(--ocean-blue);
+  background: var(--quasar-yellow);
+  color: var(--black-hole-dark);
   border: none;
   padding: 12px 24px;
   font-size: 1rem;
@@ -680,11 +671,12 @@ button:focus {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
+  box-shadow: 0 0 10px var(--quasar-yellow);
 }
 
 .action-btn:hover {
-  background: var(--coral-red);
-  color: var(--wave-white);
+  background: var(--accretion-orange);
+  color: var(--stellar-white);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
@@ -695,14 +687,14 @@ button:focus {
 }
 
 .action-btn:focus {
-  outline: 2px solid var(--sunny-yellow);
+  outline: 2px solid var(--quasar-yellow);
   outline-offset: 2px;
 }
 
 /* Contact buttons styling */
 .contact-btn {
-  background: var(--sunny-yellow);
-  color: var(--ocean-blue);
+  background: var(--quasar-yellow);
+  color: var(--black-hole-dark);
   border: none;
   padding: 12px 24px;
   font-size: 1rem;
@@ -713,11 +705,12 @@ button:focus {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
+  box-shadow: 0 0 10px var(--quasar-yellow);
 }
 
 .contact-btn:hover {
-  background: var(--coral-red);
-  color: var(--wave-white);
+  background: var(--accretion-orange);
+  color: var(--stellar-white);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
@@ -728,7 +721,7 @@ button:focus {
 }
 
 .contact-btn:focus {
-  outline: 2px solid var(--sunny-yellow);
+  outline: 2px solid var(--quasar-yellow);
   outline-offset: 2px;
 }
 
@@ -740,8 +733,8 @@ button:focus {
 }
 
 .booking-buttons button {
-  background: linear-gradient(135deg, var(--sunny-yellow) 0%, var(--coral-red) 100%);
-  color: var(--ocean-blue);
+  background: linear-gradient(135deg, var(--quasar-yellow) 0%, var(--accretion-orange) 100%);
+  color: var(--black-hole-dark);
   border: none;
   padding: 15px 30px;
   font-size: 1.1rem;
@@ -766,7 +759,7 @@ button:focus {
 }
 
 .booking-buttons button:focus {
-  outline: 2px solid var(--sunny-yellow);
+  outline: 2px solid var(--quasar-yellow);
   outline-offset: 2px;
 }
 
@@ -778,8 +771,8 @@ button:focus {
 }
 
 .contact-buttons button {
-  background: linear-gradient(135deg, var(--coral-red) 0%, var(--palm-green) 100%);
-  color: var(--wave-white);
+  background: linear-gradient(135deg, var(--accretion-orange) 0%, var(--neutron-purple) 100%);
+  color: var(--stellar-white);
   border: none;
   padding: 15px 30px;
   font-size: 1.1rem;
@@ -790,39 +783,40 @@ button:focus {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
-  box-shadow: 0 4px 15px rgba(124, 160, 77, 0.2);
+  box-shadow: 0 4px 15px rgba(155, 89, 155, 0.2);
 }
 
 .contact-buttons button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(124, 160, 77, 0.3);
+  box-shadow: 0 6px 20px rgba(155, 89, 155, 0.3);
 }
 
 .contact-buttons button:active {
   transform: translateY(0);
-  box-shadow: 0 3px 10px rgba(124, 160, 77, 0.2);
+  box-shadow: 0 3px 10px rgba(155, 89, 155, 0.2);
 }
 
 .contact-buttons button:focus {
-  outline: 2px solid var(--sunny-yellow);
+  outline: 2px solid var(--quasar-yellow);
   outline-offset: 2px;
 }
 
 /* Back to top button styling */
 .back-to-top {
   display: inline-block;
-  background: var(--sunny-yellow);
-  color: var(--ocean-blue);
+  background: var(--quasar-yellow);
+  color: var(--black-hole-dark);
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
   margin-top: 20px;
   transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--quasar-yellow);
 }
 
 .back-to-top:hover {
-  background: var(--coral-red);
-  color: var(--wave-white);
+  background: var(--accretion-orange);
+  color: var(--stellar-white);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
@@ -833,7 +827,7 @@ button:focus {
 }
 
 .back-to-top:focus {
-  outline: 2px solid var(--sunny-yellow);
+  outline: 2px solid var(--quasar-yellow);
   outline-offset: 2px;
 }
 
@@ -950,40 +944,35 @@ button:focus {
   }
 }
 
-/* Beach-themed icons and graphics */
-.beach-icon {
+/* Black Hole-themed icons and graphics */
+.black-hole-icon {
   font-size: 1.5rem;
   margin: 0 5px;
-  animation: float 3s ease-in-out infinite;
+  animation: rotate 3s linear infinite;
 }
 
-.beach-icon:nth-child(1) {
+.black-hole-icon:nth-child(1) {
   animation-delay: 0s;
 }
 
-.beach-icon:nth-child(2) {
+.black-hole-icon:nth-child(2) {
   animation-delay: 0.5s;
 }
 
-.beach-icon:nth-child(3) {
+.black-hole-icon:nth-child(3) {
   animation-delay: 1s;
 }
 
-.beach-icon:nth-child(4) {
+.black-hole-icon:nth-child(4) {
   animation-delay: 1.5s;
 }
 
-.beach-icon:nth-child(5) {
+.black-hole-icon:nth-child(5) {
   animation-delay: 2s;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-/* Beach-themed decorations */
-.beach-decorations {
+/* Black Hole-themed decorations */
+.black-hole-decorations {
   position: absolute;
   top: 0;
   left: 0;
@@ -992,167 +981,155 @@ button:focus {
   pointer-events: none;
 }
 
-.sand-castle {
+.event-horizon {
   position: absolute;
   font-size: 2rem;
-  animation: float 3s ease-in-out infinite;
+  animation: rotate 10s linear infinite;
 }
 
-.sand-castle:nth-child(1) {
+.event-horizon:nth-child(1) {
   top: 10%;
   left: 10%;
   animation-delay: 0s;
 }
 
-.sand-castle:nth-child(2) {
+.event-horizon:nth-child(2) {
   top: 20%;
   right: 10%;
-  animation-delay: 1s;
-}
-
-.sand-castle:nth-child(3) {
-  bottom: 10%;
-  left: 20%;
   animation-delay: 2s;
 }
 
-.sea-shell {
-  position: absolute;
-  font-size: 1.5rem;
-  animation: spin 4s linear infinite;
+.event-horizon:nth-child(3) {
+  bottom: 10%;
+  left: 20%;
+  animation-delay: 4s;
 }
 
-.sea-shell:nth-child(4) {
+.accretion-disk {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: spin 6s linear infinite;
+}
+
+.accretion-disk:nth-child(4) {
   top: 30%;
   left: 50%;
   animation-delay: 0s;
 }
 
-.sea-shell:nth-child(5) {
+.accretion-disk:nth-child(5) {
   bottom: 30%;
   right: 50%;
-  animation-delay: 2s;
+  animation-delay: 3s;
 }
 
-.palm-tree {
+.stellar-remnant {
   position: absolute;
   font-size: 2rem;
-  animation: bounce 2s ease-in-out infinite;
+  animation: pulse 4s ease-in-out infinite;
 }
 
-.palm-tree:nth-child(6) {
+.stellar-remnant:nth-child(6) {
   top: 50%;
   left: 50%;
   animation-delay: 1s;
 }
 
-.footer-sand-castle {
-  animation: float 3s ease-in-out infinite;
+.black-hole-event-horizon {
+  animation: rotate 3s linear infinite;
 }
 
-.footer-sea-shell {
+.black-hole-accretion-disk {
   animation: spin 4s linear infinite;
 }
 
-.footer-palm-tree {
-  animation: bounce 2s ease-in-out infinite;
+.black-hole-stellar-remnant {
+  animation: pulse 2s ease-in-out infinite;
 }
 
-.footer-wave {
-  animation: float 4s ease-in-out infinite;
-}
-
-.footer-sun {
-  animation: spin 2s linear infinite;
-}
-
-.footer-umbrella {
-  animation: bounce 3s ease-in-out infinite;
-}
-
-.footer-seagull {
-  animation: spin 5s linear infinite;
-}
-
-/* Beach-themed footer decorations */
-.beach-footer-decorations {
+/* Black Hole-themed footer decorations */
+.black-hole-footer-decorations {
   display: flex;
   justify-content: center;
   gap: 10px;
   font-size: 1.5rem;
 }
 
-/* Beach-themed header decorations */
-.beach-header {
+/* Black Hole-themed header decorations */
+.black-hole-header {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   padding: 20px;
   text-align: center;
-  color: var(--sunny-yellow);
+  color: var(--quasar-yellow);
 }
 
-.beach-greeting {
+.black-hole-greeting {
   font-size: 1.2rem;
   font-style: italic;
   margin-bottom: 10px;
 }
 
-.beach-icons {
+.black-hole-icons {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-/* Beach-themed footer additions */
-.beach-footer {
+/* Black Hole-themed footer additions */
+.black-hole-footer {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid var(--sunny-yellow);
+  border-top: 1px solid var(--quasar-yellow);
 }
 
-.beach-wishes {
+.black-hole-wishes {
   margin-bottom: 10px;
   font-style: italic;
-  color: var(--sunny-yellow);
+  color: var(--quasar-yellow);
 }
 
-/* Beach-themed animations */
+/* Black Hole-themed animations */
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-30px); }
-  60% { transform: translateY(-15px); }
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
 }
 
-/* Beach-themed patterns and textures */
+/* Black Hole-themed patterns and textures */
 :root {
-  --beach-pattern-1: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L90,10 L50,90 Z" fill="%23ffd700" opacity="0.1"/><circle cx="20" cy="20" r="5" fill="%23ffd700" opacity="0.1"/><circle cx="80" cy="80" r="5" fill="%23ffd700" opacity="0.1"/></svg>');
-  --beach-pattern-2: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,50 L50,10 L90,50 L50,90 Z" fill="%231e3a8a" opacity="0.1"/><path d="M50,50 L70,30 L50,10 L30,30 Z" fill="%231e3a8a" opacity="0.1"/></svg>');
-  --beach-pattern-3: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="%23ffd700" opacity="0.05"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="%23ffd700" opacity="0.05"/></svg>');
-  --beach-pattern-4: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,50 L10,90 L50,50 Z" fill="%231e3a8a" opacity="0.1"/><path d="M90,10 L50,50 L90,90 L50,50 Z" fill="%231e3a8a" opacity="0.1"/></svg>');
+  --black-hole-pattern-1: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" fill="%230a0a0a" opacity="0.1"/><circle cx="50" cy="50" r="30" fill="%23ff6b6b" opacity="0.05"/><circle cx="50" cy="50" r="20" fill="%231e3a8a" opacity="0.05"/></svg>');
+  --black-hole-pattern-2: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,50 L50,10 L90,50 L50,90 Z" fill="%23ff6b6b" opacity="0.1"/><path d="M50,50 L70,30 L50,10 L30,30 Z" fill="%231e3a8a" opacity="0.1"/></svg>');
+  --black-hole-pattern-3: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="%239b59b6" opacity="0.05"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="%238e44ad" opacity="0.05"/></svg>');
+  --black-hole-pattern-4: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,50 L10,90 L50,50 Z" fill="%23ffd700" opacity="0.1"/><path d="M90,10 L50,50 L90,90 L50,50 Z" fill="%23ffd700" opacity="0.1"/></svg>');
 }
 
-/* Beach-themed color palette */
+/* Black Hole-themed color palette */
 :root {
-  --sand-light: #f4e8c1;
-  --sand-dark: #d2b55b;
-  --ocean-blue: #1e3a8a;
-  --sunny-yellow: #ffd700;
-  --palm-green: #7ea04d;
-  --coral-red: #ff6b6b;
-  --beach-sky: #87ceeb;
-  --sea-foam: #2e8b57;
-  --wave-white: #f0ffff;
+  --black-hole-dark: #000000;
+  --event-horizon: #0a0a0a;
+  --stellar-blue: #1e3a8a;
+  --accretion-orange: #ff6b6b;
+  --neutron-purple: #9b59b6;
+  --cosmic-lavender: #8e44ad;
+  --stellar-white: #f0ffff;
+  --quasar-yellow: #ffd700;
+  --interstellar-green: #2ecc71;
 }
 
-/* Beach-themed decorations */
-.beach-decorations {
+/* Black Hole-themed decorations */
+.black-hole-decorations {
   position: absolute;
   top: 0;
   left: 0;
@@ -1161,84 +1138,68 @@ button:focus {
   pointer-events: none;
 }
 
-.sand-castle {
+.event-horizon {
   position: absolute;
   font-size: 2rem;
-  animation: float 3s ease-in-out infinite;
+  animation: rotate 10s linear infinite;
 }
 
-.sand-castle:nth-child(1) {
+.event-horizon:nth-child(1) {
   top: 10%;
   left: 10%;
   animation-delay: 0s;
 }
 
-.sand-castle:nth-child(2) {
+.event-horizon:nth-child(2) {
   top: 20%;
   right: 10%;
-  animation-delay: 1s;
-}
-
-.sand-castle:nth-child(3) {
-  bottom: 10%;
-  left: 20%;
   animation-delay: 2s;
 }
 
-.sea-shell {
-  position: absolute;
-  font-size: 1.5rem;
-  animation: spin 4s linear infinite;
+.event-horizon:nth-child(3) {
+  bottom: 10%;
+  left: 20%;
+  animation-delay: 4s;
 }
 
-.sea-shell:nth-child(4) {
+.accretion-disk {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: spin 6s linear infinite;
+}
+
+.accretion-disk:nth-child(4) {
   top: 30%;
   left: 50%;
   animation-delay: 0s;
 }
 
-.sea-shell:nth-child(5) {
+.accretion-disk:nth-child(5) {
   bottom: 30%;
   right: 50%;
-  animation-delay: 2s;
+  animation-delay: 3s;
 }
 
-.palm-tree {
+.stellar-remnant {
   position: absolute;
   font-size: 2rem;
-  animation: bounce 2s ease-in-out infinite;
+  animation: pulse 4s ease-in-out infinite;
 }
 
-.palm-tree:nth-child(6) {
+.stellar-remnant:nth-child(6) {
   top: 50%;
   left: 50%;
   animation-delay: 1s;
 }
 
-.footer-sand-castle {
-  animation: float 3s ease-in-out infinite;
+.black-hole-event-horizon {
+  animation: rotate 3s linear infinite;
 }
 
-.footer-sea-shell {
+.black-hole-accretion-disk {
   animation: spin 4s linear infinite;
 }
 
-.footer-palm-tree {
-  animation: bounce 2s ease-in-out infinite;
-}
-
-.footer-wave {
-  animation: float 4s ease-in-out infinite;
-}
-
-.footer-sun {
-  animation: spin 2s linear infinite;
-}
-
-.footer-umbrella {
-  animation: bounce 3s ease-in-out infinite;
-}
-
-.footer-seagull {
-  animation: spin 5s linear infinite;
+.black-hole-stellar-remnant {
+  animation: pulse 2s ease-in-out infinite;
 }
