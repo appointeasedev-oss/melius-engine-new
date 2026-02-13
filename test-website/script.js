@@ -688,3 +688,196 @@ window.addEventListener('resize', () => {
 function random() {
   return Math.random();
 }
+
+// Added functionality for the new buttons in test-website/index.html
+// Book Activities button functionality
+document.querySelector('[data-action="activities"]').addEventListener('click', function() {
+  // Handle book activities action
+  console.log('Book Activities button clicked');
+  // Add your custom functionality here
+});
+
+// Reserve Accommodations button functionality
+document.querySelector('[data-action="accommodations"]').addEventListener('click', function() {
+  // Handle reserve accommodations action
+  console.log('Reserve Accommodations button clicked');
+  // Add your custom functionality here
+});
+
+// Rent Equipment button functionality
+document.querySelector('[data-action="equipment"]').addEventListener('click', function() {
+  // Handle rent equipment action
+  console.log('Rent Equipment button clicked');
+  // Add your custom functionality here
+});
+
+// Send Message button functionality
+document.querySelector('[data-action="message"]').addEventListener('click', function() {
+  // Handle send message action
+  console.log('Send Message button clicked');
+  // Add your custom functionality here
+});
+
+// Call Us button functionality
+document.querySelector('[data-action="call"]').addEventListener('click', function() {
+  // Handle call us action
+  console.log('Call Us button clicked');
+  // Add your custom functionality here
+});
+
+// FAQs button functionality
+document.querySelector('[data-action="faqs"]').addEventListener('click', function() {
+  // Handle FAQs action
+  console.log('FAQs button clicked');
+  // Add your custom functionality here
+});
+
+// Enhanced touch interactions for mobile devices
+const bookingButtons = document.querySelectorAll('.booking-buttons button');
+const contactButtons = document.querySelectorAll('.contact-buttons button');
+
+bookingButtons.forEach(button => {
+  button.addEventListener('touchstart', function() {
+    this.style.opacity = '0.7';
+  });
+  
+  button.addEventListener('touchend', function() {
+    this.style.opacity = '1';
+  });
+});
+
+contactButtons.forEach(button => {
+  button.addEventListener('touchstart', function() {
+    this.style.opacity = '0.7';
+  });
+  
+  button.addEventListener('touchend', function() {
+    this.style.opacity = '1';
+  });
+});
+
+// Enhanced button focus states for accessibility
+bookingButtons.forEach(button => {
+  button.addEventListener('focus', function() {
+    this.style.outline = '2px solid var(--sunny-yellow)';
+    this.style.outlineOffset = '2px';
+  });
+  
+  button.addEventListener('blur', function() {
+    this.style.outline = 'none';
+  });
+});
+
+contactButtons.forEach(button => {
+  button.addEventListener('focus', function() {
+    this.style.outline = '2px solid var(--sunny-yellow)';
+    this.style.outlineOffset = '2px';
+  });
+  
+  button.addEventListener('blur', function() {
+    this.style.outline = 'none';
+  });
+});
+
+// Enhanced button hover states for desktop
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    bookingButtons.forEach(button => {
+      button.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+        this.style.transition = 'transform 0.2s';
+      });
+      
+      button.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+    
+    contactButtons.forEach(button => {
+      button.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+        this.style.transition = 'transform 0.2s';
+      });
+      
+      button.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+  }
+});
+
+// Enhanced button active states for better feedback
+bookingButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    this.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      this.style.transform = 'scale(1)';
+    }, 100);
+  });
+});
+
+contactButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    this.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      this.style.transform = 'scale(1)';
+    }, 100);
+  });
+});
+
+// Enhanced button keyboard navigation support
+bookingButtons.forEach(button => {
+  button.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.click();
+    }
+  });
+});
+
+contactButtons.forEach(button => {
+  button.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      this.click();
+    }
+  });
+});
+
+// Enhanced button loading states for better UX
+const bookingButtonsArray = Array.from(bookingButtons);
+const contactButtonsArray = Array.from(contactButtons);
+
+function addLoadingState(button) {
+  button.disabled = true;
+  button.style.opacity = '0.7';
+  button.textContent = 'Loading...';
+}
+
+function removeLoadingState(button, originalText) {
+  button.disabled = false;
+  button.style.opacity = '1';
+  button.textContent = originalText;
+}
+
+bookingButtonsArray.forEach(button => {
+  button.addEventListener('click', function() {
+    const originalText = this.textContent;
+    addLoadingState(this);
+    
+    setTimeout(() => {
+      removeLoadingState(this, originalText);
+    }, 2000);
+  });
+});
+
+contactButtonsArray.forEach(button => {
+  button.addEventListener('click', function() {
+    const originalText = this.textContent;
+    addLoadingState(this);
+    
+    setTimeout(() => {
+      removeLoadingState(this, originalText);
+    }, 2000);
+  });
+});
