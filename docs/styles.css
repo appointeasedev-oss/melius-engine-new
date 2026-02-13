@@ -186,6 +186,180 @@ code {
   50% { transform: scale(1.2); opacity: 0.8; }
 }
 
+/* Black Hole-themed decorations */
+.black-hole-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.event-horizon {
+  position: absolute;
+  font-size: 2rem;
+  animation: rotate 10s linear infinite;
+}
+
+.event-horizon:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.event-horizon:nth-child(2) {
+  top: 20%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+.event-horizon:nth-child(3) {
+  bottom: 10%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+.accretion-disk {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: spin 6s linear infinite;
+}
+
+.accretion-disk:nth-child(4) {
+  top: 30%;
+  left: 50%;
+  animation-delay: 0s;
+}
+
+.accretion-disk:nth-child(5) {
+  bottom: 30%;
+  right: 50%;
+  animation-delay: 3s;
+}
+
+.stellar-remnant {
+  position: absolute;
+  font-size: 2rem;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.stellar-remnant:nth-child(6) {
+  top: 50%;
+  left: 50%;
+  animation-delay: 1s;
+}
+
+.black-hole-event-horizon {
+  animation: rotate 3s linear infinite;
+}
+
+.black-hole-accretion-disk {
+  animation: spin 4s linear infinite;
+}
+
+.black-hole-stellar-remnant {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Parallax effect for background */
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.parallax__layer--base {
+  transform: translateZ(0);
+}
+
+.parallax__layer--back {
+  transform: translateZ(-1px) scale(2);
+}
+
+.parallax__layer--deep {
+  transform: translateZ(-2px) scale(3);
+}
+
+/* Parallax stars */
+.parallax__stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.parallax__star {
+  position: absolute;
+  background: var(--stellar-white);
+  border-radius: 50%;
+  animation: twinkle 2s infinite;
+}
+
+.parallax__star:nth-child(1) {
+  width: 1px;
+  height: 1px;
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.parallax__star:nth-child(2) {
+  width: 2px;
+  height: 2px;
+  top: 50%;
+  left: 80%;
+  animation-delay: 0.5s;
+}
+
+.parallax__star:nth-child(3) {
+  width: 1px;
+  height: 1px;
+  top: 90%;
+  left: 40%;
+  animation-delay: 1s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Parallax galaxies */
+.parallax__galaxy {
+  position: absolute;
+  background: radial-gradient(circle, var(--stellar-blue) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+.parallax__galaxy:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  top: 20%;
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.parallax__galaxy:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  top: 70%;
+  right: 20%;
+  animation-delay: 10s;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .topbar {
@@ -353,4 +527,105 @@ textarea:focus {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+/* Black Hole-themed header */
+.black-hole-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  text-align: center;
+  color: var(--quasar-yellow);
+}
+
+.black-hole-greeting {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.black-hole-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.black-hole-icon {
+  font-size: 1.5rem;
+  animation: rotate 3s linear infinite;
+}
+
+.black-hole-icon:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.black-hole-icon:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.black-hole-icon:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.black-hole-icon:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.black-hole-icon:nth-child(5) {
+  animation-delay: 2s;
+}
+
+/* Black Hole-themed footer */
+.black-hole-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--quasar-yellow);
+}
+
+.black-hole-wishes {
+  margin-bottom: 0.5rem;
+  font-style: italic;
+  color: var(--quasar-yellow);
+}
+
+.black-hole-scarab {
+  font-size: 1.5rem;
+  animation: rotate 3s linear infinite;
+}
+
+.black-hole-footer-decorations {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.black-hole-event-horizon {
+  animation: rotate 3s linear infinite;
+}
+
+.black-hole-accretion-disk {
+  animation: spin 4s linear infinite;
+}
+
+.black-hole-stellar-remnant {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.black-hole-wave {
+  animation: rotate 5s linear infinite;
+}
+
+.black-hole-sun {
+  animation: spin 6s linear infinite;
+}
+
+.black-hole-umbrella {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.black-hole-seagull {
+  animation: rotate 4s linear infinite;
 }
