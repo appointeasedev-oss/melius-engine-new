@@ -1,22 +1,22 @@
-/* Egyptian-themed color palette */
+/* Beach-themed color palette */
 :root {
   --sand-light: #f4e8c1;
   --sand-dark: #d2b55b;
-  --desert-gold: #d4af37;
-  --ancient-brown: #8b6914;
-  --nile-blue: #1e3a8a;
-  --papyrus-green: #7ea04d;
-  --scarab-green: #308014;
-  --hieroglyph-black: #0a0a0a;
-  --hieroglyph-gold: #d4af37;
+  --ocean-blue: #1e3a8a;
+  --sunny-yellow: #ffd700;
+  --palm-green: #7ea04d;
+  --coral-red: #ff6b6b;
+  --beach-sky: #87ceeb;
+  --sea-foam: #2e8b57;
+  --wave-white: #f0ffff;
 }
 
-/* Egyptian-inspired patterns and textures */
+/* Beach-inspired patterns and textures */
 :root {
-  --egyptian-pattern-1: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L90,10 L50,90 Z" fill="%23d4af37" opacity="0.1"/><circle cx="20" cy="20" r="5" fill="%23d4af37" opacity="0.1"/><circle cx="80" cy="80" r="5" fill="%23d4af37" opacity="0.1"/></svg>');
-  --egyptian-pattern-2: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,50 L50,10 L90,50 L50,90 Z" fill="%23d4af37" opacity="0.1"/><path d="M50,50 L70,30 L50,10 L30,30 Z" fill="%23d4af37" opacity="0.1"/></svg>');
-  --egyptian-pattern-3: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="%23d4af37" opacity="0.05"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="%23d4af37" opacity="0.05"/></svg>');
-  --egyptian-pattern-4: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,50 L10,90 L50,50 Z" fill="%23d4af37" opacity="0.1"/><path d="M90,10 L50,50 L90,90 L50,50 Z" fill="%23d4af37" opacity="0.1"/></svg>');
+  --beach-pattern-1: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L90,10 L50,90 Z" fill="%23ffd700" opacity="0.1"/><circle cx="20" cy="20" r="5" fill="%23ffd700" opacity="0.1"/><circle cx="80" cy="80" r="5" fill="%23ffd700" opacity="0.1"/></svg>');
+  --beach-pattern-2: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,50 L50,10 L90,50 L50,90 Z" fill="%231e3a8a" opacity="0.1"/><path d="M50,50 L70,30 L50,10 L30,30 Z" fill="%231e3a8a" opacity="0.1"/></svg>');
+  --beach-pattern-3: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="%23ffd700" opacity="0.05"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="%23ffd700" opacity="0.05"/></svg>');
+  --beach-pattern-4: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,50 L10,90 L50,50 Z" fill="%231e3a8a" opacity="0.1"/><path d="M90,10 L50,50 L90,90 L50,50 Z" fill="%231e3a8a" opacity="0.1"/></svg>');
 }
 
 /* General styling */
@@ -28,8 +28,8 @@ body {
   margin: 0;
   font-family: 'Georgia', serif;
   line-height: 1.6;
-  color: var(--hieroglyph-black);
-  background: linear-gradient(135deg, var(--sand-light) 0%, var(--sand-dark) 100%), var(--egyptian-pattern-1);
+  color: var(--ocean-blue);
+  background: linear-gradient(135deg, var(--sand-light) 0%, var(--sand-dark) 100%), var(--beach-pattern-1);
   background-size: cover;
 }
 
@@ -46,8 +46,8 @@ body {
 .hero {
   text-align: center;
   padding: 60px 20px;
-  background: linear-gradient(135deg, var(--desert-gold) 0%, var(--sand-dark) 100%), var(--egyptian-pattern-2);
-  color: var(--hieroglyph-black);
+  background: linear-gradient(135deg, var(--sunny-yellow) 0%, var(--sand-dark) 100%), var(--beach-pattern-2);
+  color: var(--ocean-blue);
   position: relative;
   overflow: hidden;
 }
@@ -59,7 +59,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,10 L90,10 L50,90 Z" fill="%23d4af37" opacity="0.1"/></svg>');
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,10 L90,10 L50,90 Z" fill="%23ffd700" opacity="0.1"/></svg>');
   background-size: 100px 100px;
 }
 
@@ -74,7 +74,7 @@ body {
   font-size: 1.2rem;
   margin: 10px 0;
   font-style: italic;
-  color: var(--hieroglyph-black);
+  color: var(--ocean-blue);
 }
 
 /* Navigation styling */
@@ -82,11 +82,11 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(212, 175, 55, 0.95);
+  background: rgba(30, 58, 138, 0.95);
   backdrop-filter: blur(10px);
   padding: 10px 20px;
   z-index: 1000;
-  background-image: var(--egyptian-pattern-3);
+  background-image: var(--beach-pattern-3);
   background-size: 200px 200px;
 }
 
@@ -106,7 +106,7 @@ body {
   width: 25px;
   height: 3px;
   margin: 5px auto;
-  background: var(--hieroglyph-black);
+  background: var(--wave-white);
   transition: 0.3s;
 }
 
@@ -130,7 +130,7 @@ body {
 }
 
 .nav-link {
-  color: var(--hieroglyph-black);
+  color: var(--wave-white);
   text-decoration: none;
   font-weight: bold;
   padding: 10px 20px;
@@ -139,7 +139,7 @@ body {
 }
 
 .nav-link:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Card styling */
@@ -149,13 +149,13 @@ body {
   margin: 20px 0;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border: 2px solid var(--desert-gold);
-  background-image: var(--egyptian-pattern-4);
+  border: 2px solid var(--sunny-yellow);
+  background-image: var(--beach-pattern-4);
   background-size: 150px 150px;
 }
 
 .card h2 {
-  color: var(--hieroglyph-black);
+  color: var(--ocean-blue);
   margin-top: 0;
   font-size: 2rem;
   text-align: center;
@@ -174,7 +174,7 @@ body {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--desert-gold);
+  background: var(--sunny-yellow);
 }
 
 .timeline li {
@@ -189,7 +189,7 @@ body {
   top: 5px;
   width: 10px;
   height: 10px;
-  background: var(--desert-gold);
+  background: var(--sunny-yellow);
   border-radius: 50%;
 }
 
@@ -197,13 +197,13 @@ body {
 footer {
   text-align: center;
   padding: 30px 20px;
-  background: var(--hieroglyph-black);
-  color: var(--sand-light);
+  background: var(--ocean-blue);
+  color: var(--wave-white);
   margin-top: 40px;
 }
 
 footer a {
-  color: var(--desert-gold);
+  color: var(--sunny-yellow);
   text-decoration: none;
 }
 
@@ -211,8 +211,8 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Egyptian-themed decorations */
-.egyptian-decorations {
+/* Beach-themed decorations */
+.beach-decorations {
   position: absolute;
   top: 0;
   left: 0;
@@ -221,25 +221,25 @@ footer a:hover {
   pointer-events: none;
 }
 
-.pyramid {
+.sand-castle {
   position: absolute;
   font-size: 2rem;
   animation: float 3s ease-in-out infinite;
 }
 
-.pyramid:nth-child(1) {
+.sand-castle:nth-child(1) {
   top: 10%;
   left: 10%;
   animation-delay: 0s;
 }
 
-.pyramid:nth-child(2) {
+.sand-castle:nth-child(2) {
   top: 20%;
   right: 10%;
   animation-delay: 1s;
 }
 
-.pyramid:nth-child(3) {
+.sand-castle:nth-child(3) {
   bottom: 10%;
   left: 20%;
   animation-delay: 2s;
@@ -250,19 +250,19 @@ footer a:hover {
   50% { transform: translateY(-20px); }
 }
 
-.hieroglyph {
+.sea-shell {
   position: absolute;
   font-size: 1.5rem;
   animation: spin 4s linear infinite;
 }
 
-.hieroglyph:nth-child(4) {
+.sea-shell:nth-child(4) {
   top: 30%;
   left: 50%;
   animation-delay: 0s;
 }
 
-.hieroglyph:nth-child(5) {
+.sea-shell:nth-child(5) {
   bottom: 30%;
   right: 50%;
   animation-delay: 2s;
@@ -273,13 +273,13 @@ footer a:hover {
   100% { transform: rotate(360deg); }
 }
 
-.anubis {
+.palm-tree {
   position: absolute;
   font-size: 2rem;
   animation: bounce 2s ease-in-out infinite;
 }
 
-.anubis:nth-child(6) {
+.palm-tree:nth-child(6) {
   top: 50%;
   left: 50%;
   animation-delay: 1s;
@@ -501,86 +501,86 @@ footer a:hover {
 .nav-link:focus,
 #quote-btn:focus,
 .back-to-top:focus {
-  outline: 3px solid var(--hieroglyph-gold);
+  outline: 3px solid var(--sunny-yellow);
   outline-offset: 2px;
   box-shadow: 0 0 0 2px var(--sand-light);
 }
 
-/* Egyptian-themed header additions */
-.egyptian-header {
+/* Beach-themed header additions */
+.beach-header {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   padding: 20px;
   text-align: center;
-  color: var(--hieroglyph-gold);
+  color: var(--sunny-yellow);
 }
 
-.egyptian-greeting {
+.beach-greeting {
   font-size: 1.2rem;
   font-style: italic;
   margin-bottom: 10px;
 }
 
-.egyptian-hieroglyphs {
+.beach-icons {
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-/* Egyptian-themed footer additions */
-.egyptian-footer {
+/* Beach-themed footer additions */
+.beach-footer {
   margin-top: 20px;
   padding-top: 20px;
-  border-top: 1px solid var(--desert-gold);
+  border-top: 1px solid var(--sunny-yellow);
 }
 
-.egyptian-wishes {
+.beach-wishes {
   margin-bottom: 10px;
   font-style: italic;
-  color: var(--desert-gold);
+  color: var(--sunny-yellow);
 }
 
-.egyptian-footer-decorations {
+.beach-footer-decorations {
   display: flex;
   justify-content: center;
   gap: 10px;
   font-size: 1.5rem;
 }
 
-.footer-pyramid {
+.footer-sand-castle {
   animation: float 3s ease-in-out infinite;
 }
 
-.footer-hieroglyph {
+.footer-sea-shell {
   animation: spin 4s linear infinite;
 }
 
-.footer-anubis {
+.footer-palm-tree {
   animation: bounce 2s ease-in-out infinite;
 }
 
-.footer-scarab {
-  animation: spin 2s linear infinite;
-}
-
-.footer-nile {
+.footer-wave {
   animation: float 4s ease-in-out infinite;
 }
 
-.footer-sphinx {
+.footer-sun {
+  animation: spin 2s linear infinite;
+}
+
+.footer-umbrella {
   animation: bounce 3s ease-in-out infinite;
 }
 
-.footer-eye {
+.footer-seagull {
   animation: spin 5s linear infinite;
 }
 
 /* Quote button styling */
 #quote-btn {
-  background: var(--desert-gold);
-  color: var(--hieroglyph-black);
+  background: var(--sunny-yellow);
+  color: var(--ocean-blue);
   border: none;
   padding: 15px 30px;
   font-size: 1rem;
@@ -591,8 +591,8 @@ footer a:hover {
 }
 
 #quote-btn:hover {
-  background: var(--ancient-brown);
-  color: var(--sand-light);
+  background: var(--coral-red);
+  color: var(--wave-white);
 }
 
 #quote-btn:active {
@@ -603,18 +603,18 @@ footer a:hover {
 #quote-text {
   font-style: italic;
   font-size: 1.2rem;
-  color: var(--hieroglyph-black);
+  color: var(--ocean-blue);
   margin: 20px 0;
   padding: 20px;
-  background: rgba(212, 175, 55, 0.1);
-  border-left: 4px solid var(--desert-gold);
+  background: rgba(255, 215, 0, 0.1);
+  border-left: 4px solid var(--sunny-yellow);
 }
 
 /* Eyebrow styling */
 .eyebrow {
   font-size: 1.1rem;
   font-style: italic;
-  color: var(--hieroglyph-gold);
+  color: var(--sunny-yellow);
   margin-bottom: 10px;
 }
 
@@ -626,7 +626,7 @@ html {
 /* Focus styles for accessibility */
 .nav-link:focus,
 #quote-btn:focus {
-  outline: 2px solid var(--desert-gold);
+  outline: 2px solid var(--sunny-yellow);
   outline-offset: 2px;
 }
 
@@ -634,9 +634,9 @@ html {
 @media print {
   .mobile-nav,
   #quote-btn,
-  .egyptian-decorations,
-  .egyptian-header,
-  .egyptian-footer {
+  .beach-decorations,
+  .beach-header,
+  .beach-footer {
     display: none;
   }
   

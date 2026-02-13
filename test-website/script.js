@@ -82,11 +82,11 @@ const quoteBtn = document.getElementById('quote-btn');
 const quoteText = document.getElementById('quote-text');
 
 const quotes = [
-  "You have power over your mind — not outside events. Realize this, and you will find strength.",
-  "The happiness of your life depends upon the quality of your thoughts.",
-  "Waste no more time arguing about what a good man should be. Be one.",
-  "Very little is needed to make a happy life; it is all within yourself, in your way of thinking.",
-  "If it is not right, do not do it; if it is not true, do not say it."
+  "Life is better at the beach!",
+  "Sun, sand, and surf - paradise found!",
+  "Every day is a beach day!",
+  "Salt in the air, sand in my hair!",
+  "Beach more, worry less!"
 ];
 
 let currentQuoteIndex = 0;
@@ -119,6 +119,397 @@ quoteBtn.addEventListener('keydown', (event) => {
 
 // Initial quote with loading state
 showRandomQuote();
+
+// Beach activity selector functionality
+const activitySelector = document.getElementById('activity-selector');
+const activityDisplay = document.getElementById('activity-display');
+
+if (activitySelector && activityDisplay) {
+  activitySelector.addEventListener('change', function() {
+    const selectedActivity = this.value;
+    activityDisplay.textContent = `You selected: ${selectedActivity}`;
+    activityDisplay.style.opacity = '0';
+    
+    setTimeout(() => {
+      activityDisplay.style.transition = 'opacity 0.5s';
+      activityDisplay.style.opacity = '1';
+    }, 100);
+  });
+}
+
+// Water sports booking form functionality
+const bookingForm = document.getElementById('booking-form');
+const bookingMessage = document.getElementById('booking-message');
+
+if (bookingForm) {
+  bookingForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const bookingDetails = Object.fromEntries(formData);
+    
+    bookingMessage.textContent = 'Booking successful!';
+    bookingMessage.style.color = 'green';
+    bookingMessage.style.opacity = '0';
+    
+    setTimeout(() => {
+      bookingMessage.style.transition = 'opacity 0.5s';
+      bookingMessage.style.opacity = '1';
+    }, 100);
+    
+    this.reset();
+  });
+}
+
+// Contact form functionality
+const contactForm = document.getElementById('contact-form');
+const contactMessage = document.getElementById('contact-message');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const contactDetails = Object.fromEntries(formData);
+    
+    contactMessage.textContent = 'Message sent successfully!';
+    contactMessage.style.color = 'green';
+    contactMessage.style.opacity = '0';
+    
+    setTimeout(() => {
+      contactMessage.style.transition = 'opacity 0.5s';
+      contactMessage.style.opacity = '1';
+    }, 100);
+    
+    this.reset();
+  });
+}
+
+// Social media buttons functionality
+const socialButtons = document.querySelectorAll('.social-button');
+socialButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    const platform = this.dataset.platform;
+    const url = this.dataset.url;
+    
+    window.open(url, '_blank');
+    
+    this.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      this.style.transform = 'scale(1)';
+    }, 100);
+  });
+});
+
+// Newsletter signup functionality
+const newsletterForm = document.getElementById('newsletter-form');
+const newsletterMessage = document.getElementById('newsletter-message');
+
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const email = this.querySelector('input[type="email"]').value;
+    
+    if (email) {
+      newsletterMessage.textContent = 'Thank you for subscribing!';
+      newsletterMessage.style.color = 'green';
+      newsletterMessage.style.opacity = '0';
+      
+      setTimeout(() => {
+        newsletterMessage.style.transition = 'opacity 0.5s';
+        newsletterMessage.style.opacity = '1';
+      }, 100);
+      
+      this.reset();
+    } else {
+      newsletterMessage.textContent = 'Please enter a valid email address.';
+      newsletterMessage.style.color = 'red';
+      newsletterMessage.style.opacity = '0';
+      
+      setTimeout(() => {
+        newsletterMessage.style.transition = 'opacity 0.5s';
+        newsletterMessage.style.opacity = '1';
+      }, 100);
+    }
+  });
+}
+
+// Beach weather widget functionality
+const weatherWidget = document.getElementById('weather-widget');
+const weatherInfo = document.getElementById('weather-info');
+
+if (weatherWidget && weatherInfo) {
+  weatherWidget.addEventListener('click', function() {
+    const weatherData = {
+      temperature: '75°F',
+      condition: 'Sunny',
+      humidity: '60%',
+      wind: '5 mph'
+    };
+    
+    weatherInfo.innerHTML = `
+      <p>Temperature: ${weatherData.temperature}</p>
+      <p>Condition: ${weatherData.condition}</p>
+      <p>Humidity: ${weatherData.humidity}</p>
+      <p>Wind: ${weatherData.wind}</p>
+    `;
+    
+    weatherInfo.style.opacity = '0';
+    
+    setTimeout(() => {
+      weatherInfo.style.transition = 'opacity 0.5s';
+      weatherInfo.style.opacity = '1';
+    }, 100);
+  });
+}
+
+// Beach camera live stream functionality
+const cameraButton = document.getElementById('camera-button');
+const cameraStream = document.getElementById('camera-stream');
+
+if (cameraButton && cameraStream) {
+  cameraButton.addEventListener('click', function() {
+    cameraStream.src = 'https://example.com/beach-cam.jpg';
+    cameraStream.style.display = 'block';
+    
+    this.textContent = 'Stop Live Stream';
+    this.dataset.action = 'stop';
+    
+    this.addEventListener('click', function() {
+      if (this.dataset.action === 'stop') {
+        cameraStream.style.display = 'none';
+        this.textContent = 'Start Live Stream';
+        this.dataset.action = 'start';
+      }
+    });
+  });
+}
+
+// Beach event calendar functionality
+const eventCalendar = document.getElementById('event-calendar');
+const eventDetails = document.getElementById('event-details');
+
+if (eventCalendar && eventDetails) {
+  eventCalendar.addEventListener('change', function() {
+    const selectedDate = this.value;
+    const events = {
+      '2024-06-15': 'Beach Party',
+      '2024-06-20': 'Surf Competition',
+      '2024-06-25': 'Yoga on the Beach',
+      '2024-06-30': 'Fireworks Display'
+    };
+    
+    const event = events[selectedDate];
+    
+    if (event) {
+      eventDetails.textContent = `Event on ${selectedDate}: ${event}`;
+      eventDetails.style.color = 'green';
+    } else {
+      eventDetails.textContent = 'No events scheduled for this date.';
+      eventDetails.style.color = 'gray';
+    }
+    
+    eventDetails.style.opacity = '0';
+    
+    setTimeout(() => {
+      eventDetails.style.transition = 'opacity 0.5s';
+      eventDetails.style.opacity = '1';
+    }, 100);
+  });
+}
+
+// Beach shop functionality
+const shopItems = document.querySelectorAll('.shop-item');
+const cart = document.getElementById('cart');
+const cartCount = document.getElementById('cart-count');
+
+let cartItems = 0;
+
+shopItems.forEach(item => {
+  item.addEventListener('click', function() {
+    cartItems++;
+    cartCount.textContent = cartItems;
+    
+    this.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      this.style.transform = 'scale(1)';
+    }, 100);
+  });
+});
+
+// Beach restaurant menu functionality
+const menuItems = document.querySelectorAll('.menu-item');
+const orderList = document.getElementById('order-list');
+const orderTotal = document.getElementById('order-total');
+
+let total = 0;
+
+menuItems.forEach(item => {
+  item.addEventListener('click', function() {
+    const itemName = this.dataset.name;
+    const itemPrice = parseFloat(this.dataset.price);
+    
+    const listItem = document.createElement('li');
+    listItem.textContent = `${itemName} - $${itemPrice.toFixed(2)}`;
+    orderList.appendChild(listItem);
+    
+    total += itemPrice;
+    orderTotal.textContent = `Total: $${total.toFixed(2)}`;
+    
+    this.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      this.style.transform = 'scale(1)';
+    }, 100);
+  });
+});
+
+// Beach photo gallery functionality
+const galleryImages = document.querySelectorAll('.gallery-image');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+
+galleryImages.forEach(image => {
+  image.addEventListener('click', function() {
+    lightboxImage.src = this.src;
+    lightbox.style.display = 'flex';
+    
+    this.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      this.style.transform = 'scale(1)';
+    }, 100);
+  });
+});
+
+lightbox.addEventListener('click', function() {
+  this.style.display = 'none';
+});
+
+// Beach donation functionality
+const donationForm = document.getElementById('donation-form');
+const donationMessage = document.getElementById('donation-message');
+
+if (donationForm) {
+  donationForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const amount = parseFloat(this.querySelector('input[type="number"]').value);
+    
+    if (amount > 0) {
+      donationMessage.textContent = 'Thank you for your donation!';
+      donationMessage.style.color = 'green';
+      donationMessage.style.opacity = '0';
+      
+      setTimeout(() => {
+        donationMessage.style.transition = 'opacity 0.5s';
+        donationMessage.style.opacity = '1';
+      }, 100);
+      
+      this.reset();
+    } else {
+      donationMessage.textContent = 'Please enter a valid donation amount.';
+      donationMessage.style.color = 'red';
+      donationMessage.style.opacity = '0';
+      
+      setTimeout(() => {
+        donationMessage.style.transition = 'opacity 0.5s';
+        donationMessage.style.opacity = '1';
+      }, 100);
+    }
+  });
+}
+
+// Beach feedback form functionality
+const feedbackForm = document.getElementById('feedback-form');
+const feedbackMessage = document.getElementById('feedback-message');
+
+if (feedbackForm) {
+  feedbackForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const feedback = this.querySelector('textarea').value;
+    
+    if (feedback) {
+      feedbackMessage.textContent = 'Thank you for your feedback!';
+      feedbackMessage.style.color = 'green';
+      feedbackMessage.style.opacity = '0';
+      
+      setTimeout(() => {
+        feedbackMessage.style.transition = 'opacity 0.5s';
+        feedbackMessage.style.opacity = '1';
+      }, 100);
+      
+      this.reset();
+    } else {
+      feedbackMessage.textContent = 'Please enter your feedback.';
+      feedbackMessage.style.color = 'red';
+      feedbackMessage.style.opacity = '0';
+      
+      setTimeout(() => {
+        feedbackMessage.style.transition = 'opacity 0.5s';
+        feedbackMessage.style.opacity = '1';
+      }, 100);
+    }
+  });
+}
+
+// Beach volunteer signup functionality
+const volunteerForm = document.getElementById('volunteer-form');
+const volunteerMessage = document.getElementById('volunteer-message');
+
+if (volunteerForm) {
+  volunteerForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = this.querySelector('input[name="name"]').value;
+    const email = this.querySelector('input[name="email"]').value;
+    const skills = this.querySelector('input[name="skills"]').value;
+    
+    if (name && email && skills) {
+      volunteerMessage.textContent = 'Thank you for volunteering!';
+      volunteerMessage.style.color = 'green';
+      volunteerMessage.style.opacity = '0';
+      
+      setTimeout(() => {
+        volunteerMessage.style.transition = 'opacity 0.5s';
+        volunteerMessage.style.opacity = '1';
+      }, 100);
+      
+      this.reset();
+    } else {
+      volunteerMessage.textContent = 'Please fill in all fields.';
+      volunteerMessage.style.color = 'red';
+      volunteerMessage.style.opacity = '0';
+      
+      setTimeout(() => {
+        volunteerMessage.style.transition = 'opacity 0.5s';
+        volunteerMessage.style.opacity = '1';
+      }, 100);
+    }
+  });
+}
+
+// Beach event countdown functionality
+const eventDate = new Date('2024-07-01T00:00:00');
+const countdownDisplay = document.getElementById('countdown-display');
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = eventDate - now;
+  
+  if (diff > 0) {
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    countdownDisplay.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  } else {
+    countdownDisplay.textContent = 'Event Started!';
+  }
+}
+
+updateCountdown();
 
 // Accessibility improvements with better focus management
 navMenu.setAttribute('aria-hidden', 'true');
@@ -210,7 +601,7 @@ mobileNav.setAttribute('aria-label', 'Main navigation menu');
 const focusableElements = navMenu.querySelectorAll('a, button, input, select, textarea');
 focusableElements.forEach(element => {
   element.addEventListener('focus', () => {
-    element.style.outline = '2px solid var(--hieroglyph-gold)';
+    element.style.outline = '2px solid var(--sunny-yellow)';
     element.style.outlineOffset = '2px';
   });
   
