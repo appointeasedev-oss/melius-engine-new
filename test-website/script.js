@@ -489,26 +489,7 @@ window.addEventListener('resize', () => {
 });
 
 // Slide navigation enhancements
-const slides = [
-  {
-    title: 'Formation of Black Holes',
-    content: 'Black holes are formed through the gravitational collapse of massive stars. When a star with a mass greater than about 20 times that of our Sun exhausts its nuclear fuel, it can no longer support itself against its own gravity and collapses under its own weight.',
-    image: '🌀'
-  },
-  {
-    title: 'Types of Black Holes',
-    content: 'There are several types of black holes, each with unique characteristics and formation processes. Understanding these types helps us comprehend the diversity of these cosmic phenomena.',
-    image: '⚫'
-  },
-  {
-    title: 'Effects of Black Holes',
-    content: 'Black holes have profound effects on their surroundings and the universe at large. Their immense gravitational pull influences the behavior of nearby matter and light.',
-    image: '💫'
-  }
-];
-
 // Add slide transition animations
-const slideContent = document.getElementById('slide-content');
 slideContent.style.transition = 'opacity 0.5s';
 
 // Add slide navigation keyboard support
