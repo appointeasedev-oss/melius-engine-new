@@ -144,5 +144,76 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+      // Add event listeners for all buttons
+      document.addEventListener('DOMContentLoaded', function() {
+        // Navigation menu toggle
+        const navToggle = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        navToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+          navToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+        });
+
+        // Quote button
+        const quoteBtn = document.getElementById('quote-btn');
+        const quotes = [
+          'Life's a beach, enjoy the waves!',
+          'Sandy toes, sun-kissed nose!',
+          'Beach more, worry less!',
+          'Keep calm and beach on!',
+          'Ocean air, salty hair!'
+        ];
+        
+        quoteBtn.addEventListener('click', function() {
+          const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+          const quoteText = document.createElement('div');
+          quoteText.id = 'quote-text';
+          quoteText.textContent = randomQuote;
+          quoteText.className = 'quote-text';
+          
+          // Remove existing quote text
+          const existingQuote = document.getElementById('quote-text');
+          if (existingQuote) {
+            existingQuote.remove();
+          }
+          
+          // Add new quote text after the button
+          quoteBtn.parentNode.insertBefore(quoteText, quoteBtn.nextSibling);
+        });
+
+        // Booking buttons
+        const bookingButtons = document.querySelectorAll('.action-btn');
+        bookingButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const action = this.getAttribute('data-action');
+            console.log(`Booking action: ${action}`);
+            // Add your booking logic here
+            alert(`Booking ${action}...`);
+          });
+        });
+
+        // Contact buttons
+        const contactButtons = document.querySelectorAll('.contact-btn');
+        contactButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const action = this.getAttribute('data-action');
+            console.log(`Contact action: ${action}`);
+            // Add your contact logic here
+            alert(`Contact action: ${action}`);
+          });
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        backToTop.addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      });
+    </script>
   </body>
 </html>

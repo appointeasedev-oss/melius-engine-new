@@ -650,3 +650,613 @@ html {
     border: 1px solid #ccc;
   }
 }
+
+/* Button styling */
+button {
+  background: var(--sunny-yellow);
+  color: var(--ocean-blue);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 5px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+button:hover {
+  background: var(--coral-red);
+  color: var(--wave-white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.2);
+}
+
+button:focus {
+  outline: 2px solid var(--sunny-yellow);
+  outline-offset: 2px;
+}
+
+/* Action buttons styling */
+.action-btn {
+  background: var(--sunny-yellow);
+  color: var(--ocean-blue);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 5px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.action-btn:hover {
+  background: var(--coral-red);
+  color: var(--wave-white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.2);
+}
+
+.action-btn:focus {
+  outline: 2px solid var(--sunny-yellow);
+  outline-offset: 2px;
+}
+
+/* Contact buttons styling */
+.contact-btn {
+  background: var(--sunny-yellow);
+  color: var(--ocean-blue);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 10px 5px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.contact-btn:hover {
+  background: var(--coral-red);
+  color: var(--wave-white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.contact-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.2);
+}
+
+.contact-btn:focus {
+  outline: 2px solid var(--sunny-yellow);
+  outline-offset: 2px;
+}
+
+/* Booking buttons styling */
+.booking-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.booking-buttons button {
+  background: linear-gradient(135deg, var(--sunny-yellow) 0%, var(--coral-red) 100%);
+  color: var(--ocean-blue);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+}
+
+.booking-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+}
+
+.booking-buttons button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.2);
+}
+
+.booking-buttons button:focus {
+  outline: 2px solid var(--sunny-yellow);
+  outline-offset: 2px;
+}
+
+/* Contact buttons styling */
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-buttons button {
+  background: linear-gradient(135deg, var(--coral-red) 0%, var(--palm-green) 100%);
+  color: var(--wave-white);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(124, 160, 77, 0.2);
+}
+
+.contact-buttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(124, 160, 77, 0.3);
+}
+
+.contact-buttons button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(124, 160, 77, 0.2);
+}
+
+.contact-buttons button:focus {
+  outline: 2px solid var(--sunny-yellow);
+  outline-offset: 2px;
+}
+
+/* Back to top button styling */
+.back-to-top {
+  display: inline-block;
+  background: var(--sunny-yellow);
+  color: var(--ocean-blue);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover {
+  background: var(--coral-red);
+  color: var(--wave-white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.back-to-top:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.2);
+}
+
+.back-to-top:focus {
+  outline: 2px solid var(--sunny-yellow);
+  outline-offset: 2px;
+}
+
+/* Button group styling */
+.button-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button-group button {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Mobile button styling */
+@media (max-width: 480px) {
+  button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .action-btn,
+  .contact-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .booking-buttons button,
+  .contact-buttons button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .back-to-top {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet button styling */
+@media (min-width: 481px) and (max-width: 768px) {
+  button {
+    padding: 11px 22px;
+    font-size: 0.95rem;
+  }
+  
+  .action-btn,
+  .contact-btn {
+    padding: 11px 22px;
+    font-size: 0.95rem;
+  }
+  
+  .booking-buttons button,
+  .contact-buttons button {
+    padding: 14px 28px;
+    font-size: 1.05rem;
+  }
+  
+  .back-to-top {
+    padding: 9px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Desktop button styling */
+@media (min-width: 769px) and (max-width: 1024px) {
+  button {
+    padding: 13px 26px;
+    font-size: 1.05rem;
+  }
+  
+  .action-btn,
+  .contact-btn {
+    padding: 13px 26px;
+    font-size: 1.05rem;
+  }
+  
+  .booking-buttons button,
+  .contact-buttons button {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+  }
+  
+  .back-to-top {
+    padding: 11px 22px;
+    font-size: 1.05rem;
+  }
+}
+
+/* Large desktop button styling */
+@media (min-width: 1025px) {
+  button {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+  }
+  
+  .action-btn,
+  .contact-btn {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+  }
+  
+  .booking-buttons button,
+  .contact-buttons button {
+    padding: 18px 36px;
+    font-size: 1.2rem;
+  }
+  
+  .back-to-top {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Beach-themed icons and graphics */
+.beach-icon {
+  font-size: 1.5rem;
+  margin: 0 5px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.beach-icon:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.beach-icon:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.beach-icon:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.beach-icon:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+.beach-icon:nth-child(5) {
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Beach-themed decorations */
+.beach-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.sand-castle {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.sand-castle:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.sand-castle:nth-child(2) {
+  top: 20%;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+.sand-castle:nth-child(3) {
+  bottom: 10%;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+.sea-shell {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: spin 4s linear infinite;
+}
+
+.sea-shell:nth-child(4) {
+  top: 30%;
+  left: 50%;
+  animation-delay: 0s;
+}
+
+.sea-shell:nth-child(5) {
+  bottom: 30%;
+  right: 50%;
+  animation-delay: 2s;
+}
+
+.palm-tree {
+  position: absolute;
+  font-size: 2rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.palm-tree:nth-child(6) {
+  top: 50%;
+  left: 50%;
+  animation-delay: 1s;
+}
+
+.footer-sand-castle {
+  animation: float 3s ease-in-out infinite;
+}
+
+.footer-sea-shell {
+  animation: spin 4s linear infinite;
+}
+
+.footer-palm-tree {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.footer-wave {
+  animation: float 4s ease-in-out infinite;
+}
+
+.footer-sun {
+  animation: spin 2s linear infinite;
+}
+
+.footer-umbrella {
+  animation: bounce 3s ease-in-out infinite;
+}
+
+.footer-seagull {
+  animation: spin 5s linear infinite;
+}
+
+/* Beach-themed footer decorations */
+.beach-footer-decorations {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.5rem;
+}
+
+/* Beach-themed header decorations */
+.beach-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  text-align: center;
+  color: var(--sunny-yellow);
+}
+
+.beach-greeting {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.beach-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Beach-themed footer additions */
+.beach-footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--sunny-yellow);
+}
+
+.beach-wishes {
+  margin-bottom: 10px;
+  font-style: italic;
+  color: var(--sunny-yellow);
+}
+
+/* Beach-themed animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
+}
+
+/* Beach-themed patterns and textures */
+:root {
+  --beach-pattern-1: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L90,10 L50,90 Z" fill="%23ffd700" opacity="0.1"/><circle cx="20" cy="20" r="5" fill="%23ffd700" opacity="0.1"/><circle cx="80" cy="80" r="5" fill="%23ffd700" opacity="0.1"/></svg>');
+  --beach-pattern-2: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,50 L50,10 L90,50 L50,90 Z" fill="%231e3a8a" opacity="0.1"/><path d="M50,50 L70,30 L50,10 L30,30 Z" fill="%231e3a8a" opacity="0.1"/></svg>');
+  --beach-pattern-3: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="%23ffd700" opacity="0.05"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="%23ffd700" opacity="0.05"/></svg>');
+  --beach-pattern-4: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,50 L10,90 L50,50 Z" fill="%231e3a8a" opacity="0.1"/><path d="M90,10 L50,50 L90,90 L50,50 Z" fill="%231e3a8a" opacity="0.1"/></svg>');
+}
+
+/* Beach-themed color palette */
+:root {
+  --sand-light: #f4e8c1;
+  --sand-dark: #d2b55b;
+  --ocean-blue: #1e3a8a;
+  --sunny-yellow: #ffd700;
+  --palm-green: #7ea04d;
+  --coral-red: #ff6b6b;
+  --beach-sky: #87ceeb;
+  --sea-foam: #2e8b57;
+  --wave-white: #f0ffff;
+}
+
+/* Beach-themed decorations */
+.beach-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.sand-castle {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.sand-castle:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.sand-castle:nth-child(2) {
+  top: 20%;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+.sand-castle:nth-child(3) {
+  bottom: 10%;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+.sea-shell {
+  position: absolute;
+  font-size: 1.5rem;
+  animation: spin 4s linear infinite;
+}
+
+.sea-shell:nth-child(4) {
+  top: 30%;
+  left: 50%;
+  animation-delay: 0s;
+}
+
+.sea-shell:nth-child(5) {
+  bottom: 30%;
+  right: 50%;
+  animation-delay: 2s;
+}
+
+.palm-tree {
+  position: absolute;
+  font-size: 2rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.palm-tree:nth-child(6) {
+  top: 50%;
+  left: 50%;
+  animation-delay: 1s;
+}
+
+.footer-sand-castle {
+  animation: float 3s ease-in-out infinite;
+}
+
+.footer-sea-shell {
+  animation: spin 4s linear infinite;
+}
+
+.footer-palm-tree {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.footer-wave {
+  animation: float 4s ease-in-out infinite;
+}
+
+.footer-sun {
+  animation: spin 2s linear infinite;
+}
+
+.footer-umbrella {
+  animation: bounce 3s ease-in-out infinite;
+}
+
+.footer-seagull {
+  animation: spin 5s linear infinite;
+}
