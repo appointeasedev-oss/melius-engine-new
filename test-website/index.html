@@ -64,6 +64,60 @@
     </header>
 
     <main class="container" role="main">
+      <!-- Interactive Planets Section -->
+      <section class="card" aria-labelledby="interactive-planets">
+        <h2 id="interactive-planets">Interactive Planets</h2>
+        <p>
+          Click on the planets below to learn more about how black holes interact with different celestial bodies in the universe.
+        </p>
+        <div class="planet-grid">
+          <div class="planet" data-planet="mercury">
+            <div class="planet-icon">☿</div>
+            <h3>Mercury</h3>
+            <p class="planet-info">Click to learn more</p>
+          </div>
+          <div class="planet" data-planet="venus">
+            <div class="planet-icon">♀</div>
+            <h3>Venus</h3>
+            <p class="planet-info">Click to learn more</p>
+          </div>
+          <div class="planet" data-planet="earth">
+            <div class="planet-icon">♁</div>
+            <h3>Earth</h3>
+            <p class="planet-info">Click to learn more</p>
+          </div>
+          <div class="planet" data-planet="mars">
+            <div class="planet-icon">♂</div>
+            <h3>Mars</h3>
+            <p class="planet-info">Click to learn more</p>
+          </div>
+          <div class="planet" data-planet="jupiter">
+            <div class="planet-icon">♃</div>
+            <h3>Jupiter</h3>
+            <p class="planet-info">Click to learn more</p>
+          </div>
+          <div class="planet" data-planet="saturn">
+            <div class="planet-icon">♄</div>
+            <h3>Saturn</h3>
+            <p class="planet-info">Click to learn more</p>
+          </div>
+          <div class="planet" data-planet="uranus">
+            <div class="planet-icon">⛢</div>
+            <h3>Uranus</h3>
+            <p class="planet-info">Click to learn more</p>
+          </div>
+          <div class="planet" data-planet="neptune">
+            <div class="planet-icon">♆</div>
+            <h3>Neptune</h3>
+            <p class="planet-info">Click to learn more</p>
+          </div>
+        </div>
+        <div class="planet-details" id="planet-details">
+          <h3>Planet Information</h3>
+          <p id="planet-description">Click on a planet to learn more about its interaction with black holes.</p>
+        </div>
+      </section>
+
       <!-- Animated Slides Section -->
       <section class="card" aria-labelledby="black-hole-slides">
         <h2 id="black-hole-slides">Black Hole Slides</h2>
@@ -292,6 +346,67 @@
         });
 
         showSlide(currentSlideIndex);
+
+        // Interactive planets functionality
+        const planets = document.querySelectorAll('.planet');
+        const planetDetails = document.getElementById('planet-details');
+        const planetDescription = document.getElementById('planet-description');
+
+        planets.forEach(planet => {
+          planet.addEventListener('click', function() {
+            const planetName = this.getAttribute('data-planet');
+            const planetInfo = getPlanetInfo(planetName);
+            
+            // Update planet details
+            planetDescription.innerHTML = planetInfo.description;
+            
+            // Add animation to planet details
+            planetDetails.style.opacity = '0';
+            setTimeout(() => {
+              planetDetails.style.opacity = '1';
+              planetDetails.style.transition = 'opacity 0.5s';
+            }, 100);
+          });
+        });
+
+        function getPlanetInfo(planetName) {
+          const planetData = {
+            mercury: {
+              name: 'Mercury',
+              description: 'Mercury, being the closest planet to the Sun, experiences extreme gravitational effects. If a black hole were to pass near Mercury, its intense gravity could potentially disrupt the planet's orbit or even tear it apart.'
+            },
+            venus: {
+              name: 'Venus',
+              description: 'Venus, with its thick atmosphere, would face catastrophic consequences if a black hole approached. The black hole's gravity could strip away Venus's atmosphere, exposing its surface to the harsh conditions of space.'
+            },
+            earth: {
+              name: 'Earth',
+              description: 'Earth's fate in the presence of a black hole would be dire. The black hole's immense gravity could cause massive tidal forces, leading to earthquakes, volcanic eruptions, and potentially even the destruction of our planet.'
+            },
+            mars: {
+              name: 'Mars',
+              description: 'Mars, with its thin atmosphere, would be vulnerable to the gravitational pull of a black hole. The black hole could strip away Mars's atmosphere, leaving it exposed to the vacuum of space.'
+            },
+            jupiter: {
+              name: 'Jupiter',
+              description: 'Jupiter, being a gas giant, would experience significant gravitational effects from a nearby black hole. The black hole's gravity could cause massive storms and potentially disrupt the planet's magnetic field.'
+            },
+            saturn: {
+              name: 'Saturn',
+              description: 'Saturn, with its iconic rings, would face a unique fate in the presence of a black hole. The black hole's gravity could disrupt the rings, causing them to break apart or form new structures.'
+            },
+            uranus: {
+              name: 'Uranus',
+              description: 'Uranus, with its tilted axis, would experience unusual gravitational effects from a black hole. The black hole's gravity could potentially alter Uranus's tilt, leading to changes in its seasons and climate.'
+            },
+            neptune: {
+              name: 'Neptune',
+              description: 'Neptune, being the farthest planet from the Sun, would still be affected by a nearby black hole. The black hole's gravity could disrupt Neptune's orbit, potentially sending it on a new trajectory through the solar system.'
+            }
+          };
+          
+          return planetData[planetName] || { name: 'Unknown', description: 'No information available.' };
+        }
       });
     </script>
   </body>

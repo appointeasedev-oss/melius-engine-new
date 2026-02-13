@@ -31,6 +31,7 @@ body {
   color: var(--stellar-white);
   background: linear-gradient(135deg, var(--black-hole-dark) 0%, var(--event-horizon) 100%), var(--black-hole-pattern-1);
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .container {
@@ -292,6 +293,104 @@ footer a:hover {
 @keyframes pulse {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* Parallax effect for background */
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.parallax__layer--base {
+  transform: translateZ(0);
+}
+
+.parallax__layer--back {
+  transform: translateZ(-1px) scale(2);
+}
+
+.parallax__layer--deep {
+  transform: translateZ(-2px) scale(3);
+}
+
+/* Parallax stars */
+.parallax__stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.parallax__star {
+  position: absolute;
+  background: var(--stellar-white);
+  border-radius: 50%;
+  animation: twinkle 2s infinite;
+}
+
+.parallax__star:nth-child(1) {
+  width: 1px;
+  height: 1px;
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.parallax__star:nth-child(2) {
+  width: 2px;
+  height: 2px;
+  top: 50%;
+  left: 80%;
+  animation-delay: 0.5s;
+}
+
+.parallax__star:nth-child(3) {
+  width: 1px;
+  height: 1px;
+  top: 90%;
+  left: 40%;
+  animation-delay: 1s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Parallax galaxies */
+.parallax__galaxy {
+  position: absolute;
+  background: radial-gradient(circle, var(--stellar-blue) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+.parallax__galaxy:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  top: 20%;
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.parallax__galaxy:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  top: 70%;
+  right: 20%;
+  animation-delay: 10s;
 }
 
 /* Responsive design */
@@ -1105,6 +1204,104 @@ button:focus {
 @keyframes pulse {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* Parallax effect for background */
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.parallax__layer--base {
+  transform: translateZ(0);
+}
+
+.parallax__layer--back {
+  transform: translateZ(-1px) scale(2);
+}
+
+.parallax__layer--deep {
+  transform: translateZ(-2px) scale(3);
+}
+
+/* Parallax stars */
+.parallax__stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.parallax__star {
+  position: absolute;
+  background: var(--stellar-white);
+  border-radius: 50%;
+  animation: twinkle 2s infinite;
+}
+
+.parallax__star:nth-child(1) {
+  width: 1px;
+  height: 1px;
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.parallax__star:nth-child(2) {
+  width: 2px;
+  height: 2px;
+  top: 50%;
+  left: 80%;
+  animation-delay: 0.5s;
+}
+
+.parallax__star:nth-child(3) {
+  width: 1px;
+  height: 1px;
+  top: 90%;
+  left: 40%;
+  animation-delay: 1s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Parallax galaxies */
+.parallax__galaxy {
+  position: absolute;
+  background: radial-gradient(circle, var(--stellar-blue) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+.parallax__galaxy:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  top: 20%;
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.parallax__galaxy:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  top: 70%;
+  right: 20%;
+  animation-delay: 10s;
 }
 
 /* Black Hole-themed patterns and textures */
