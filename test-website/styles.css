@@ -245,11 +245,6 @@ footer a:hover {
   animation-delay: 2s;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
 .sea-shell {
   position: absolute;
   font-size: 1.5rem;
@@ -268,11 +263,6 @@ footer a:hover {
   animation-delay: 2s;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .palm-tree {
   position: absolute;
   font-size: 2rem;
@@ -283,6 +273,16 @@ footer a:hover {
   top: 50%;
   left: 50%;
   animation-delay: 1s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes bounce {
@@ -315,21 +315,6 @@ footer a:hover {
     font-size: 2rem;
   }
   
-  .card {
-    padding: 15px;
-  }
-  
-  .container {
-    padding: 10px;
-  }
-}
-
-/* Mobile-specific responsive design */
-@media (max-width: 375px) {
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  
   .subtitle {
     font-size: 1rem;
   }
@@ -340,7 +325,7 @@ footer a:hover {
   }
   
   .card {
-    padding: 12px;
+    padding: 15px;
   }
   
   .card h2 {
@@ -366,7 +351,6 @@ footer a:hover {
   }
 }
 
-/* Tablet-specific responsive design */
 @media (min-width: 481px) and (max-width: 768px) {
   .hero h1 {
     font-size: 2.2rem;
@@ -391,7 +375,6 @@ footer a:hover {
   }
 }
 
-/* Desktop-specific responsive design */
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero h1 {
     font-size: 3rem;
@@ -411,7 +394,6 @@ footer a:hover {
   }
 }
 
-/* Large desktop responsive design */
 @media (min-width: 1025px) {
   .hero h1 {
     font-size: 4rem;

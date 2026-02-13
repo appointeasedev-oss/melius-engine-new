@@ -94,7 +94,7 @@ let currentQuoteIndex = 0;
 function showRandomQuote() {
   let newIndex;
   do {
-    newIndex = Math.floor(random() * quotes.length);
+    newIndex = Math.floor(Math.random() * quotes.length);
   } while (newIndex === currentQuoteIndex);
   
   currentQuoteIndex = newIndex;
@@ -416,7 +416,7 @@ window.addEventListener('error', (event) => {
 });
 
 // Enhanced performance optimization: Debounce scroll events
-let scrollTimeout;
+scrollTimeout;
 window.addEventListener('scroll', () => {
   clearTimeout(scrollTimeout);
   scrollTimeout = setTimeout(() => {
