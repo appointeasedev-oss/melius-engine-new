@@ -865,3 +865,16 @@ window.addEventListener('beforeunload', function() {
     element.removeEventListener('touchend', enhanceTouchInteractions);
   });
 });
+
+// Fixed showSlide function
+function showSlide(index) {
+  const slide = slides[index];
+  slideContent.innerHTML = `
+    <div class='slide'>
+      <h3>${slide.title}</h3>
+      <p>${slide.content}</p>
+      <div class='slide-image'>${slide.image}</div>
+    </div>
+  `;
+  currentSlide.textContent = index + 1;
+}
