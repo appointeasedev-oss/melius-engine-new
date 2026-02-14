@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'The black holes of nature are the most perfect macroscopic objects there are in the universe: the only elements in their construction are our concepts of space and time.',
     'Black holes are where God divided by zero.',
     'A black hole is a region of spacetime where gravity is so strong that nothing—no particles or even electromagnetic radiation such as light—can escape from it.',
-    'The event horizon is the point of no return; once crossed, the black hole's gravity is too strong to escape.',
+    'The event horizon is the point of no return; once crossed, the black hole\'s gravity is too strong to escape.',
     'Black holes are the most efficient engines in the universe, converting mass into energy with near-perfect efficiency.'
   ];
   
