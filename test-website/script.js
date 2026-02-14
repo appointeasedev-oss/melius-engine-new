@@ -657,12 +657,12 @@ quoteBtn.addEventListener('keydown', function(event) {
     // Remove existing quote text
     const existingQuote = document.getElementById('quote-text');
     if (existingQuote) {
-      existingQuote.remove();
-    }
-    
-    // Add new quote text after the button
-    quoteBtn.parentNode.insertBefore(quoteText, quoteBtn.nextSibling);
+    existingQuote.remove();
   }
+  
+  // Add new quote text after the button
+  quoteBtn.parentNode.insertBefore(quoteText, quoteBtn.nextSibling);
+}
 });
 
 // Add initial quote with loading state
