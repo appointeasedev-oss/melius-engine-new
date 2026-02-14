@@ -243,35 +243,35 @@ function getPlanetInfo(planetName) {
   const planetData = {
     mercury: {
       name: 'Mercury',
-      description: 'Mercury, being the closest planet to the Sun, experiences extreme gravitational effects. If a black hole were to pass near Mercury, its intense gravity could potentially disrupt the planet\'s orbit or even tear it apart.'
+      description: 'Mercury, being the closest planet to the Sun, experiences extreme gravitational effects. If a black hole were to pass near Mercury, its intense gravity could potentially disrupt the planet's orbit or even tear it apart.'
     },
     venus: {
       name: 'Venus',
-      description: 'Venus, with its thick atmosphere, would face catastrophic consequences if a black hole approached. The black hole\'s gravity could strip away Venus\'s atmosphere, exposing its surface to the harsh conditions of space.'
+      description: 'Venus, with its thick atmosphere, would face catastrophic consequences if a black hole approached. The black hole's gravity could strip away Venus's atmosphere, exposing its surface to the harsh conditions of space.'
     },
     earth: {
       name: 'Earth',
-      description: 'Earth\'s fate in the presence of a black hole would be dire. The black hole\'s immense gravity could cause massive tidal forces, leading to earthquakes, volcanic eruptions, and potentially even the destruction of our planet.'
+      description: 'Earth's fate in the presence of a black hole would be dire. The black hole's immense gravity could cause massive tidal forces, leading to earthquakes, volcanic eruptions, and potentially even the destruction of our planet.'
     },
     mars: {
       name: 'Mars',
-      description: 'Mars, with its thin atmosphere, would be vulnerable to the gravitational pull of a black hole. The black hole could strip away Mars\'s atmosphere, leaving it exposed to the vacuum of space.'
+      description: 'Mars, with its thin atmosphere, would be vulnerable to the gravitational pull of a black hole. The black hole could strip away Mars's atmosphere, leaving it exposed to the vacuum of space.'
     },
     jupiter: {
       name: 'Jupiter',
-      description: 'Jupiter, being a gas giant, would experience significant gravitational effects from a nearby black hole. The black hole\'s gravity could cause massive storms and potentially disrupt the planet\'s magnetic field.'
+      description: 'Jupiter, being a gas giant, would experience significant gravitational effects from a nearby black hole. The black hole's gravity could cause massive storms and potentially disrupt the planet's magnetic field.'
     },
     saturn: {
       name: 'Saturn',
-      description: 'Saturn, with its iconic rings, would face a unique fate in the presence of a black hole. The black hole\'s gravity could disrupt the rings, causing them to break apart or form new structures.'
+      description: 'Saturn, with its iconic rings, would face a unique fate in the presence of a black hole. The black hole's gravity could disrupt the rings, causing them to break apart or form new structures.'
     },
     uranus: {
       name: 'Uranus',
-      description: 'Uranus, with its tilted axis, would experience unusual gravitational effects from a black hole. The black hole\'s gravity could potentially alter Uranus\'s tilt, leading to changes in its seasons and climate.'
+      description: 'Uranus, with its tilted axis, would experience unusual gravitational effects from a black hole. The black hole's gravity could potentially alter Uranus's tilt, leading to changes in its seasons and climate.'
     },
     neptune: {
       name: 'Neptune',
-      description: 'Neptune, being the farthest planet from the Sun, would still be affected by a nearby black hole. The black hole\'s gravity could disrupt Neptune\'s orbit, potentially sending it on a new trajectory through the solar system.'
+      description: 'Neptune, being the farthest planet from the Sun, would still be affected by a nearby black hole. The black hole's gravity could disrupt Neptune's orbit, potentially sending it on a new trajectory through the solar system.'
     }
   };
   
@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'The black holes of nature are the most perfect macroscopic objects there are in the universe: the only elements in their construction are our concepts of space and time.',
     'Black holes are where God divided by zero.',
     'A black hole is a region of spacetime where gravity is so strong that nothing—no particles or even electromagnetic radiation such as light—can escape from it.',
-    'The event horizon is the point of no return; once crossed, the black hole\'s gravity is too strong to escape.',
+    'The event horizon is the point of no return; once crossed, the black hole's gravity is too strong to escape.',
     'Black holes are the most efficient engines in the universe, converting mass into energy with near-perfect efficiency.'
   ];
   
@@ -465,35 +465,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const planetData = {
       mercury: {
         name: 'Mercury',
-        description: 'Mercury, being the closest planet to the Sun, experiences extreme gravitational effects. If a black hole were to pass near Mercury, its intense gravity could potentially disrupt the planet\'s orbit or even tear it apart.'
+        description: 'Mercury, being the closest planet to the Sun, experiences extreme gravitational effects. If a black hole were to pass near Mercury, its intense gravity could potentially disrupt the planet's orbit or even tear it apart.'
       },
       venus: {
         name: 'Venus',
-        description: 'Venus, with its thick atmosphere, would face catastrophic consequences if a black hole approached. The black hole\'s gravity could strip away Venus\'s atmosphere, exposing its surface to the harsh conditions of space.'
+        description: 'Venus, with its thick atmosphere, would face catastrophic consequences if a black hole approached. The black hole's gravity could strip away Venus's atmosphere, exposing its surface to the harsh conditions of space.'
       },
       earth: {
         name: 'Earth',
-        description: 'Earth\'s fate in the presence of a black hole would be dire. The black hole\'s immense gravity could cause massive tidal forces, leading to earthquakes, volcanic eruptions, and potentially even the destruction of our planet.'
+        description: 'Earth's fate in the presence of a black hole would be dire. The black hole's immense gravity could cause massive tidal forces, leading to earthquakes, volcanic eruptions, and potentially even the destruction of our planet.'
       },
       mars: {
         name: 'Mars',
-        description: 'Mars, with its thin atmosphere, would be vulnerable to the gravitational pull of a black hole. The black hole could strip away Mars\'s atmosphere, leaving it exposed to the vacuum of space.'
+        description: 'Mars, with its thin atmosphere, would be vulnerable to the gravitational pull of a black hole. The black hole could strip away Mars's atmosphere, leaving it exposed to the vacuum of space.'
       },
       jupiter: {
         name: 'Jupiter',
-        description: 'Jupiter, being a gas giant, would experience significant gravitational effects from a nearby black hole. The black hole\'s gravity could cause massive storms and potentially disrupt the planet\'s magnetic field.'
+        description: 'Jupiter, being a gas giant, would experience significant gravitational effects from a nearby black hole. The black hole's gravity could cause massive storms and potentially disrupt the planet's magnetic field.'
       },
       saturn: {
         name: 'Saturn',
-        description: 'Saturn, with its iconic rings, would face a unique fate in the presence of a black hole. The black hole\'s gravity could disrupt the rings, causing them to break apart or form new structures.'
+        description: 'Saturn, with its iconic rings, would face a unique fate in the presence of a black hole. The black hole's gravity could disrupt the rings, causing them to break apart or form new structures.'
       },
       uranus: {
         name: 'Uranus',
-        description: 'Uranus, with its tilted axis, would experience unusual gravitational effects from a black hole. The black hole\'s gravity could potentially alter Uranus\'s tilt, leading to changes in its seasons and climate.'
+        description: 'Uranus, with its tilted axis, would experience unusual gravitational effects from a black hole. The black hole's gravity could potentially alter Uranus's tilt, leading to changes in its seasons and climate.'
       },
       neptune: {
         name: 'Neptune',
-        description: 'Neptune, being the farthest planet from the Sun, would still be affected by a nearby black hole. The black hole\'s gravity could disrupt Neptune\'s orbit, potentially sending it on a new trajectory through the solar system.'
+        description: 'Neptune, being the farthest planet from the Sun, would still be affected by a nearby black hole. The black hole's gravity could disrupt Neptune's orbit, potentially sending it on a new trajectory through the solar system.'
       }
     };
     
@@ -657,12 +657,12 @@ quoteBtn.addEventListener('keydown', function(event) {
     // Remove existing quote text
     const existingQuote = document.getElementById('quote-text');
     if (existingQuote) {
-    existingQuote.remove();
+      existingQuote.remove();
+    }
+    
+    // Add new quote text after the button
+    quoteBtn.parentNode.insertBefore(quoteText, quoteBtn.nextSibling);
   }
-  
-  // Add new quote text after the button
-  quoteBtn.parentNode.insertBefore(quoteText, quoteBtn.nextSibling);
-}
 });
 
 // Add initial quote with loading state
