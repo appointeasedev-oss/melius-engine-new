@@ -877,4 +877,4 @@ function showSlide(index) {
     </div>
   `;
   currentSlide.textContent = index + 1;
-}
+}'}Response: 
