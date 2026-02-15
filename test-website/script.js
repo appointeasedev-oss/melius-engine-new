@@ -657,7 +657,7 @@ quoteBtn.addEventListener('keydown', function(event) {
     // Remove existing quote text
     const existingQuote = document.getElementById('quote-text');
     if (existingQuote) {
-    existingQuote.remove();
+      existingQuote.remove();
     }
     
     // Add new quote text after the button
@@ -928,4 +928,4 @@ window.addEventListener('beforeunload', function() {
   } catch (error) {
     console.error('Error cleaning up event listeners:', error);
   }
-});
+}
