@@ -877,4 +877,55 @@ function showSlide(index) {
     </div>
   `;
   currentSlide.textContent = index + 1;
-}'}    
+}
+
+// Enhanced error handling for showSlide function
+function safeShowSlide(index) {
+  try {
+    showSlide(index);
+  } catch (error) {
+    console.error('Error showing slide:', error);
+  }
+}
+
+// Enhanced initialization with error handling
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    // Initialize black hole animations
+    animateBlackHoleElements();
+    animateBlackHoleIcons();
+    animateBlackHoleCore();
+    enhanceHoverEffects();
+    enhanceClickEffects();
+    enhanceKeyboardNavigation();
+    enhanceTouchInteractions();
+    enhanceParallaxEffect();
+    
+    // Optimize performance
+    optimizePerformance();
+    
+    // Log events for debugging
+    logEvents();
+  } catch (error) {
+    console.error('Error initializing black hole animations:', error);
+  }
+});
+
+// Enhanced cleanup on page unload with error handling
+window.addEventListener('beforeunload', function() {
+  try {
+    // Clean up event listeners
+    const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+    
+    interactiveElements.forEach(element => {
+      element.removeEventListener('mouseenter', enhanceHoverEffects);
+      element.removeEventListener('mouseleave', enhanceHoverEffects);
+      element.removeEventListener('click', enhanceClickEffects);
+      element.removeEventListener('keydown', enhanceKeyboardNavigation);
+      element.removeEventListener('touchstart', enhanceTouchInteractions);
+      element.removeEventListener('touchend', enhanceTouchInteractions);
+    });
+  } catch (error) {
+    console.error('Error cleaning up event listeners:', error);
+  }
+});
