@@ -1,0 +1,4 @@
+{
+  "file": "test-website/script.js",
+  "pending": "Fix the syntax error by adding the missing closing brace for the 'beforeunload' event listener function."
+}

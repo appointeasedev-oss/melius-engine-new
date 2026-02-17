@@ -928,4 +928,5 @@ window.addEventListener('beforeunload', function() {
   } catch (error) {
     console.error('Error cleaning up event listeners:', error);
   }
+});
 }
