@@ -366,40 +366,6 @@ function animateBackToTopButton() {
   }
 }
 
-// Enhanced animations for black hole elements
-function animateBlackHoleElements() {
-  const blackHoleElements = document.querySelectorAll('.black-hole-decorations .event-horizon, .black-hole-decorations .accretion-disk, .black-hole-decorations .stellar-remnant');
-  
-  blackHoleElements.forEach((element, index) => {
-    element.style.animationDelay = `${index * 0.5}s`;
-  });
-}
-
-// Enhanced animations for black hole icons
-function animateBlackHoleIcons() {
-  const blackHoleIcons = document.querySelectorAll('.black-hole-icon');
-  
-  blackHoleIcons.forEach((icon, index) => {
-    icon.style.animationDelay = `${index * 0.2}s`;
-  });
-}
-
-// Enhanced animations for black hole core
-function animateBlackHoleCore() {
-  const blackHoleCore = document.querySelector('.black-hole-core');
-  const accretionDisk = document.querySelector('.accretion-disk-animation');
-  
-  if (blackHoleCore) {
-    blackHoleCore.style.animation = 'pulse 4s ease-in-out infinite';
-    blackHoleCore.style.animationDelay = '0s';
-  }
-  
-  if (accretionDisk) {
-    accretionDisk.style.animation = 'spin 6s linear infinite';
-    accretionDisk.style.animationDelay = '2s';
-  }
-}
-
 // Enhanced animations for interactive elements
 function enhanceAnimations() {
   animateSlideNavigation();
