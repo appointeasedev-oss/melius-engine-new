@@ -183,7 +183,7 @@ function enhanceHoverEffects() {
   
   interactiveElements.forEach(element => {
     element.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-3px)';
+      this.style.transform = 'translateY(-3px) scale(1.02)';
       this.style.boxShadow = '0 8px 25px rgba(255, 107, 107, 0.4)';
       
       // Add glow effect
@@ -191,7 +191,7 @@ function enhanceHoverEffects() {
     });
     
     element.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0)';
+      this.style.transform = 'translateY(0) scale(1)';
       this.style.boxShadow = '0 4px 15px rgba(255, 107, 107, 0.2)';
       
       // Remove glow effect
