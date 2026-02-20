@@ -268,7 +268,7 @@ function enhanceParallaxEffect() {
   });
 }
 
-// Enhanced animations for black hole-related elements
+// Enhanced animations for black hole elements
 function animateBlackHoleElements() {
   const blackHoleElements = document.querySelectorAll('.black-hole-decorations .event-horizon, .black-hole-decorations .accretion-disk, .black-hole-decorations .stellar-remnant');
   
