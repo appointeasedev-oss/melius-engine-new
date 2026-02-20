@@ -703,3 +703,138 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+// Event listeners for booking buttons
+const bookingButtons = document.querySelectorAll('.action-btn');
+bookingButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    const action = this.getAttribute('data-action');
+    console.log(`Booking action: ${action}`);
+    // Add your booking logic here
+    alert(`Accessing ${action}...`);
+  });
+});
+
+// Event listeners for contact buttons
+const contactButtons = document.querySelectorAll('.contact-btn');
+contactButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    const action = this.getAttribute('data-action');
+    console.log(`Contact action: ${action}`);
+    // Add your contact logic here
+    alert(`Accessing ${action}...`);
+  });
+});
+
+// Event listeners for slide navigation
+const prevSlide = document.getElementById('prev-slide');
+const nextSlide = document.getElementById('next-slide');
+const currentSlide = document.getElementById('current-slide');
+const totalSlides = document.getElementById('total-slides');
+const slideContent = document.getElementById('slide-content');
+
+const slides = [
+  {
+    title: 'Formation of Black Holes',
+    content: 'Black holes are formed through the gravitational collapse of massive stars. When a star with a mass greater than about 20 times that of our Sun exhausts its nuclear fuel, it can no longer support itself against its own gravity and collapses under its own weight.',
+    image: '🌀'
+  },
+  {
+    title: 'Types of Black Holes',
+    content: 'There are several types of black holes, each with unique characteristics and formation processes. Understanding these types helps us comprehend the diversity of these cosmic phenomena.',
+    image: '⚫'
+  },
+  {
+    title: 'Effects of Black Holes',
+    content: 'Black holes have profound effects on their surroundings and the universe at large. Their immense gravitational pull influences the behavior of nearby matter and light.',
+    image: '💫'
+  }
+];
+
+let currentSlideIndex = 0;
+totalSlides.textContent = slides.length;
+
+function showSlide(index) {
+  const slide = slides[index];
+  slideContent.innerHTML = `
+    <div class='slide'>
+      <h3>${slide.title}</h3>
+      <p>${slide.content}</p>
+      <div class='slide-image'>${slide.image}</div>
+    </div>
+  `;
+  currentSlide.textContent = index + 1;
+}
+
+prevSlide.addEventListener('click', function() {
+  currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+  showSlide(currentSlideIndex);
+});
+
+nextSlide.addEventListener('click', function() {
+  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+  showSlide(currentSlideIndex);
+});
+
+showSlide(currentSlideIndex);
+
+// Event listeners for interactive planets
+const planets = document.querySelectorAll('.planet');
+const planetDetails = document.getElementById('planet-details');
+const planetDescription = document.getElementById('planet-description');
+
+planets.forEach(planet => {
+  planet.addEventListener('click', function() {
+    const planetName = this.getAttribute('data-planet');
+    const planetInfo = getPlanetInfo(planetName);
+    
+    // Update planet details
+    planetDescription.innerHTML = planetInfo.description;
+    
+    // Add animation to planet details
+    planetDetails.style.opacity = '0';
+    setTimeout(() => {
+      planetDetails.style.opacity = '1';
+      planetDetails.style.transition = 'opacity 0.5s';
+    }, 100);
+  });
+});
+
+function getPlanetInfo(planetName) {
+  const planetData = {
+    mercury: {
+      name: 'Mercury',
+      description: 'Mercury, being the closest planet to the Sun, experiences extreme gravitational effects. If a black hole were to pass near Mercury, its intense gravity could potentially disrupt the planet\'s orbit or even tear it apart.'
+    },
+    venus: {
+      name: 'Venus',
+      description: 'Venus, with its thick atmosphere, would face catastrophic consequences if a black hole approached. The black hole\'s gravity could strip away Venus\'s atmosphere, exposing its surface to the harsh conditions of space.'
+    },
+    earth: {
+      name: 'Earth',
+      description: 'Earth\'s fate in the presence of a black hole would be dire. The black hole\'s immense gravity could cause massive tidal forces, leading to earthquakes, volcanic eruptions, and potentially even the destruction of our planet.'
+    },
+    mars: {
+      name: 'Mars',
+      description: 'Mars, with its thin atmosphere, would be vulnerable to the gravitational pull of a black hole. The black hole could strip away Mars\'s atmosphere, leaving it exposed to the vacuum of space.'
+    },
+    jupiter: {
+      name: 'Jupiter',
+      description: 'Jupiter, being a gas giant, would experience significant gravitational effects from a nearby black hole. The black hole\'s gravity could cause massive storms and potentially disrupt the planet\'s magnetic field.'
+    },
+    saturn: {
+      name: 'Saturn',
+      description: 'Saturn, with its iconic rings, would face a unique fate in the presence of a black hole. The black hole\'s gravity could disrupt the rings, causing them to break apart or form new structures.'
+    },
+    uranus: {
+      name: 'Uranus',
+      description: 'Uranus, with its tilted axis, would experience unusual gravitational effects from a black hole. The black hole\'s gravity could potentially alter Uranus\'s tilt, leading to changes in its seasons and climate.'
+    },
+    neptune: {
+      name: 'Neptune',
+      description: 'Neptune, being the farthest planet from the Sun, would still be affected by a nearby black hole. The black hole\'s gravity could disrupt Neptune\'s orbit, potentially sending it on a new trajectory through the solar system.'
+    }
+  };
+  
+  return planetData[planetName] || { name: 'Unknown', description: 'No information available.' };
+}
