@@ -1,0 +1,4 @@
+{
+  "file": "test-website/styles.css",
+  "pending": "Fix the SVG data URL in --black-hole-pattern-5 to include proper SVG content and ensure it is correctly formatted."
+}
