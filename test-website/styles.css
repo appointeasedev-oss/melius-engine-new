@@ -1226,3 +1226,149 @@ footer a:hover {
     page-break-inside: avoid;
   }
 }
+
+/* Enhanced Additional animations for interactive elements */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide {
+  animation: slideIn 0.8s ease-out;
+}
+
+.planet {
+  animation: slideIn 0.8s ease-out;
+}
+
+/* Enhanced Enhanced transitions for interactive elements */
+.planet,
+.slide-btn,
+.booking-buttons button,
+.contact-buttons button {
+  transition: all 0.5s ease;
+}
+
+/* Enhanced Improved touch interactions for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .planet {
+    min-height: 120px;
+  }
+  
+  .slide-btn {
+    min-height: 52px;
+  }
+  
+  .booking-buttons button,
+  .contact-buttons button {
+    min-height: 52px;
+  }
+}
+
+/* Enhanced Enhanced animations for black hole-related elements */
+@keyframes blackHoleSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes blackHolePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.7; }
+}
+
+@keyframes blackHoleTwinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes blackHoleRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes blackHoleScale {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+/* Enhanced Enhanced parallax effect for black hole elements */
+.parallax__layer--base {
+  transform: translateZ(0) scale(1);
+}
+
+.parallax__layer--back {
+  transform: translateZ(-3px) scale(4);
+}
+
+.parallax__layer--deep {
+  transform: translateZ(-6px) scale(7);
+}
+
+/* Enhanced Enhanced hover effects for interactive elements */
+.planet:hover {
+  transform: translateY(-10px) scale(1.12);
+  box-shadow: 0 20px 60px rgba(255, 107, 107, 0.6);
+}
+
+.slide-btn:hover {
+  background: var(--accretion-orange);
+  color: var(--stellar-white);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 35px rgba(255, 107, 107, 0.5);
+}
+
+.booking-buttons button:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 15px 45px rgba(255, 107, 107, 0.5);
+}
+
+.contact-buttons button:hover {
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 15px 45px rgba(155, 89, 155, 0.5);
+}
+
+/* Enhanced Enhanced focus states for accessibility */
+.slide-btn:focus,
+.planet:focus {
+  outline: 3px solid var(--quasar-yellow);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 10px rgba(255, 107, 107, 0.5);
+  transform: scale(1.12);
+}
+
+/* Enhanced Enhanced print styles */
+@media print {
+  .mobile-nav,
+  #quote-btn,
+  .black-hole-decorations,
+  .black-hole-header,
+  .black-hole-footer,
+  .slide-container,
+  .planet-grid {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .slide {
+    page-break-inside: avoid;
+  }
+  
+  .planet-details {
+    page-break-inside: avoid;
+  }
+}
