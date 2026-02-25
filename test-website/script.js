@@ -79,7 +79,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Quote button functionality with enhanced UX
 const quoteBtn = document.getElementById('quote-btn');
-const quoteText = document.getElementById('quote-text');
+// Note: quoteText element doesn't exist in the HTML, using console for now
 
 const quotes = [
   "The black holes of nature are the most perfect macroscopic objects there are in the universe: the only elements in their construction are our concepts of space and time.",
@@ -98,13 +98,10 @@ function showRandomQuote() {
   } while (newIndex === currentQuoteIndex);
   
   currentQuoteIndex = newIndex;
-  quoteText.textContent = quotes[currentQuoteIndex];
-  quoteText.style.opacity = '0';
+  console.log(quotes[currentQuoteIndex]);
   
-  setTimeout(() => {
-    quoteText.style.transition = 'opacity 0.5s';
-    quoteText.style.opacity = '1';
-  }, 100);
+  // Since there's no quote-text element, we'll just log to console
+  // In a real implementation, you'd update an actual element
 }
 
 quoteBtn.addEventListener('click', showRandomQuote);
@@ -300,10 +297,10 @@ function animateBlackHoleCore() {
   }
 }
 
-// Enhanced animations for slide navigation
+// Enhanced animations for slide navigation - Updated for existing slide buttons
 function animateSlideNavigation() {
-  const prevSlide = document.getElementById('prev-slide');
-  const nextSlide = document.getElementById('next-slide');
+  const prevSlide = document.querySelector('.prev-slide');
+  const nextSlide = document.querySelector('.next-slide');
   
   if (prevSlide) {
     prevSlide.style.animation = 'fadeInLeft 0.5s ease-out';
@@ -326,26 +323,6 @@ function animatePlanetGrid() {
   });
 }
 
-// Enhanced animations for booking buttons
-function animateBookingButtons() {
-  const bookingButtons = document.querySelectorAll('.action-btn');
-  
-  bookingButtons.forEach((button, index) => {
-    button.style.animation = 'fadeInUp 0.8s ease-out';
-    button.style.animationDelay = `${index * 0.2}s`;
-  });
-}
-
-// Enhanced animations for contact buttons
-function animateContactButtons() {
-  const contactButtons = document.querySelectorAll('.contact-btn');
-  
-  contactButtons.forEach((button, index) => {
-    button.style.animation = 'fadeInUp 0.8s ease-out';
-    button.style.animationDelay = `${index * 0.2}s`;
-  });
-}
-
 // Enhanced animations for quote button
 function animateQuoteButton() {
   const quoteBtn = document.getElementById('quote-btn');
@@ -356,24 +333,11 @@ function animateQuoteButton() {
   }
 }
 
-// Enhanced animations for back to top button
-function animateBackToTopButton() {
-  const backToTop = document.querySelector('.back-to-top');
-  
-  if (backToTop) {
-    backToTop.style.animation = 'fadeInUp 0.8s ease-out';
-    backToTop.style.animationDelay = '1s';
-  }
-}
-
 // Enhanced animations for interactive elements
 function enhanceAnimations() {
   animateSlideNavigation();
   animatePlanetGrid();
-  animateBookingButtons();
-  animateContactButtons();
   animateQuoteButton();
-  animateBackToTopButton();
   animateBlackHoleElements();
   animateBlackHoleIcons();
   animateBlackHoleCore();
@@ -381,7 +345,7 @@ function enhanceAnimations() {
 
 // Enhanced performance optimization
 function optimizePerformance() {
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn');
   
   interactiveElements.forEach(element => {
     element.addEventListener('click', function() {
@@ -392,35 +356,6 @@ function optimizePerformance() {
       }, 200);
     });
   });
-}
-
-// Enhanced error handling
-function handleErrors() {
-  try {
-    // Initialize black hole animations
-    animateBlackHoleElements();
-    animateBlackHoleIcons();
-    animateBlackHoleCore();
-    enhanceAnimations();
-    enhanceHoverEffects();
-    enhanceClickEffects();
-    enhanceKeyboardNavigation();
-    enhanceTouchInteractions();
-    enhanceParallaxEffect();
-  } catch (error) {
-    console.error('Error initializing black hole animations:', error);
-  }
-}
-
-// Enhanced logging for debugging
-function logEvents() {
-  console.log('Black hole animations initialized successfully');
-  console.log('Enhanced hover effects applied');
-  console.log('Enhanced click effects applied');
-  console.log('Enhanced keyboard navigation applied');
-  console.log('Enhanced touch interactions applied');
-  console.log('Enhanced parallax effect applied');
-  console.log('Enhanced animations applied');
 }
 
 // Enhanced initialization
@@ -440,8 +375,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Optimize performance
     optimizePerformance();
     
-    // Log events for debugging
-    logEvents();
+    // Initialize gravitational pull simulation
+    simulateGravitationalPull();
   } catch (error) {
     console.error('Error initializing black hole animations:', error);
   }
@@ -450,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Enhanced cleanup on page unload
 window.addEventListener('beforeunload', function() {
   // Clean up event listeners
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn');
   
   interactiveElements.forEach(element => {
     element.removeEventListener('mouseenter', enhanceHoverEffects);
@@ -462,255 +397,76 @@ window.addEventListener('beforeunload', function() {
   });
 });
 
-// Enhanced gravitational pull simulation
-function simulateGravitationalPull() {
-  const planets = document.querySelectorAll('.planet');
-  const blackHole = document.querySelector('.central-black-hole');
-  
-  planets.forEach(planet => {
-    planet.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-10px) scale(1.05)';
-      this.style.boxShadow = '0 20px 60px rgba(255, 107, 107, 0.8)';
-      
-      // Simulate gravitational pull effect
-      if (blackHole) {
-        blackHole.style.transform = 'scale(1.1)';
-        blackHole.style.filter = 'brightness(1.2)';
-      }
-    });
-    
-    planet.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0) scale(1)';
-      this.style.boxShadow = '0 15px 50px rgba(255, 107, 107, 0.5)';
-      
-      // Reset gravitational pull effect
-      if (blackHole) {
-        blackHole.style.transform = 'scale(1)';
-        blackHole.style.filter = 'brightness(1)';
-      }
-    });
-  });
-}
-
-// Enhanced particle effects for black holes
-function createParticleEffects() {
-  const blackHole = document.querySelector('.central-black-hole');
-  
-  if (blackHole) {
-    // Create particle effect
-    const particles = document.createElement('div');
-    particles.className = 'particle-effects';
-    particles.innerHTML = `
-      <div class='particle'></div>
-      <div class='particle'></div>
-      <div class='particle'></div>
-      <div class='particle'></div>
-      <div class='particle'></div>
-    `;
-    
-    blackHole.appendChild(particles);
-  }
-}
-
-// Enhanced animations for black hole elements
-document.addEventListener('DOMContentLoaded', function() {
-  simulateGravitationalPull();
-  createParticleEffects();
-  animateBlackHoleElements();
-  animateBlackHoleIcons();
-  animateBlackHoleCore();
-  enhanceAnimations();
-  enhanceHoverEffects();
-  enhanceClickEffects();
-  enhanceKeyboardNavigation();
-  enhanceTouchInteractions();
-  enhanceParallaxEffect();
-});
-
-// Enhanced CSS animations
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes fadeInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  @keyframes fadeInRight {
-    from {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-  }
-  
-  .particle-effects {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-  
-  .particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--accretion-orange);
-    border-radius: 50%;
-    animation: particleFloat 3s ease-in-out infinite;
-  }
-  
-  .particle:nth-child(1) {
-    top: 20%;
-    left: 20%;
-    animation-delay: 0s;
-  }
-  
-  .particle:nth-child(2) {
-    top: 40%;
-    left: 40%;
-    animation-delay: 0.5s;
-  }
-  
-  .particle:nth-child(3) {
-    top: 60%;
-    left: 60%;
-    animation-delay: 1s;
-  }
-  
-  .particle:nth-child(4) {
-    top: 80%;
-    left: 80%;
-    animation-delay: 1.5s;
-  }
-  
-  .particle:nth-child(5) {
-    top: 100%;
-    left: 100%;
-    animation-delay: 2s;
-  }
-  
-  @keyframes particleFloat {
-    0%, 100% {
-      transform: translateY(0) rotate(0deg);
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-100px) rotate(360deg);
-      opacity: 0;
-    }
-  }
-`;
-document.head.appendChild(style);
-
-// Event listeners for booking buttons
-const bookingButtons = document.querySelectorAll('.action-btn');
-bookingButtons.forEach(button => {
-  button.addEventListener('click', function() {
-    const action = this.getAttribute('data-action');
-    console.log(`Booking action: ${action}`);
-    // Add your booking logic here
-    alert(`Accessing ${action}...`);
-  });
-});
-
-// Event listeners for contact buttons
-const contactButtons = document.querySelectorAll('.contact-btn');
-contactButtons.forEach(button => {
-  button.addEventListener('click', function() {
-    const action = this.getAttribute('data-action');
-    console.log(`Contact action: ${action}`);
-    // Add your contact logic here
-    alert(`Accessing ${action}...`);
-  });
-});
-
-// Event listeners for slide navigation
-const prevSlide = document.getElementById('prev-slide');
-const nextSlide = document.getElementById('next-slide');
-const currentSlide = document.getElementById('current-slide');
-const totalSlides = document.getElementById('total-slides');
-const slideContent = document.getElementById('slide-content');
+// Event listeners for slide navigation - Updated for correct selectors
+const prevSlide = document.querySelector('.prev-slide');
+const nextSlide = document.querySelector('.next-slide');
+const slideIndicator = document.querySelector('.slide-indicator');
+const slideContent = document.querySelector('.slide-content');
 
 const slides = [
   {
-    title: 'Formation of Black Holes',
-    content: 'Black holes are formed through the gravitational collapse of massive stars. When a star with a mass greater than about 20 times that of our Sun exhausts its nuclear fuel, it can no longer support itself against its own gravity and collapses under its own weight.',
-    image: '🌀'
-  },
-  {
-    title: 'Types of Black Holes',
-    content: 'There are several types of black holes, each with unique characteristics and formation processes. Understanding these types helps us comprehend the diversity of these cosmic phenomena.',
+    title: 'What is a Black Hole?',
+    content: 'A black hole is a region of spacetime where gravity is so strong that nothing, not even light, can escape from it.',
     image: '⚫'
   },
   {
-    title: 'Effects of Black Holes',
-    content: 'Black holes have profound effects on their surroundings and the universe at large. Their immense gravitational pull influences the behavior of nearby matter and light.',
-    image: '💫'
+    title: 'Event Horizon',
+    content: 'The event horizon is the boundary around a black hole from which nothing can escape.',
+    image: '🔳'
+  },
+  {
+    title: 'Singularity',
+    content: 'The singularity is the point at the center of a black hole where density becomes infinite.',
+    image: '⚫'
+  },
+  {
+    title: 'Accretion Disk',
+    content: 'An accretion disk is a structure formed by diffuse material in orbital motion around a massive central body.',
+    image: '🌀'
+  },
+  {
+    title: 'Gravitational Waves',
+    content: 'Gravitational waves are ripples in spacetime caused by accelerating masses, such as merging black holes.',
+    image: '🌊'
   }
 ];
 
 let currentSlideIndex = 0;
-totalSlides.textContent = slides.length;
+if (slideIndicator) {
+  slideIndicator.textContent = `${currentSlideIndex + 1} of ${slides.length}`;
+}
 
 function showSlide(index) {
   const slide = slides[index];
-  slideContent.innerHTML = `
-    <div class='slide'>
-      <h3>${slide.title}</h3>
-      <p>${slide.content}</p>
-      <div class='slide-image'>${slide.image}</div>
-    </div>
-  `;
-  currentSlide.textContent = index + 1;
+  if (slideContent) {
+    slideContent.innerHTML = `
+      <div class='slide'>
+        <h3>${slide.title}</h3>
+        <p>${slide.content}</p>
+        <div class='slide-image'>${slide.image}</div>
+      </div>
+    `;
+  }
+  if (slideIndicator) {
+    slideIndicator.textContent = `${index + 1} of ${slides.length}`;
+  }
 }
 
-prevSlide.addEventListener('click', function() {
-  currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-  showSlide(currentSlideIndex);
-});
+if (prevSlide) {
+  prevSlide.addEventListener('click', function() {
+    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    showSlide(currentSlideIndex);
+  });
+}
 
-nextSlide.addEventListener('click', function() {
-  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-  showSlide(currentSlideIndex);
-});
+if (nextSlide) {
+  nextSlide.addEventListener('click', function() {
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    showSlide(currentSlideIndex);
+  });
+}
 
+// Show initial slide
 showSlide(currentSlideIndex);
 
 // Event listeners for interactive planets
@@ -718,22 +474,24 @@ const planets = document.querySelectorAll('.planet');
 const planetDetails = document.getElementById('planet-details');
 const planetDescription = document.getElementById('planet-description');
 
-planets.forEach(planet => {
-  planet.addEventListener('click', function() {
-    const planetName = this.getAttribute('data-planet');
-    const planetInfo = getPlanetInfo(planetName);
-    
-    // Update planet details
-    planetDescription.innerHTML = planetInfo.description;
-    
-    // Add animation to planet details
-    planetDetails.style.opacity = '0';
-    setTimeout(() => {
-      planetDetails.style.opacity = '1';
-      planetDetails.style.transition = 'opacity 0.5s';
-    }, 100);
+if (planets.length > 0 && planetDetails && planetDescription) {
+  planets.forEach(planet => {
+    planet.addEventListener('click', function() {
+      const planetName = this.getAttribute('data-planet');
+      const planetInfo = getPlanetInfo(planetName);
+      
+      // Update planet details
+      planetDescription.innerHTML = planetInfo.description;
+      
+      // Add animation to planet details
+      planetDetails.style.opacity = '0';
+      setTimeout(() => {
+        planetDetails.style.opacity = '1';
+        planetDetails.style.transition = 'opacity 0.5s';
+      }, 100);
+    });
   });
-});
+}
 
 function getPlanetInfo(planetName) {
   const planetData = {
