@@ -79,7 +79,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Quote button functionality with enhanced UX
 const quoteBtn = document.getElementById('quote-btn');
-// Note: quoteText element doesn't exist in the HTML, using console for now
 
 const quotes = [
   "The black holes of nature are the most perfect macroscopic objects there are in the universe: the only elements in their construction are our concepts of space and time.",
@@ -99,9 +98,6 @@ function showRandomQuote() {
   
   currentQuoteIndex = newIndex;
   console.log(quotes[currentQuoteIndex]);
-  
-  // Since there's no quote-text element, we'll just log to console
-  // In a real implementation, you'd update an actual element
 }
 
 quoteBtn.addEventListener('click', showRandomQuote);
