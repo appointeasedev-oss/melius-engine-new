@@ -172,7 +172,7 @@ function simulateGravitationalPull() {
 
 // Enhanced hover effects for interactive elements
 function enhanceHoverEffects() {
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn, .black-hole');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn, .black-hole');
   
   interactiveElements.forEach(element => {
     element.addEventListener('mouseenter', function() {
@@ -195,7 +195,7 @@ function enhanceHoverEffects() {
 
 // Enhanced click effects for interactive elements
 function enhanceClickEffects() {
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn, .black-hole');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn, .black-hole');
   
   interactiveElements.forEach(element => {
     element.addEventListener('click', function() {
@@ -215,7 +215,7 @@ function enhanceClickEffects() {
 
 // Enhanced keyboard navigation for accessibility
 function enhanceKeyboardNavigation() {
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn, .black-hole');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn, .black-hole');
   
   interactiveElements.forEach(element => {
     element.addEventListener('keydown', function(event) {
@@ -234,7 +234,7 @@ function enhanceKeyboardNavigation() {
 
 // Enhanced touch interactions for mobile devices
 function enhanceTouchInteractions() {
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn, .black-hole');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn, .black-hole');
   
   interactiveElements.forEach(element => {
     element.addEventListener('touchstart', function() {
