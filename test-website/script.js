@@ -172,7 +172,7 @@ function simulateGravitationalPull() {
 
 // Enhanced hover effects for interactive elements
 function enhanceHoverEffects() {
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn, .black-hole');
   
   interactiveElements.forEach(element => {
     element.addEventListener('mouseenter', function() {
@@ -195,7 +195,7 @@ function enhanceHoverEffects() {
 
 // Enhanced click effects for interactive elements
 function enhanceClickEffects() {
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn, .black-hole');
   
   interactiveElements.forEach(element => {
     element.addEventListener('click', function() {
@@ -215,7 +215,7 @@ function enhanceClickEffects() {
 
 // Enhanced keyboard navigation for accessibility
 function enhanceKeyboardNavigation() {
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn, .black-hole');
   
   interactiveElements.forEach(element => {
     element.addEventListener('keydown', function(event) {
@@ -234,7 +234,7 @@ function enhanceKeyboardNavigation() {
 
 // Enhanced touch interactions for mobile devices
 function enhanceTouchInteractions() {
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .action-btn, .contact-btn, .black-hole');
   
   interactiveElements.forEach(element => {
     element.addEventListener('touchstart', function() {
@@ -341,7 +341,7 @@ function enhanceAnimations() {
 
 // Enhanced performance optimization
 function optimizePerformance() {
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn, .black-hole');
   
   interactiveElements.forEach(element => {
     element.addEventListener('click', function() {
@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Enhanced cleanup on page unload
 window.addEventListener('beforeunload', function() {
   // Clean up event listeners
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn');
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn, .black-hole');
   
   interactiveElements.forEach(element => {
     element.removeEventListener('mouseenter', enhanceHoverEffects);
@@ -487,6 +487,53 @@ if (planets.length > 0 && planetDetails && planetDescription) {
       }, 100);
     });
   });
+}
+
+// Event listeners for interactive black holes
+const blackHoles = document.querySelectorAll('.black-hole');
+const blackHoleDetails = document.getElementById('black-hole-details');
+const blackHoleDescription = document.getElementById('black-hole-description');
+
+if (blackHoles.length > 0 && blackHoleDetails && blackHoleDescription) {
+  blackHoles.forEach(blackHole => {
+    blackHole.addEventListener('click', function() {
+      const blackHoleType = this.getAttribute('data-black-hole');
+      const blackHoleInfo = getBlackHoleInfo(blackHoleType);
+      
+      // Update black hole details
+      blackHoleDescription.innerHTML = blackHoleInfo.description;
+      
+      // Add animation to black hole details
+      blackHoleDetails.style.opacity = '0';
+      setTimeout(() => {
+        blackHoleDetails.style.opacity = '1';
+        blackHoleDetails.style.transition = 'opacity 0.5s';
+      }, 100);
+    });
+  });
+}
+
+function getBlackHoleInfo(blackHoleType) {
+  const blackHoleData = {
+    stellar: {
+      name: 'Stellar Black Hole',
+      description: 'Stellar black holes form when a massive star runs out of fuel and collapses under its own gravity. They typically have masses ranging from 3 to 100 times that of our Sun.'
+    },
+    supermassive: {
+      name: 'Supermassive Black Hole',
+      description: 'Supermassive black holes are found at the centers of most galaxies, including our own Milky Way. They have masses millions to billions of times that of our Sun.'
+    },
+    intermediate: {
+      name: 'Intermediate Black Hole',
+      description: 'Intermediate black holes are thought to have masses between stellar and supermassive black holes. Their existence is still theoretical and has not been confirmed.'
+    },
+    micro: {
+      name: 'Micro Black Hole',
+      description: 'Micro black holes are hypothetical black holes that could have been created during the Big Bang. They would have masses smaller than our Sun and are yet to be observed.'
+    }
+  };
+  
+  return blackHoleData[blackHoleType] || { name: 'Unknown', description: 'No information available.' };
 }
 
 function getPlanetInfo(planetName) {
