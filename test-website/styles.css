@@ -12,6 +12,12 @@
   --wormhole-pink: #ff1493;
   --singularity-red: #8b0000;
   --dark-matter-gray: #2f4f4f;
+  --nebula-pink: #ff69b4;
+  --nebula-blue: #4169e1;
+  --nebula-purple: #9370db;
+  --starry-sky: linear-gradient(135deg, #0a0a0a 0%, #1e3a8a 100%);
+  --cosmic-gradient: linear-gradient(135deg, #1e3a8a 0%, #8e44ad 50%, #ff6b6b 100%);
+  --stellar-gradient: linear-gradient(135deg, #f0ffff 0%, #ffd700 50%, #ff1493 100%);
 }
 
 /* Enhanced Black Hole-inspired patterns and textures */
@@ -33,7 +39,7 @@ body {
   font-family: 'Georgia', serif;
   line-height: 1.6;
   color: var(--stellar-white);
-  background: linear-gradient(135deg, var(--black-hole-dark) 0%, var(--event-horizon) 100%), var(--black-hole-pattern-1);
+  background: var(--starry-sky), var(--black-hole-pattern-1);
   background-size: cover;
   background-attachment: fixed;
   overflow-x: hidden;
@@ -54,7 +60,7 @@ body {
 .hero {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(135deg, var(--stellar-blue) 0%, var(--event-horizon) 100%), var(--black-hole-pattern-2);
+  background: var(--cosmic-gradient), var(--black-hole-pattern-2);
   color: var(--stellar-white);
   position: relative;
   overflow: hidden;
@@ -69,7 +75,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23ff6b6b" opacity="0.1"/><circle cx="50" cy="50" r="30" fill="%231e3a8a" opacity="0.08"/><circle cx="50" cy="50" r="20" fill="%238e44ad" opacity="0.06"/></svg>');
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23ff6b6b" opacity="0.1"/><circle cx="50" cy="50" r="30" fill="%231e3a8a" opacity="0.08"/><circle cx="50" cy="50" r="20" fill="%238e44ad" opacity="0.06"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="%239b59b6" opacity="0.04"/></svg>');
   background-size: 150px 150px;
   animation: cosmicWave 20s ease-in-out infinite;
 }
@@ -450,7 +456,7 @@ footer a:hover {
 /* Enhanced Parallax galaxies */
 .parallax__galaxy {
   position: absolute;
-  background: radial-gradient(circle, var(--stellar-blue) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--nebula-blue) 0%, transparent 70%);
   border-radius: 50%;
   animation: rotate 30s linear infinite, pulse 10s ease-in-out infinite;
 }
@@ -490,7 +496,7 @@ footer a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(135deg, var(--stellar-blue) 0%, var(--event-horizon) 100%);
+  background: var(--cosmic-gradient);
   border-bottom: 2px solid var(--quasar-yellow);
 }
 
@@ -526,7 +532,7 @@ footer a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--black-hole-dark) 0%, var(--event-horizon) 100%);
+  background: var(--starry-sky);
 }
 
 .slide {
