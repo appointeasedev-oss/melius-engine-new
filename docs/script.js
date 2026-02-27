@@ -427,4 +427,100 @@ function initGallery() {
         const modal = document.createElement('div');
         modal.className = 'gallery-modal';
         modal.innerHTML = `
-          <div class=
+          <div class='gallery-modal-content'>
+            <span class='gallery-modal-close'>&times;</span>
+            <img src='${img.src}' alt='${img.alt}' class='gallery-modal-img'>
+            <div class='gallery-modal-caption'>${img.alt}</div>
+          </div>
+        `;
+        modal.style.cssText = `
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.9);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 10000;
+          animation: fadeIn 0.3s ease;
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Add close functionality
+        const closeBtn = modal.querySelector('.gallery-modal-close');
+        closeBtn.addEventListener('click', () => {
+          modal.style.animation = 'fadeOut 0.3s ease';
+          setTimeout(() => modal.remove(), 300);
+        });
+        
+        // Close on background click
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.style.animation = 'fadeOut 0.3s ease';
+            setTimeout(() => modal.remove(), 300);
+          }
+        });
+      }
+    });
+  });
+}
+
+// Add animation keyframes
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideIn {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes slideDown {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100%); opacity: 0; }
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+`;
+document.head.appendChild(style);
+
+// Initialize all functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  initInteractiveElements();
+  initQuoteButton();
+  initMobileMenu();
+  initSmoothScrolling();
+  initParallax();
+  initSlides();
+  initContactForm();
+  initGallery();
+});
+
+// Add mobile menu toggle functionality
+function toggleMobileMenu() {
+  const navMenu = document.querySelector('.nav-menu');
+  const navToggle = document.querySelector('.nav-toggle');
+  
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+    });
+  }
+}
+
+toggleMobileMenu();
