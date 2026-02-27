@@ -408,7 +408,7 @@ const slides = [
   {
     title: 'Event Horizon',
     content: 'The event horizon is the boundary around a black hole from which nothing can escape.',
-    image: '⏸'
+    image: '⬜'
   },
   {
     title: 'Singularity',
@@ -423,7 +423,7 @@ const slides = [
   {
     title: 'Gravitational Waves',
     content: 'Gravitational waves are ripples in spacetime caused by accelerating masses, such as merging black holes.',
-    image: '🎭'
+    image: '🌊'
   }
 ];
 
