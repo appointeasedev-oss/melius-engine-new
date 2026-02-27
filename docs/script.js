@@ -524,3 +524,12 @@ function toggleMobileMenu() {
 }
 
 toggleMobileMenu();
+
+// Fix the syntax error in the showSlide function
+function showSlide(index) {
+  const slides = document.querySelectorAll('.slide');
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+    slide.style.animation = `fadeIn 0.5s ease ${i === index ? 'forwards' : 'backwards'}`;
+  });
+}
