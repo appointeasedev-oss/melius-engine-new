@@ -519,6 +519,180 @@
           </form>
         </div>
       </section>
+
+      <!-- Enhanced Interactive Diagrams Section -->
+      <section class="card" aria-labelledby="interactive-diagrams">
+        <h2 id="interactive-diagrams">Interactive Diagrams</h2>
+        <p>
+          Explore interactive diagrams to visualize complex black hole concepts.
+        </p>
+        <div class="diagram-grid">
+          <div class="diagram-item" data-diagram="event-horizon">
+            <h3>Event Horizon</h3>
+            <div class="diagram-content">
+              <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="80" fill="none" stroke="var(--stellar-white)" stroke-width="2" />
+                <circle cx="100" cy="100" r="70" fill="var(--event-horizon)" opacity="0.8" />
+                <text x="100" y="100" text-anchor="middle" fill="var(--stellar-white)" font-size="12">Event Horizon</text>
+              </svg>
+              <p>The event horizon is the boundary around a black hole from which nothing can escape.</p>
+            </div>
+          </div>
+          <div class="diagram-item" data-diagram="singularity">
+            <h3>Singularity</h3>
+            <div class="diagram-content">
+              <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="10" fill="var(--singularity-red)" />
+                <circle cx="100" cy="100" r="80" fill="none" stroke="var(--stellar-white)" stroke-width="2" stroke-dasharray="5,5" />
+                <text x="100" y="160" text-anchor="middle" fill="var(--stellar-white)" font-size="12">Singularity</text>
+              </svg>
+              <p>The singularity is the point at the center of a black hole where density becomes infinite.</p>
+            </div>
+          </div>
+          <div class="diagram-item" data-diagram="accretion-disk">
+            <h3>Accretion Disk</h3>
+            <div class="diagram-content">
+              <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="60" fill="none" stroke="var(--accretion-orange)" stroke-width="5" stroke-linecap="round" />
+                <circle cx="100" cy="100" r="40" fill="none" stroke="var(--stellar-blue)" stroke-width="5" stroke-linecap="round" />
+                <circle cx="100" cy="100" r="20" fill="none" stroke="var(--wormhole-pink)" stroke-width="5" stroke-linecap="round" />
+                <text x="100" y="180" text-anchor="middle" fill="var(--stellar-white)" font-size="12">Accretion Disk</text>
+              </svg>
+              <p>Material spiraling into a black hole forms a hot, glowing disk of gas and dust.</p>
+            </div>
+          </div>
+          <div class="diagram-item" data-diagram="gravitational-waves">
+            <h3>Gravitational Waves</h3>
+            <div class="diagram-content">
+              <svg width="200" height="200" viewBox="0 0 200 200">
+                <circle cx="100" cy="100" r="10" fill="var(--quasar-yellow)" />
+                <circle cx="100" cy="100" r="30" fill="none" stroke="var(--quasar-yellow)" stroke-width="2" opacity="0.5" />
+                <circle cx="100" cy="100" r="50" fill="none" stroke="var(--quasar-yellow)" stroke-width="2" opacity="0.3" />
+                <circle cx="100" cy="100" r="70" fill="none" stroke="var(--quasar-yellow)" stroke-width="2" opacity="0.2" />
+                <text x="100" y="180" text-anchor="middle" fill="var(--stellar-white)" font-size="12">Gravitational Waves</text>
+              </svg>
+              <p>Gravitational waves are ripples in spacetime caused by accelerating masses, such as merging black holes.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enhanced 3D Black Hole Visualization Section -->
+      <section class="card" aria-labelledby="3d-visualization">
+        <h2 id="3d-visualization">3D Black Hole Visualization</h2>
+        <p>
+          Experience a 3D visualization of a black hole and its surrounding environment.
+        </p>
+        <div class="visualization-container">
+          <div class="visualization-controls">
+            <button id="rotate-btn" class="control-btn">Rotate</button>
+            <button id="zoom-in-btn" class="control-btn">Zoom In</button>
+            <button id="zoom-out-btn" class="control-btn">Zoom Out</button>
+            <button id="reset-btn" class="control-btn">Reset</button>
+          </div>
+          <div class="visualization-content">
+            <div id="black-hole-3d" class="black-hole-3d">
+              <!-- 3D visualization content will be dynamically generated -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enhanced Black Hole Simulations Section -->
+      <section class="card" aria-labelledby="black-hole-simulations">
+        <h2 id="black-hole-simulations">Black Hole Simulations</h2>
+        <p>
+          Watch simulations of black hole phenomena and their effects on surrounding matter.
+        </p>
+        <div class="simulation-grid">
+          <div class="simulation-item">
+            <h3>Star Being Torn Apart</h3>
+            <div class="simulation-content">
+              <video controls poster="https://example.com/star-tidal-disruption.jpg">
+                <source src="https://example.com/star-tidal-disruption.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p>A star being torn apart by a supermassive black hole's tidal forces.</p>
+            </div>
+          </div>
+          <div class="simulation-item">
+            <h3>Black Hole Merger</h3>
+            <div class="simulation-content">
+              <video controls poster="https://example.com/black-hole-merger.jpg">
+                <source src="https://example.com/black-hole-merger.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p>Two black holes merging and creating gravitational waves.</p>
+            </div>
+          </div>
+          <div class="simulation-item">
+            <h3>Accretion Disk Formation</h3>
+            <div class="simulation-content">
+              <video controls poster="https://example.com/accretion-disk-formation.jpg">
+                <source src="https://example.com/accretion-disk-formation.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p>Material forming an accretion disk around a black hole.</p>
+            </div>
+          </div>
+          <div class="simulation-item">
+            <h3>Gravitational Lensing</h3>
+            <div class="simulation-content">
+              <video controls poster="https://example.com/gravitational-lensing.jpg">
+                <source src="https://example.com/gravitational-lensing.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p>Light bending around a black hole due to gravitational lensing.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enhanced Black Hole Research Section -->
+      <section class="card" aria-labelledby="black-hole-research">
+        <h2 id="black-hole-research">Black Hole Research</h2>
+        <p>
+          Learn about the latest research and discoveries in black hole science.
+        </p>
+        <div class="research-grid">
+          <div class="research-item">
+            <h3>Event Horizon Telescope</h3>
+            <p>The Event Horizon Telescope (EHT) collaboration captured the first image of a black hole in 2019.</p>
+            <ul>
+              <li>Used a global network of radio telescopes</li>
+              <li>Achieved unprecedented resolution</li>
+              <li>Confirmed predictions of general relativity</li>
+            </ul>
+          </div>
+          <div class="research-item">
+            <h3>LIGO and Gravitational Waves</h3>
+            <p>LIGO detected gravitational waves for the first time in 2015, confirming a key prediction of Einstein's theory.</p>
+            <ul>
+              <li>Detected waves from merging black holes</li>
+              <li>Opened a new window to the universe</li>
+              <li>Enabled study of black hole properties</li>
+            </ul>
+          </div>
+          <div class="research-item">
+            <h3>Supermassive Black Holes</h3>
+            <p>Research has revealed that supermassive black holes are found at the centers of most galaxies.</p>
+            <ul>
+              <li>Play a crucial role in galaxy formation</li>
+              <li>Influence star formation rates</li>
+              <li>May have formed from smaller black holes</li>
+            </ul>
+          </div>
+          <div class="research-item">
+            <h3>Black Hole Thermodynamics</h3>
+            <p>Stephen Hawking's work on black hole thermodynamics has led to new insights into quantum gravity.</p>
+            <ul>
+              <li>Black holes have temperature and entropy</li>
+              <li>Can emit radiation (Hawking radiation)</li>
+              <li>May eventually evaporate</li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
