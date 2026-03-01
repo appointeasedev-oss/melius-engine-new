@@ -418,12 +418,12 @@ const slides = [
   {
     title: 'Accretion Disk',
     content: 'An accretion disk is a structure formed by diffuse material in orbital motion around a massive central body.',
-    image: '🔀'
+    image: '🔨'
   },
   {
     title: 'Gravitational Waves',
     content: 'Gravitational waves are ripples in spacetime caused by accelerating masses, such as merging black holes.',
-    image: '🌊'
+    image: '👊'
   }
 ];
 
