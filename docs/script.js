@@ -349,7 +349,7 @@ function initContactForm() {
 }
 
 function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[^ @]+@[^ @]+.[^ @]+$/;
   return emailRegex.test(email);
 }
 
