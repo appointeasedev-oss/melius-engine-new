@@ -423,7 +423,7 @@ const slides = [
   {
     title: 'Gravitational Waves',
     content: 'Gravitational waves are ripples in spacetime caused by accelerating masses, such as merging black holes.',
-    image: '👊'
+    image: '💪'
   }
 ];
 
