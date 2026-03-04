@@ -93,7 +93,7 @@ function initInteractiveElements() {
     const blackHoleType = blackHole.dataset.blackHole;
     const tooltipText = {
       stellar: "Stellar black holes form from the collapse of massive stars and typically have masses between 3 to 100 times that of our Sun.",
-      supermassive: "Supermassive black holes are found at the centers of most galaxies and can have masses millions to billions of times that of our Sun.",
+      supermassive: "Supermassive black holes are found at the centers of most galaxies and can have masses millions to billions times that of our Sun.",
       intermediate: "Intermediate black holes are theoretical objects with masses between stellar and supermassive black holes, yet to be confirmed.",
       micro: "Micro black holes are hypothetical black holes that could have been created during the Big Bang and might have masses smaller than our Sun.",
     };
@@ -118,7 +118,7 @@ function initInteractiveElements() {
     blackHole.addEventListener("click", () => {
       const descriptions = {
         stellar: "Stellar black holes form from the collapse of massive stars and typically have masses between 3 to 100 times that of our Sun.",
-        supermassive: "Supermassive black holes are found at the centers of most galaxies and can have masses millions to billions of times that of our Sun.",
+        supermassive: "Supermassive black holes are found at the centers of most galaxies and can have masses millions to billions times that of our Sun.",
         intermediate: "Intermediate black holes are theoretical objects with masses between stellar and supermassive black holes, yet to be confirmed.",
         micro: "Micro black holes are hypothetical black holes that could have been created during the Big Bang and might have masses smaller than our Sun.",
       };

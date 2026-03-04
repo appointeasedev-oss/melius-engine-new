@@ -408,7 +408,7 @@ const slides = [
   {
     title: 'Event Horizon',
     content: 'The event horizon is the boundary around a black hole from which nothing can escape.',
-    image: '⬜'
+    image: '□'
   },
   {
     title: 'Singularity',
@@ -418,7 +418,7 @@ const slides = [
   {
     title: 'Accretion Disk',
     content: 'An accretion disk is a structure formed by diffuse material in orbital motion around a massive central body.',
-    image: '🗀'
+    image: '📀'
   },
   {
     title: 'Gravitational Waves',
