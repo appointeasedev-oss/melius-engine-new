@@ -278,7 +278,7 @@ const slides = [
   {
     title: 'Accretion Disk',
     content: 'An accretion disk is a structure formed by diffuse material in orbital motion around a massive central body.',
-    image: '📀'
+    image: '🎀'
   },
   {
     title: 'Gravitational Waves',
