@@ -953,7 +953,7 @@ footer a:hover {
   }
 }
 
-slide {
+.slide {
   animation: slideIn 0.8s ease-out;
 }
 
