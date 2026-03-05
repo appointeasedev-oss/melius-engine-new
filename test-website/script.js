@@ -94,7 +94,7 @@ function showRandomQuote() {
   let newIndex;
   do {
     newIndex = Math.floor(Math.random() * quotes.length);
-  } while (newQuoteIndex === currentQuoteIndex);
+  } while (newIndex === currentQuoteIndex);
   
   currentQuoteIndex = newIndex;
   console.log(quotes[currentQuoteIndex]);
