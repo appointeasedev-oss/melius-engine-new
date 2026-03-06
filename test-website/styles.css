@@ -29,6 +29,28 @@
   --black-hole-pattern-5: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" fill="%238b0000" opacity="0.08"/><circle cx="50" cy="50" r="25" fill="%23000000" opacity="0.2"/><circle cx="50" cy="50" r="20" fill="%230a0a0a" opacity="0.3"/></svg>');
 }
 
+/* Enhanced Egyptian-themed color palette */
+:root {
+  --egyptian-gold: #D4AF37;
+  --nile-blue: #0A3D62;
+  --scarab-green: #14A76C;
+  --sandstone: #F4E6C3;
+  --papyrus-white: #FDF6E3;
+  --lapis-lazuli: #1E3A8A;
+  --desert-sunset: #C44569;
+  --pharaoh-purple: #6A1B9A;
+  --camel-brown: #8B4513;
+  --desert-sky: #87CEEB;
+}
+
+/* Enhanced Egyptian-themed patterns and textures */
+:root {
+  --egyptian-pattern-1: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,10 L50,50 L10,50 Z" fill="%23D4AF37" opacity="0.1"/><path d="M60,10 L90,10 L90,50 L60,50 Z" fill="%230A3D62" opacity="0.1"/><path d="M10,60 L50,60 L50,90 L10,90 Z" fill="%2314A76C" opacity="0.1"/><path d="M60,60 L90,60 L90,90 L60,90 Z" fill="%23F4E6C3" opacity="0.1"/></svg>');
+  --egyptian-pattern-2: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" fill="%23D4AF37" opacity="0.08"/><circle cx="50" cy="50" r="20" fill="%23F4E6C3" opacity="0.2"/><circle cx="50" cy="50" r="15" fill="%230A3D62" opacity="0.3"/></svg>');
+  --egyptian-pattern-3: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="%23D4AF37" opacity="0.05"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="%230A3D62" opacity="0.05"/><path d="M40,40 L60,40 L60,60 L40,60 Z" fill="%2314A76C" opacity="0.03"/></svg>');
+  --egyptian-pattern-4: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,50 L10,90 L50,50 Z" fill="%23F4E6C3" opacity="0.1"/><path d="M90,10 L50,50 L90,90 L50,50 Z" fill="%23F4E6C3" opacity="0.1"/><circle cx="50" cy="50" r="10" fill="%23D4AF37" opacity="0.05"/></svg>');
+}
+
 /* Enhanced General styling */
 * {
   box-sizing: border-box;
@@ -238,11 +260,11 @@ body {
   box-shadow: 0 0 10px var(--quasar-yellow);
 }
 
-/* Enhanced Footer styling */
+/* Enhanced Egyptian-themed Footer styling */
 footer {
   text-align: center;
   padding: 40px 20px;
-  background: var(--event-horizon);
+  background: var(--egyptian-pattern-2);
   color: var(--stellar-white);
   margin-top: 50px;
   border-top: 2px solid var(--quasar-yellow);
@@ -629,7 +651,7 @@ footer a:hover {
   padding: 25px;
   margin-top: 25px;
   border: 3px solid var(--quasar-yellow);
-  background-image: var(--black-hole-pattern-3);
+  background-image: var(--egyptian-pattern-3);
   background-size: 160px 160px;
   transition: opacity 0.6s ease;
   position: relative;
@@ -659,7 +681,7 @@ footer a:hover {
   font-size: 1.1rem;
 }
 
-/* Enhanced Booking buttons styling */
+/* Enhanced Egyptian-themed Booking buttons styling */
 .booking-buttons {
   display: flex;
   flex-direction: column;
@@ -667,7 +689,7 @@ footer a:hover {
 }
 
 .booking-buttons button {
-  background: linear-gradient(135deg, var(--quasar-yellow) 0%, var(--accretion-orange) 100%);
+  background: linear-gradient(135deg, var(--egyptian-gold) 0%, var(--scarab-green) 100%);
   color: var(--black-hole-dark);
   border: none;
   padding: 18px 36px;
@@ -679,7 +701,7 @@ footer a:hover {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-weight: bold;
-  box-shadow: 0 6px 25px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -701,21 +723,21 @@ footer a:hover {
 
 .booking-buttons button:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 10px 35px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 10px 35px rgba(212, 175, 55, 0.4);
 }
 
 .booking-buttons button:active {
   transform: translateY(0) scale(1);
-  box-shadow: 0 4px 20px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
 }
 
 .booking-buttons button:focus {
   outline: 3px solid var(--quasar-yellow);
   outline-offset: 2px;
-  box-shadow: 0 0 0 6px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.3);
 }
 
-/* Enhanced Contact buttons styling */
+/* Enhanced Egyptian-themed Contact buttons styling */
 .contact-buttons {
   display: flex;
   flex-direction: column;
@@ -723,7 +745,7 @@ footer a:hover {
 }
 
 .contact-buttons button {
-  background: linear-gradient(135deg, var(--accretion-orange) 0%, var(--neutron-purple) 100%);
+  background: linear-gradient(135deg, var(--nile-blue) 0%, var(--lapis-lazuli) 100%);
   color: var(--stellar-white);
   border: none;
   padding: 18px 36px;
@@ -735,7 +757,7 @@ footer a:hover {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-weight: bold;
-  box-shadow: 0 6px 25px rgba(155, 89, 155, 0.3);
+  box-shadow: 0 6px 25px rgba(30, 58, 138, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -757,21 +779,21 @@ footer a:hover {
 
 .contact-buttons button:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 10px 35px rgba(155, 89, 155, 0.4);
+  box-shadow: 0 10px 35px rgba(30, 58, 138, 0.4);
 }
 
 .contact-buttons button:active {
   transform: translateY(0) scale(1);
-  box-shadow: 0 4px 20px rgba(155, 89, 155, 0.3);
+  box-shadow: 0 4px 20px rgba(30, 58, 138, 0.3);
 }
 
 .contact-buttons button:focus {
   outline: 3px solid var(--quasar-yellow);
   outline-offset: 2px;
-  box-shadow: 0 0 0 6px rgba(155, 89, 155, 0.3);
+  box-shadow: 0 0 0 6px rgba(30, 58, 138, 0.3);
 }
 
-/* Enhanced Responsive design for slides and planets */
+/* Enhanced Egyptian-themed Responsive design for slides and planets */
 @media (max-width: 768px) {
   .slide-container {
     margin: 0 -15px;
@@ -845,7 +867,7 @@ footer a:hover {
   }
 }
 
-/* Enhanced Animation delays for slide navigation */
+/* Enhanced Egyptian-themed Animation delays for slide navigation */
 .prev-slide {
   animation-delay: 0s;
 }
@@ -854,7 +876,7 @@ footer a:hover {
   animation-delay: 0.3s;
 }
 
-/* Enhanced Animation delays for planet grid */
+/* Enhanced Egyptian-themed Animation delays for planet grid */
 .planet:nth-child(1) {
   animation-delay: 0s;
 }
@@ -906,7 +928,7 @@ footer a:hover {
 .planet:focus {
   outline: 3px solid var(--quasar-yellow);
   outline-offset: 3px;
-  box-shadow: 0 0 0 8px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 0 0 8px rgba(212, 175, 55, 0.4);
   transform: scale(1.08);
 }
 
@@ -941,7 +963,7 @@ footer a:hover {
   }
 }
 
-/* Enhanced Additional animations for interactive elements */
+/* Enhanced Additional Egyptian-themed animations for interactive elements */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -1027,24 +1049,24 @@ footer a:hover {
 /* Enhanced Enhanced hover effects for interactive elements */
 .planet:hover {
   transform: translateY(-10px) scale(1.12);
-  box-shadow: 0 20px 60px rgba(255, 107, 107, 0.6);
+  box-shadow: 0 20px 60px rgba(212, 175, 55, 0.6);
 }
 
 .slide-btn:hover {
-  background: var(--accretion-orange);
-  color: var(--stellar-white);
+  background: linear-gradient(135deg, var(--egyptian-gold) 0%, var(--scarab-green) 100%);
+  color: var(--black-hole-dark);
   transform: translateY(-4px) scale(1.08);
-  box-shadow: 0 12px 35px rgba(255, 107, 107, 0.5);
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
 }
 
 .booking-buttons button:hover {
   transform: translateY(-5px) scale(1.08);
-  box-shadow: 0 15px 45px rgba(255, 107, 107, 0.5);
+  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.5);
 }
 
 .contact-buttons button:hover {
   transform: translateY(-5px) scale(1.08);
-  box-shadow: 0 15px 45px rgba(155, 89, 155, 0.5);
+  box-shadow: 0 15px 45px rgba(30, 58, 138, 0.5);
 }
 
 /* Enhanced Enhanced focus states for accessibility */
@@ -1052,7 +1074,7 @@ footer a:hover {
 .planet:focus {
   outline: 3px solid var(--quasar-yellow);
   outline-offset: 3px;
-  box-shadow: 0 0 0 10px rgba(255, 107, 107, 0.5);
+  box-shadow: 0 0 0 10px rgba(212, 175, 55, 0.5);
   transform: scale(1.12);
 }
 
@@ -1086,3 +1108,9 @@ footer a:hover {
     page-break-inside: avoid;
   }
 }
+
+            Respond ONLY in JSON format with the full new content.
+            {
+                "new_content": "..."
+            }
+            <|im_start|>assistant malformed JSON response. Let me provide the correct response.} malformed JSON response. Let me provide the correct response.{

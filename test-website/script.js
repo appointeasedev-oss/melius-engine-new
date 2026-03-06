@@ -574,3 +574,97 @@ function getPlanetInfo(planetName) {
   
   return planetData[planetName] || { name: 'Unknown', description: 'No information available.' };
 }
+
+// Event listeners for new buttons added in index.html
+const playBtns = document.querySelectorAll('.play-btn');
+playBtns.forEach(btn => {
+  btn.addEventListener('click', function() {
+    const animationType = this.getAttribute('data-animation');
+    console.log('Playing animation:', animationType);
+    // Add animation functionality here
+    this.textContent = 'Playing...';
+    setTimeout(() => {
+      this.textContent = 'Play Animation';
+    }, 2000);
+  });
+});
+
+const submitBtn = document.querySelector('.submit-btn');
+if (submitBtn) {
+  submitBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log('Form submitted');
+    // Add form submission functionality here
+    alert('Message sent successfully!');
+  });
+}
+
+const factsItems = document.querySelectorAll('.facts-item');
+factsItems.forEach(item => {
+  item.addEventListener('click', function() {
+    console.log('Fact item clicked');
+    // Add fact item functionality here
+    this.style.backgroundColor = 'rgba(255, 107, 107, 0.1)';
+    setTimeout(() => {
+      this.style.backgroundColor = 'transparent';
+    }, 200);
+  });
+});
+
+const animationItems = document.querySelectorAll('.animation-item');
+animationItems.forEach(item => {
+  item.addEventListener('click', function() {
+    console.log('Animation item clicked');
+    // Add animation item functionality here
+    this.style.transform = 'scale(1.05)';
+    setTimeout(() => {
+      this.style.transform = 'scale(1)';
+    }, 200);
+  });
+});
+
+const timelineItems = document.querySelectorAll('.timeline-item');
+timelineItems.forEach(item => {
+  item.addEventListener('click', function() {
+    console.log('Timeline item clicked');
+    // Add timeline item functionality here
+    this.style.backgroundColor = 'rgba(255, 107, 107, 0.1)';
+    setTimeout(() => {
+      this.style.backgroundColor = 'transparent';
+    }, 200);
+  });
+});
+
+const formGroups = document.querySelectorAll('.form-group');
+formGroups.forEach(group => {
+  const input = group.querySelector('input, textarea');
+  if (input) {
+    input.addEventListener('focus', function() {
+      group.style.borderColor = 'var(--quasar-yellow)';
+    });
+    
+    input.addEventListener('blur', function() {
+      group.style.borderColor = 'var(--stellar-white)';
+    });
+  }
+});
+
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    // Add click functionality for navigation links
+    console.log('Navigating to:', this.getAttribute('href'));
+  });
+});
+
+const darkModeToggle = document.querySelector('.dark-mode-toggle');
+if (darkModeToggle) {
+  const darkModeCheckbox = document.getElementById('dark-mode-checkbox');
+  darkModeCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+      document.body.style.filter = 'invert(1) hue-rotate(180deg)';
+    } else {
+      document.body.style.filter = 'none';
+    }
+  });
+}
