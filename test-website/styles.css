@@ -29,28 +29,6 @@
   --black-hole-pattern-5: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" fill="%238b0000" opacity="0.08"/><circle cx="50" cy="50" r="25" fill="%23000000" opacity="0.2"/><circle cx="50" cy="50" r="20" fill="%230a0a0a" opacity="0.3"/></svg>');
 }
 
-/* Enhanced Egyptian-themed color palette */
-:root {
-  --egyptian-gold: #D4AF37;
-  --nile-blue: #0A3D62;
-  --scarab-green: #14A76C;
-  --sandstone: #F4E6C3;
-  --papyrus-white: #FDF6E3;
-  --lapis-lazuli: #1E3A8A;
-  --desert-sunset: #C44569;
-  --pharaoh-purple: #6A1B9A;
-  --camel-brown: #8B4513;
-  --desert-sky: #87CEEB;
-}
-
-/* Enhanced Egyptian-themed patterns and textures */
-:root {
-  --egyptian-pattern-1: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,10 L50,50 L10,50 Z" fill="%23D4AF37" opacity="0.1"/><path d="M60,10 L90,10 L90,50 L60,50 Z" fill="%230A3D62" opacity="0.1"/><path d="M10,60 L50,60 L50,90 L10,90 Z" fill="%2314A76C" opacity="0.1"/><path d="M60,60 L90,60 L90,90 L60,90 Z" fill="%23F4E6C3" opacity="0.1"/></svg>');
-  --egyptian-pattern-2: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" fill="%23D4AF37" opacity="0.08"/><circle cx="50" cy="50" r="20" fill="%23F4E6C3" opacity="0.2"/><circle cx="50" cy="50" r="15" fill="%230A3D62" opacity="0.3"/></svg>');
-  --egyptian-pattern-3: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="%23D4AF37" opacity="0.05"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="%230A3D62" opacity="0.05"/><path d="M40,40 L60,40 L60,60 L40,60 Z" fill="%2314A76C" opacity="0.03"/></svg>');
-  --egyptian-pattern-4: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M10,10 L50,50 L10,90 L50,50 Z" fill="%23F4E6C3" opacity="0.1"/><path d="M90,10 L50,50 L90,90 L50,50 Z" fill="%23F4E6C3" opacity="0.1"/><circle cx="50" cy="50" r="10" fill="%23D4AF37" opacity="0.05"/></svg>');
-}
-
 /* Enhanced General styling */
 * {
   box-sizing: border-box;
@@ -258,41 +236,6 @@ body {
   border: 3px solid var(--black-hole-dark);
   border-radius: 50%;
   box-shadow: 0 0 10px var(--quasar-yellow);
-}
-
-/* Enhanced Egyptian-themed Footer styling */
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  background: var(--egyptian-pattern-2);
-  color: var(--stellar-white);
-  margin-top: 50px;
-  border-top: 2px solid var(--quasar-yellow);
-  position: relative;
-  overflow: hidden;
-}
-
-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--quasar-yellow), var(--accretion-orange));
-}
-
-footer a {
-  color: var(--quasar-yellow);
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-footer a:hover {
-  text-decoration: underline;
-  color: var(--accretion-orange);
-  transform: translateY(-1px);
 }
 
 /* Enhanced Black Hole-themed decorations */
@@ -651,7 +594,7 @@ footer a:hover {
   padding: 25px;
   margin-top: 25px;
   border: 3px solid var(--quasar-yellow);
-  background-image: var(--egyptian-pattern-3);
+  background-image: var(--black-hole-pattern-5);
   background-size: 160px 160px;
   transition: opacity 0.6s ease;
   position: relative;
@@ -681,119 +624,41 @@ footer a:hover {
   font-size: 1.1rem;
 }
 
-/* Enhanced Egyptian-themed Booking buttons styling */
-.booking-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* Enhanced animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.booking-buttons button {
-  background: linear-gradient(135deg, var(--egyptian-gold) 0%, var(--scarab-green) 100%);
-  color: var(--black-hole-dark);
-  border: none;
-  padding: 18px 36px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 12px;
-  margin: 12px 0;
-  transition: all 0.5s ease;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: bold;
-  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.3);
-  position: relative;
-  overflow: hidden;
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.booking-buttons button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.booking-buttons button:hover::before {
-  left: 100%;
-}
-
-.booking-buttons button:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 10px 35px rgba(212, 175, 55, 0.4);
-}
-
-.booking-buttons button:active {
-  transform: translateY(0) scale(1);
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-}
-
-.booking-buttons button:focus {
-  outline: 3px solid var(--quasar-yellow);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.3);
-}
-
-/* Enhanced Egyptian-themed Contact buttons styling */
-.contact-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contact-buttons button {
-  background: linear-gradient(135deg, var(--nile-blue) 0%, var(--lapis-lazuli) 100%);
-  color: var(--stellar-white);
-  border: none;
-  padding: 18px 36px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 12px;
-  margin: 12px 0;
-  transition: all 0.5s ease;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: bold;
-  box-shadow: 0 6px 25px rgba(30, 58, 138, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-buttons button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.contact-buttons button:hover::before {
-  left: 100%;
-}
-
-.contact-buttons button:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 10px 35px rgba(30, 58, 138, 0.4);
-}
-
-.contact-buttons button:active {
-  transform: translateY(0) scale(1);
-  box-shadow: 0 4px 20px rgba(30, 58, 138, 0.3);
-}
-
-.contact-buttons button:focus {
-  outline: 3px solid var(--quasar-yellow);
-  outline-offset: 2px;
-  box-shadow: 0 0 0 6px rgba(30, 58, 138, 0.3);
-}
-
-/* Enhanced Egyptian-themed Responsive design for slides and planets */
+/* Enhanced responsive design */
 @media (max-width: 768px) {
   .slide-container {
     margin: 0 -15px;
@@ -867,63 +732,7 @@ footer a:hover {
   }
 }
 
-/* Enhanced Egyptian-themed Animation delays for slide navigation */
-.prev-slide {
-  animation-delay: 0s;
-}
-
-.next-slide {
-  animation-delay: 0.3s;
-}
-
-/* Enhanced Egyptian-themed Animation delays for planet grid */
-.planet:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.planet:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.planet:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-.planet:nth-child(4) {
-  animation-delay: 0.6s;
-}
-
-.planet:nth-child(5) {
-  animation-delay: 0.8s;
-}
-
-.planet:nth-child(6) {
-  animation-delay: 1s;
-}
-
-.planet:nth-child(7) {
-  animation-delay: 1.2s;
-}
-
-.planet:nth-child(8) {
-  animation-delay: 1.4s;
-}
-
-/* Enhanced Enhanced hover effects for slides */
-.slide-container:hover .slide-btn {
-  opacity: 0.9;
-}
-
-/* Enhanced Enhanced hover effects for planets */
-.planet-grid:hover .planet {
-  opacity: 0.85;
-}
-
-.planet-grid:hover .planet:hover {
-  opacity: 1;
-}
-
-/* Enhanced Focus states for accessibility */
+/* Enhanced focus states for accessibility */
 .slide-btn:focus,
 .planet:focus {
   outline: 3px solid var(--quasar-yellow);
@@ -932,7 +741,7 @@ footer a:hover {
   transform: scale(1.08);
 }
 
-/* Enhanced Print styles */
+/* Enhanced print styles */
 @media print {
   .mobile-nav,
   #quote-btn,
@@ -963,51 +772,7 @@ footer a:hover {
   }
 }
 
-/* Enhanced Additional Egyptian-themed animations for interactive elements */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.slide {
-  animation: slideIn 0.8s ease-out;
-}
-
-.planet {
-  animation: slideIn 0.8s ease-out;
-}
-
-/* Enhanced Enhanced transitions for interactive elements */
-.planet,
-.slide-btn,
-.booking-buttons button,
-.contact-buttons button {
-  transition: all 0.5s ease;
-}
-
-/* Enhanced Improved touch interactions for mobile devices */
-@media (hover: none) and (pointer: coarse) {
-  .planet {
-    min-height: 120px;
-  }
-  
-  .slide-btn {
-    min-height: 52px;
-  }
-  
-  .booking-buttons button,
-  .contact-buttons button {
-    min-height: 52px;
-  }
-}
-
-/* Enhanced Enhanced animations for black hole-related elements */
+/* Enhanced animations for black hole elements */
 @keyframes blackHoleSpin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -1033,7 +798,7 @@ footer a:hover {
   100% { transform: scale(1.15); }
 }
 
-/* Enhanced Enhanced parallax effect for black hole elements */
+/* Enhanced parallax effect for black hole elements */
 .parallax__layer--base {
   transform: translateZ(0) scale(1);
 }
@@ -1046,30 +811,20 @@ footer a:hover {
   transform: translateZ(-6px) scale(7);
 }
 
-/* Enhanced Enhanced hover effects for interactive elements */
+/* Enhanced hover effects for interactive elements */
 .planet:hover {
   transform: translateY(-10px) scale(1.12);
   box-shadow: 0 20px 60px rgba(212, 175, 55, 0.6);
 }
 
 .slide-btn:hover {
-  background: linear-gradient(135deg, var(--egyptian-gold) 0%, var(--scarab-green) 100%);
-  color: var(--black-hole-dark);
+  background: linear-gradient(135deg, var(--black-hole-dark) 0%, var(--event-horizon) 50%, var(--stellar-blue) 100%);
+  color: var(--stellar-white);
   transform: translateY(-4px) scale(1.08);
-  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 12px 35px rgba(30, 58, 138, 0.5);
 }
 
-.booking-buttons button:hover {
-  transform: translateY(-5px) scale(1.08);
-  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.5);
-}
-
-.contact-buttons button:hover {
-  transform: translateY(-5px) scale(1.08);
-  box-shadow: 0 15px 45px rgba(30, 58, 138, 0.5);
-}
-
-/* Enhanced Enhanced focus states for accessibility */
+/* Enhanced focus states for accessibility */
 .slide-btn:focus,
 .planet:focus {
   outline: 3px solid var(--quasar-yellow);
@@ -1078,7 +833,136 @@ footer a:hover {
   transform: scale(1.12);
 }
 
-/* Enhanced Enhanced print styles */
+/* Enhanced print styles */
+@media print {
+  .mobile-nav,
+  #quote-btn,
+  .black-hole-decorations,
+  .black-hole-header,
+  .black-hole-footer,
+  .slide-container,
+  .planet-grid {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .slide {
+    page-break-inside: avoid;
+  }
+  
+  .planet-details {
+    page-break-inside: avoid;
+  }
+}
+
+/* Enhanced animations for interactive elements */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide {
+  animation: slideIn 0.8s ease-out;
+}
+
+.planet {
+  animation: slideIn 0.8s ease-out;
+}
+
+/* Enhanced transitions for interactive elements */
+.planet,
+.slide-btn {
+  transition: all 0.5s ease;
+}
+
+/* Enhanced touch interactions for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .planet {
+    min-height: 120px;
+  }
+  
+  .slide-btn {
+    min-height: 52px;
+  }
+}
+
+/* Enhanced animations for black hole-related elements */
+@keyframes blackHoleSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes blackHolePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.7; }
+}
+
+@keyframes blackHoleTwinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes blackHoleRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes blackHoleScale {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+/* Enhanced parallax effect for black hole elements */
+.parallax__layer--base {
+  transform: translateZ(0) scale(1);
+}
+
+.parallax__layer--back {
+  transform: translateZ(-3px) scale(4);
+}
+
+.parallax__layer--deep {
+  transform: translateZ(-6px) scale(7);
+}
+
+/* Enhanced hover effects for interactive elements */
+.planet:hover {
+  transform: translateY(-10px) scale(1.12);
+  box-shadow: 0 20px 60px rgba(212, 175, 55, 0.6);
+}
+
+.slide-btn:hover {
+  background: linear-gradient(135deg, var(--black-hole-dark) 0%, var(--event-horizon) 50%, var(--stellar-blue) 100%);
+  color: var(--stellar-white);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 12px 35px rgba(30, 58, 138, 0.5);
+}
+
+/* Enhanced focus states for accessibility */
+.slide-btn:focus,
+.planet:focus {
+  outline: 3px solid var(--quasar-yellow);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 10px rgba(212, 175, 55, 0.5);
+  transform: scale(1.12);
+}
+
+/* Enhanced print styles */
 @media print {
   .mobile-nav,
   #quote-btn,

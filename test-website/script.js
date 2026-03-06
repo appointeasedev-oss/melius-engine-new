@@ -684,4 +684,4 @@ if (quizContainer && quizSubmit && quizResults) {
     };
     
     // Check answers
-    const q1 = document.querySelector('input[name=
+    const q1 = document.querySelector('input[name='}
