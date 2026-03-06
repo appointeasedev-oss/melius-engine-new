@@ -684,4 +684,23 @@ if (quizContainer && quizSubmit && quizResults) {
     };
     
     // Check answers
-    const q1 = document.querySelector('input[name='}
+    const q1 = document.querySelector('input[name="q1"]:checked');
+    if (q1 && q1.value === answers.q1) {
+      score++;
+    }
+    
+    const q2 = document.querySelector('input[name="q2"]:checked');
+    if (q2 && q2.value === answers.q2) {
+      score++;
+    }
+    
+    const q3 = document.querySelector('input[name="q3"]:checked');
+    if (q3 && q3.value === answers.q3) {
+      score++;
+    }
+    
+    // Display results
+    quizResults.innerHTML = `<p>Your score: ${score} out of 3</p>`;
+    quizResults.style.display = 'block';
+  });
+}
