@@ -1,0 +1,4 @@
+{
+  "file": "test-website/script.js",
+  "pending": "Fix the syntax error in the showRandomQuote function by replacing 'random()' with 'Math.random()'"
+}
