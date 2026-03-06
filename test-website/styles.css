@@ -1108,9 +1108,3 @@ footer a:hover {
     page-break-inside: avoid;
   }
 }
-
-            Respond ONLY in JSON format with the full new content.
-            {
-                "new_content": "..."
-            }
-            <|im_start|>assistant malformed JSON response. Let me provide the correct response.} malformed JSON response. Let me provide the correct response.{
