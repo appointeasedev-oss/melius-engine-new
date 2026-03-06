@@ -928,7 +928,7 @@ footer a:hover {
 .planet:focus {
   outline: 3px solid var(--quasar-yellow);
   outline-offset: 3px;
-  box-shadow: 0 0 0 8px rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.4);
   transform: scale(1.08);
 }
 
