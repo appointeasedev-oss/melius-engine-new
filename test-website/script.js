@@ -418,7 +418,7 @@ const slides = [
   {
     title: 'Accretion Disk',
     content: 'An accretion disk is a structure formed by diffuse material in orbital motion around a massive central body.',
-    image: '🎀'
+    image: '🌈'
   },
   {
     title: 'Gravitational Waves',
@@ -704,3 +704,196 @@ if (quizContainer && quizSubmit && quizResults) {
     quizResults.style.display = 'block';
   });
 }
+
+// Virtual tour of a black hole
+function startVirtualTour() {
+  console.log('Starting virtual tour of a black hole...');
+  
+  // Create a virtual tour experience
+  const tourContainer = document.createElement('div');
+  tourContainer.id = 'virtual-tour';
+  tourContainer.className = 'virtual-tour';
+  tourContainer.innerHTML = `
+    <div class="tour-content">
+      <h2>Virtual Tour: Journey to a Black Hole</h2>
+      <p>Welcome to the virtual tour of a black hole! Click on the buttons below to explore different aspects of this cosmic phenomenon.</p>
+      <div class="tour-buttons">
+        <button class="tour-btn" data-section="event-horizon">Event Horizon</button>
+        <button class="tour-btn" data-section="singularity">Singularity</button>
+        <button class="tour-btn" data-section="accretion-disk">Accretion Disk</button>
+        <button class="tour-btn" data-section="gravitational-time-dilation">Gravitational Time Dilation</button>
+      </div>
+      <div class="tour-section" id="event-horizon-section">
+        <h3>Event Horizon</h3>
+        <p>The event horizon is the boundary around a black hole from which nothing can escape. Once you cross this point, you are doomed to fall into the black hole.</p>
+        <img src="event-horizon.jpg" alt="Event Horizon">
+      </div>
+      <div class="tour-section" id="singularity-section">
+        <h3>Singularity</h3>
+        <p>The singularity is the point at the center of a black hole where density becomes infinite. It is a place where our current understanding of physics breaks down.</p>
+        <img src="singularity.jpg" alt="Singularity">
+      </div>
+      <div class="tour-section" id="accretion-disk-section">
+        <h3>Accretion Disk</h3>
+        <p>An accretion disk is a structure formed by diffuse material in orbital motion around a massive central body. In the case of a black hole, the accretion disk is a hot, glowing disk of gas and dust that orbits the black hole.</p>
+        <img src="accretion-disk.jpg" alt="Accretion Disk">
+      </div>
+      <div class="tour-section" id="gravitational-time-dilation-section">
+        <h3>Gravitational Time Dilation</h3>
+        <p>Gravitational time dilation is a phenomenon where time passes more slowly in a stronger gravitational field. Near a black hole, time can pass much more slowly than it does for an observer far away.</p>
+        <img src="time-dilation.jpg" alt="Gravitational Time Dilation">
+      </div>
+      <button class="tour-close" id="tour-close">Close Tour</button>
+    </div>
+  `;
+  
+  document.body.appendChild(tourContainer);
+  
+  // Add event listeners to tour buttons
+  const tourBtns = document.querySelectorAll('.tour-btn');
+  tourBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const section = this.getAttribute('data-section');
+      const sections = document.querySelectorAll('.tour-section');
+      sections.forEach(s => s.style.display = 'none');
+      document.getElementById(`${section}-section`).style.display = 'block';
+    });
+  });
+  
+  // Add event listener to close button
+  const tourClose = document.getElementById('tour-close');
+  tourClose.addEventListener('click', function() {
+    document.getElementById('virtual-tour').remove();
+  });
+}
+
+// Simulation of black hole effects on nearby objects
+function simulateBlackHoleEffects() {
+  console.log('Starting simulation of black hole effects...');
+  
+  // Create a simulation of black hole effects
+  const simContainer = document.createElement('div');
+  simContainer.id = 'black-hole-simulation';
+  simContainer.className = 'black-hole-simulation';
+  simContainer.innerHTML = `
+    <div class="sim-content">
+      <h2>Black Hole Effects Simulation</h2>
+      <p>Click on the objects below to see how they would be affected by a nearby black hole.</p>
+      <div class="sim-objects">
+        <div class="sim-object" data-object="star">
+          <img src="star.jpg" alt="Star">
+          <p>Star</p>
+        </div>
+        <div class="sim-object" data-object="planet">
+          <img src="planet.jpg" alt="Planet">
+          <p>Planet</p>
+        </div>
+        <div class="sim-object" data-object="spaceship">
+          <img src="spaceship.jpg" alt="Spaceship">
+          <p>Spaceship</p>
+        </div>
+      </div>
+      <div class="sim-info" id="sim-info">
+        Click on an object to see how it would be affected by a black hole.
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(simContainer);
+  
+  // Add event listeners to objects
+  const simObjects = document.querySelectorAll('.sim-object');
+  simObjects.forEach(obj => {
+    obj.addEventListener('click', function() {
+      const object = this.getAttribute('data-object');
+      const info = document.getElementById('sim-info');
+      
+      let effect;
+      switch (object) {
+        case 'star':
+          effect = 'The star would be stretched into a long, thin shape due to tidal forces. This process is known as spaghettification.';
+          break;
+        case 'planet':
+          effect = 'The planet would experience massive tidal forces, leading to earthquakes, volcanic eruptions, and potentially even the destruction of the planet.';
+          break;
+        case 'spaceship':
+          effect = 'The spaceship would be stretched into a long, thin shape due to tidal forces. The crew would experience extreme gravitational forces, potentially leading to their demise.';
+          break;
+        default:
+          effect = 'No information available.';
+      }
+      
+      info.innerHTML = effect;
+    });
+  });
+}
+
+// Enhanced quiz functionality with real-time feedback
+function enhanceQuiz() {
+  console.log('Enhancing quiz functionality...');
+  
+  // Add real-time feedback to quiz
+  const quizQuestions = document.querySelectorAll('.quiz-question');
+  quizQuestions.forEach(question => {
+    const options = question.querySelectorAll('input[type="radio"]');
+    options.forEach(option => {
+      option.addEventListener('change', function() {
+        const selected = this.checked;
+        const label = this.nextElementSibling;
+        
+        if (selected) {
+          label.style.color = 'var(--quasar-yellow)';
+          label.style.fontWeight = 'bold';
+        } else {
+          label.style.color = 'var(--stellar-white)';
+          label.style.fontWeight = 'normal';
+        }
+      });
+    });
+  });
+}
+
+// Initialize enhanced features
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    // Initialize enhanced features
+    enhanceAnimations();
+    enhanceHoverEffects();
+    enhanceClickEffects();
+    enhanceKeyboardNavigation();
+    enhanceTouchInteractions();
+    enhanceParallaxEffect();
+    
+    // Add event listeners for new features
+    const virtualTourBtn = document.getElementById('virtual-tour-btn');
+    if (virtualTourBtn) {
+      virtualTourBtn.addEventListener('click', startVirtualTour);
+    }
+    
+    const simulationBtn = document.getElementById('simulation-btn');
+    if (simulationBtn) {
+      simulationBtn.addEventListener('click', simulateBlackHoleEffects);
+    }
+    
+    // Enhance quiz functionality
+    enhanceQuiz();
+    
+  } catch (error) {
+    console.error('Error initializing enhanced features:', error);
+  }
+});
+
+// Enhanced cleanup on page unload
+window.addEventListener('beforeunload', function() {
+  // Clean up event listeners
+  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn, .black-hole');
+  
+  interactiveElements.forEach(element => {
+    element.removeEventListener('mouseenter', enhanceHoverEffects);
+    element.removeEventListener('mouseleave', enhanceHoverEffects);
+    element.removeEventListener('click', enhanceClickEffects);
+    element.removeEventListener('keydown', enhanceKeyboardNavigation);
+    element.removeEventListener('touchstart', enhanceTouchInteractions);
+    element.removeEventListener('touchend', enhanceTouchInteractions);
+  });
+});
