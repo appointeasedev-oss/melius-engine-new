@@ -897,3 +897,76 @@ window.addEventListener('beforeunload', function() {
     element.removeEventListener('touchend', enhanceTouchInteractions);
   });
 });
+
+// Additional utility functions
+function showRandomQuote() {
+  let newIndex;
+  do {
+    newIndex = Math.floor(Math.random() * quotes.length);
+  } while (newIndex === currentQuoteIndex);
+  
+  currentQuoteIndex = newIndex;
+  console.log(quotes[currentQuoteIndex]);
+}
+
+function getPlanetInfo(planetName) {
+  const planetData = {
+    mercury: {
+      name: 'Mercury',
+      description: 'Mercury, being the closest planet to the Sun, experiences extreme gravitational effects. If a black hole were to pass near Mercury, its intense gravity could potentially disrupt the planet\'s orbit or even tear it apart.'
+    },
+    venus: {
+      name: 'Venus',
+      description: 'Venus, with its thick atmosphere, would face catastrophic consequences if a black hole approached. The black hole\'s gravity could strip away Venus\'s atmosphere, exposing its surface to the harsh conditions of space.'
+    },
+    earth: {
+      name: 'Earth',
+      description: 'Earth\'s fate in the presence of a black hole would be dire. The black hole\'s immense gravity could cause massive tidal forces, leading to earthquakes, volcanic eruptions, and potentially even the destruction of our planet.'
+    },
+    mars: {
+      name: 'Mars',
+      description: 'Mars, with its thin atmosphere, would be vulnerable to the gravitational pull of a black hole. The black hole could strip away Mars\'s atmosphere, leaving it exposed to the vacuum of space.'
+    },
+    jupiter: {
+      name: 'Jupiter',
+      description: 'Jupiter, being a gas giant, would experience significant gravitational effects from a nearby black hole. The black hole\'s gravity could cause massive storms and potentially disrupt the planet\'s magnetic field.'
+    },
+    saturn: {
+      name: 'Saturn',
+      description: 'Saturn, with its iconic rings, would face a unique fate in the presence of a black hole. The black hole\'s gravity could disrupt the rings, causing them to break apart or form new structures.'
+    },
+    uranus: {
+      name: 'Uranus',
+      description: 'Uranus, with its tilted axis, would experience unusual gravitational effects from a black hole. The black hole\'s gravity could potentially alter Uranus\'s tilt, leading to changes in its seasons and climate.'
+    },
+    neptune: {
+      name: 'Neptune',
+      description: 'Neptune, being the farthest planet from the Sun, would still be affected by a nearby black hole. The black hole\'s gravity could disrupt Neptune\'s orbit, potentially sending it on a new trajectory through the solar system.'
+    }
+  };
+  
+  return planetData[planetName] || { name: 'Unknown', description: 'No information available.' };
+}
+
+function getBlackHoleInfo(blackHoleType) {
+  const blackHoleData = {
+    stellar: {
+      name: 'Stellar Black Hole',
+      description: 'Stellar black holes form when a massive star runs out of fuel and collapses under its own gravity. They typically have masses ranging from 3 to 100 times that of our Sun.'
+    },
+    supermassive: {
+      name: 'Supermassive Black Hole',
+      description: 'Supermassive black holes are found at the centers of most galaxies, including our own Milky Way. They have masses millions to billions of times that of our Sun.'
+    },
+    intermediate: {
+      name: 'Intermediate Black Hole',
+      description: 'Intermediate black holes are thought to have masses between stellar and supermassive black holes. Their existence is still theoretical and has not been confirmed.'
+    },
+    micro: {
+      name: 'Micro Black Hole',
+      description: 'Micro black holes are hypothetical black holes that could have been created during the Big Bang. They would have masses smaller than our Sun and are yet to be observed.'
+    }
+  };
+  
+  return blackHoleData[blackHoleType] || { name: 'Unknown', description: 'No information available.' };
+}
