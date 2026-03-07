@@ -113,85 +113,155 @@ quoteBtn.addEventListener('keydown', (event) => {
 // Initial quote with loading state
 showRandomQuote();
 
-// Black hole animation functions
-function animateBlackHole() {
-  const blackHoleElements = document.querySelectorAll('.black-hole-decorations .event-horizon, .black-hole-decorations .accretion-disk, .black-hole-decorations .stellar-remnant');
-  
-  blackHoleElements.forEach((element, index) => {
-    element.style.animationDelay = `${index * 0.5}s`;
-  });
-}
+// Particle system for cosmic background
+class ParticleSystem {
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d');
+    this.particles = [];
+    this.init();
+  }
 
-// Star twinkling animation
-function animateStars() {
-  const stars = document.querySelectorAll('.parallax__star');
-  
-  stars.forEach((star, index) => {
-    star.style.animationDelay = `${index * 0.3}s`;
-  });
-}
+  init() {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+    this.createParticles();
+    this.animate();
+  }
 
-// Galaxy rotation animation
-function animateGalaxies() {
-  const galaxies = document.querySelectorAll('.parallax__galaxy');
-  
-  galaxies.forEach((galaxy, index) => {
-    galaxy.style.animationDelay = `${index * 2}s`;
-  });
-}
+  createParticles() {
+    for (let i = 0; i < 200; i++) {
+      this.particles.push({
+        x: Math.random() * this.canvas.width,
+        y: Math.random() * this.canvas.height,
+        size: Math.random() * 2 + 1,
+        speedX: (Math.random() - 0.5) * 0.5,
+        speedY: (Math.random() - 0.5) * 0.5,
+        opacity: Math.random() * 0.8 + 0.2
+      });
+    }
+  }
 
-// Enhanced gravitational pull simulation for planets
-function simulateGravitationalPull() {
-  const planets = document.querySelectorAll('.planet');
-  const blackHole = document.querySelector('.central-black-hole');
-  
-  planets.forEach(planet => {
-    planet.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-10px) scale(1.05)';
-      this.style.boxShadow = '0 20px 60px rgba(255, 107, 107, 0.8)';
+  animate() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    this.particles.forEach(particle => {
+      particle.x += particle.speedX;
+      particle.y += particle.speedY;
       
-      // Simulate gravitational pull effect
-      if (blackHole) {
-        blackHole.style.transform = 'scale(1.1)';
-        blackHole.style.filter = 'brightness(1.2)';
+      if (particle.x < 0 || particle.x > this.canvas.width) particle.speedX *= -1;
+      if (particle.y < 0 || particle.y > this.canvas.height) particle.speedY *= -1;
+      
+      this.ctx.beginPath();
+      this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+      this.ctx.fillStyle = `rgba(255, 255, 255, ${particle.opacity})`;
+      this.ctx.fill();
+    });
+    
+    requestAnimationFrame(() => this.animate());
+  }
+}
+
+// Black hole simulation
+class BlackHoleSimulation {
+  constructor() {
+    this.canvas = document.createElement('canvas');
+    this.ctx = this.canvas.getContext('2d');
+    this.particles = [];
+    this.blackHole = { x: window.innerWidth / 2, y: window.innerHeight / 2, mass: 1000 };
+    this.init();
+  }
+
+  init() {
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+    this.createParticles();
+    this.animate();
+    document.body.appendChild(this.canvas);
+  }
+
+  createParticles() {
+    for (let i = 0; i < 500; i++) {
+      this.particles.push({
+        x: Math.random() * this.canvas.width,
+        y: Math.random() * this.canvas.height,
+        vx: (Math.random() - 0.5) * 2,
+        vy: (Math.random() - 0.5) * 2,
+        size: Math.random() * 2,
+        color: `hsl(${Math.random() * 60 + 340}, 100%, 50%)`
+      });
+    }
+  }
+
+  animate() {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    this.particles.forEach(particle => {
+      const dx = this.blackHole.x - particle.x;
+      const dy = this.blackHole.y - particle.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const force = (this.blackHole.mass / (distance * distance)) * 0.001;
+      
+      particle.vx += (dx / distance) * force;
+      particle.vy += (dy / distance) * force;
+      
+      particle.x += particle.vx;
+      particle.y += particle.vy;
+      
+      this.ctx.beginPath();
+      this.ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+      this.ctx.fillStyle = particle.color;
+      this.ctx.fill();
+      
+      if (distance < 50) {
+        particle.vx *= -0.5;
+        particle.vy *= -0.5;
       }
     });
     
-    planet.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0) scale(1)';
-      this.style.boxShadow = '0 15px 50px rgba(255, 107, 107, 0.5)';
-      
-      // Reset gravitational pull effect
-      if (blackHole) {
-        blackHole.style.transform = 'scale(1)';
-        blackHole.style.filter = 'brightness(1)';
-      }
-    });
-  });
+    // Draw black hole
+    this.ctx.beginPath();
+    this.ctx.arc(this.blackHole.x, this.blackHole.y, 50, 0, Math.PI * 2);
+    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+    this.ctx.fill();
+    
+    this.ctx.beginPath();
+    this.ctx.arc(this.blackHole.x, this.blackHole.y, 100, 0, Math.PI * 2);
+    this.ctx.strokeStyle = 'rgba(255, 107, 107, 0.5)';
+    this.ctx.lineWidth = 2;
+    this.ctx.stroke();
+    
+    requestAnimationFrame(() => this.animate());
+  }
 }
 
-// Enhanced hover effects for interactive elements
-function enhanceHoverEffects() {
-  const interactiveElements = document.querySelectorAll('.planet, .slide-btn, .contact-btn, .black-hole');
-  
-  interactiveElements.forEach(element => {
-    element.addEventListener('mouseenter', function() {
-      this.style.transform = 'translateY(-3px) scale(1.02)';
-      this.style.boxShadow = '0 8px 25px rgba(255, 107, 107, 0.4)';
-      
-      // Add glow effect
-      this.style.filter = 'drop-shadow(0 0 10px rgba(255, 107, 107, 0.5))';
-    });
+// Initialize particle systems and black hole simulation
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    // Create particle system for background
+    const particleSystem = new ParticleSystem(document.createElement('canvas'));
+    particleSystem.canvas.style.position = 'fixed';
+    particleSystem.canvas.style.top = '0';
+    particleSystem.canvas.style.left = '0';
+    particleSystem.canvas.style.zIndex = '-1';
+    particleSystem.canvas.style.pointerEvents = 'none';
+    document.body.appendChild(particleSystem.canvas);
     
-    element.addEventListener('mouseleave', function() {
-      this.style.transform = 'translateY(0) scale(1)';
-      this.style.boxShadow = '0 4px 15px rgba(255, 107, 107, 0.2)';
-      
-      // Remove glow effect
-      this.style.filter = 'none';
-    });
-  });
-}
+    // Create black hole simulation
+    const blackHoleSim = new BlackHoleSimulation();
+    
+    // Add event listeners for interactive elements
+    enhanceAnimations();
+    enhanceHoverEffects();
+    enhanceClickEffects();
+    enhanceKeyboardNavigation();
+    enhanceTouchInteractions();
+    enhanceParallaxEffect();
+    
+  } catch (error) {
+    console.error('Error initializing black hole animations:', error);
+  }
+});
 
 // Enhanced click effects for interactive elements
 function enhanceClickEffects() {
@@ -293,7 +363,7 @@ function animateBlackHoleCore() {
   }
 }
 
-// Enhanced animations for slide navigation - Updated for existing slide buttons
+// Enhanced animations for slide navigation
 function animateSlideNavigation() {
   const prevSlide = document.querySelector('.prev-slide');
   const nextSlide = document.querySelector('.next-slide');
@@ -393,7 +463,7 @@ window.addEventListener('beforeunload', function() {
   });
 });
 
-// Event listeners for slide navigation - Updated for correct selectors
+// Event listeners for slide navigation
 const prevSlide = document.querySelector('.prev-slide');
 const nextSlide = document.querySelector('.next-slide');
 const slideIndicator = document.querySelector('.slide-indicator');
