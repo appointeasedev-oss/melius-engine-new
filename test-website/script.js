@@ -970,3 +970,9 @@ function getBlackHoleInfo(blackHoleType) {
   
   return blackHoleData[blackHoleType] || { name: 'Unknown', description: 'No information available.' };
 }
+
+            Respond ONLY in JSON format with the full new content.
+            {
+                "new_content": "..."
+            }
+             

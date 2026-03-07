@@ -588,7 +588,7 @@ textarea:focus {
 }
 
 /* Enhanced pill styling */
-.pill {
+pill {
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.5px;
