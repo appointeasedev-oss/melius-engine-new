@@ -992,3 +992,40 @@ body {
     page-break-inside: avoid;
   }
 }
+
+/* Enhanced animations for interactive elements */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide {
+  animation: slideIn 0.8s ease-out;
+}
+
+.planet {
+  animation: slideIn 0.8s ease-out;
+}
+
+/* Enhanced transitions for interactive elements */
+.planet,
+.slide-btn {
+  transition: all 0.5s ease;
+}
+
+/* Enhanced touch interactions for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  .planet {
+    min-height: 120px;
+  }
+  
+  .slide-btn {
+    min-height: 52px;
+  }
+}
