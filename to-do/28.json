@@ -1,0 +1,4 @@
+{
+  "file": "docs/script.js",
+  "pending": "Fix the syntax error in the listFiles function by correcting the string quotes for the downloadUrl path in the fallback mapping."
+}
