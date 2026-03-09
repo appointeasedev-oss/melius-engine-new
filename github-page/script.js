@@ -381,7 +381,7 @@ function getBlackHoleInfo(blackHoleType) {
     },
     supermassive: {
       name: 'Supermassive Black Hole',
-      description: 'Supermassive black holes are found at the centers of most galaxies, including our own Milky Way. They have masses millions to billions of times that of our Sun.'
+      description: 'Supermassive black holes are found at the centers of most galaxies, including our own Milky Way. They have masses millions to billions times that of our Sun.'
     },
     intermediate: {
       name: 'Intermediate Black Hole',
